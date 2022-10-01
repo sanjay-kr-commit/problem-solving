@@ -43,7 +43,8 @@ now we return ( x == reversed )
 class Solution2 {
     public boolean isPalindrome(int x) {
         if (x >=0 && x <= 9) return true;
-        if (x < 0 ) return false;
+        // Ten is a exception 
+        if (x < 0 || x%10 == 0 ) return false;
         int reversed  = 0;
         while (reversed < x){
             reversed = reversed * 10 + x % 10;
