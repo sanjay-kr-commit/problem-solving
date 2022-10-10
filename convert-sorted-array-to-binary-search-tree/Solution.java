@@ -1,5 +1,3 @@
-import javax.swing.text.AbstractDocument.LeafElement;
-
 // took 1 ms
 class Solution1 {
 
