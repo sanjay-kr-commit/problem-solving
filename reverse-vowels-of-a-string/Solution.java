@@ -1,6 +1,6 @@
 import java.util.HashSet;
 
-class Solution {
+class Solution1 {
     public String reverseVowels(String s) {
       StringBuilder vowels = new StringBuilder() ;
       StringBuilder constant = new StringBuilder() ;
@@ -26,5 +26,31 @@ class Solution {
         } else NewString.append( vowels.charAt( j-- ) ) ;
       }
       return NewString.toString() ;
+    }
+}
+
+class Solution {
+
+    HashSet<Character> VOWELS = new HashSet<>(
+            List.of(
+                    'a' , 'e' , 'i' , 'o' , 'u' ,
+                    'A' , 'E' , 'I' , 'O' , 'U'
+            )
+    ) ;
+
+    public String reverseVowels(String s) {
+        StringBuilder ss = new StringBuilder( s ) ;
+        int i = 0 , j = ss.length()-1 ;
+        while ( i < j ) {
+            while ( i < j && !VOWELS.contains( ss.charAt( i ) ) ) i++ ;
+            while ( i < j && !VOWELS.contains( ss.charAt( j ) ) ) j-- ;
+            if ( i < j ) {
+                char temp = ss.charAt( i ) ;
+                ss.setCharAt( i , ss.charAt( j ) );
+                ss.setCharAt( j , temp );
+                i++ ; j-- ;
+            }
+        }
+        return ss.toString() ;
     }
 }
