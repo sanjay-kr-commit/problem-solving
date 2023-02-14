@@ -26,3 +26,41 @@ class Solution {
   }
 
 }
+
+// Faster approach
+class Solution2 {
+
+  public String[] findRelativeRanks( int [] score ) {
+
+    String[] formattedRank = new String[ score.length ] ;
+
+    int max = Integer.MIN_VALUE ;
+    for ( int i : score ) max = max <= i ?i : max ;
+    int scoreArray[] = new int[ max+1 ] ;
+
+    for ( int i = 0 ; i < score.length ; i++ ) scoreArray[ score[i] ] = i+1 ;
+
+    int rank = 1 ;
+    for ( int i = scoreArray.length-1 ; i >= 0 ; i-- ) {
+      if ( rank > score.length ) break ;
+      if ( scoreArray[i] > 0 ) {
+        switch (rank) {
+          case 1: formattedRank[scoreArray[i]-1] = "Gold Medal" ;
+          break;
+          case 2: formattedRank[scoreArray[i]-1] = "Silver Medal" ;
+          break;
+          case 3: formattedRank[scoreArray[i]-1] = "Bronze Medal" ;
+          break;
+          default:
+          formattedRank[scoreArray[i]-1] = Integer.toString( rank ) ;
+          break;
+        }
+        rank++ ;
+      }
+    }
+
+    return formattedRank ;
+
+  }
+
+}
