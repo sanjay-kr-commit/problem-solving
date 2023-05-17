@@ -13,6 +13,35 @@
  *     }
  * }
  */
+// 1ms
+class Solution {
+
+  public boolean findTarget( TreeNode root , int k ) {
+    return findsumtarget( root , root , k ) ;
+  }
+
+	boolean findsumtarget(TreeNode root,TreeNode temp,int k){
+		if ( temp == null ) return false;
+		if ( findsumtarget(root,temp.left,k) || findsumtarget(root,temp.right,k) ) return true ;
+		int check=k-temp.val;
+		if(temp.val<check){
+			if(find(root,check)){
+				return true;
+			}
+		}
+		return false;
+	}
+
+	boolean find(TreeNode root,int target){
+	  if ( root == null ) return false;
+		if ( root.val < target ) {
+			return find(root.right,target);
+		} else if ( target < root.val) {
+			return find(root.left,target);
+		}else return true ;
+	}
+
+}
 // 3 ms
 class Solution {  
 
