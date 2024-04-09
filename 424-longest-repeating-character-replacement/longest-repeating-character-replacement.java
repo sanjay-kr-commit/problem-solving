@@ -1,33 +1,18 @@
-import java.util.Arrays;
-
 class Solution {
-
     public int characterReplacement(String s, int k) {
-        int maxLen = 0 ;
-        int [] freq = new int[26];
-        int max = 0 , count = 0 , i = 0 , j = 0 , index ;
-        while ( i < s.length() ) {
-            index = s.charAt(i++) - 'A';
-            freq[index]++ ;
-            count++ ;
-            if ( freq[index] > max ) max = freq[index];
-            if ( count-max <= k ) continue;
-            if ( maxLen < count ) maxLen = count-1 ;
-            index = s.charAt(j++) - 'A';
-            freq[index]-- ;
-            max = max( freq ) ;
-            count-- ;
+        int[] freq = new int[26];
+        char[] ans = s.toCharArray();
+        int n = ans.length , 
+            left = 0 ,
+            max = 0;
+        for (int right = 0; right < n; right++) {
+            freq[ans[right] - 'A']++;
+            max = Math.max(max, freq[ans[right] - 'A']);
+            while (right - left + 1 - max > k) {
+                freq[ans[left] - 'A']--;
+                left++;
+            }
         }
-        if ( maxLen < count ) maxLen = count ;
-        return maxLen ;
+        return ans.length - left;
     }
-
-    int max( int [] a ) {
-        int max = Integer.MIN_VALUE ;
-        for ( int i = 0 ; i < a.length ; i++ ) {
-            if ( a[i] > max ) max = a[i] ;
-        }
-        return max ;
-    }
-
 }
