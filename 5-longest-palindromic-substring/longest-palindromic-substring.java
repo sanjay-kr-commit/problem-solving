@@ -3,24 +3,30 @@ class Solution {
     public String longestPalindrome(String s) {
         if ( s.length() < 2 ) return s ;
         int l = 0 , r = 0 , max = 0 ;
+        int [] ref = new int [s.length()];
         for ( int i = 0 ; i < s.length() ; i++ ) {
-            for ( int j = i ; j < s.length() ; j++ ) {
-                if (isPalindrome( s , i , j ) && max < j-i+1 ) {
-                    l = i ;
-                    r = j+1 ;
-                    max = j-i+1 ;
-                }
+            if ( expandAroundCenter( s , i , i , ref ) && ref[1]-ref[0]+1 > max ) {
+                max = ref[1]-ref[0]+1 ;
+                l = ref[0] ;
+                r = ref[1]+1 ;
+            }
+            if ( expandAroundCenter( s , i-1 , i , ref ) && ref[1]-ref[0]+1 > max ) {
+                max = ref[1]-ref[0]+1 ;
+                l = ref[0] ;
+                r = ref[1]+1 ;
             }
         }
         return s.substring( l , r ) ;
     }
 
-    boolean isPalindrome(String s , int i , int j) {
-        while ( i < j ) {
-            if ( s.charAt(i) != s.charAt(j) ) return false ;
-            i++ ;
-            j-- ;
+    boolean expandAroundCenter( String s , int centerL , int centerR , int[] ref ) {
+        if ( centerL < 0 || centerR >= s.length() ) return false ;
+        while ( centerL > -1 && centerR < s.length() && s.charAt(centerL) == s.charAt(centerR) ) {
+            centerL-- ;
+            centerR++ ;
         }
+        ref[0] = centerL+1 ;
+        ref[1] = centerR-1 ;
         return true ;
     }
 
