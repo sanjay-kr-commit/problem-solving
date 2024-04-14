@@ -5,12 +5,12 @@ class Solution {
         int l = 0 , r = 0 , max = 0 ;
         int [] ref = new int [s.length()];
         for ( int i = 0 ; i < s.length() ; i++ ) {
-            if ( expandAroundCenter( s , i , i , ref ) && ref[1]-ref[0]+1 > max ) {
+            if ( expandAroundCenter( s , i , i , max , ref ) && ref[1]-ref[0]+1 > max ) {
                 max = ref[1]-ref[0]+1 ;
                 l = ref[0] ;
                 r = ref[1]+1 ;
             }
-            if ( expandAroundCenter( s , i-1 , i , ref ) && ref[1]-ref[0]+1 > max ) {
+            if ( expandAroundCenter( s , i-1 , i , max , ref ) && ref[1]-ref[0]+1 > max ) {
                 max = ref[1]-ref[0]+1 ;
                 l = ref[0] ;
                 r = ref[1]+1 ;
@@ -19,8 +19,10 @@ class Solution {
         return s.substring( l , r ) ;
     }
 
-    boolean expandAroundCenter( String s , int centerL , int centerR , int[] ref ) {
+    boolean expandAroundCenter( String s , int centerL , int centerR , int max , int[] ref ) {
         if ( centerL < 0 || centerR >= s.length() ) return false ;
+        int maxExpand = Math.min( centerL , s.length()-centerR ) ;
+        if ( maxExpand < max/2 ) return false ;
         while ( centerL > -1 && centerR < s.length() && s.charAt(centerL) == s.charAt(centerR) ) {
             centerL-- ;
             centerR++ ;
