@@ -4,16 +4,18 @@ class Solution {
         if ( s.length() < 2 ) return s ;
         int l = 0 , r = 0 , max = 0 ;
         int [] ref = new int [2];
-        for ( int i = max ; i < s.length()-max/2 ; i++ ) {
+        for ( int i = max , len = s.length() ; i < len ; i++ ) {
             if ( expandAroundCenter( s , i , i , max , ref ) && ref[1]-ref[0]+1 > max ) {
                 max = ref[1]-ref[0]+1 ;
                 l = ref[0] ;
                 r = ref[1]+1 ;
+                len = s.length() - max/2 ;
             }
             if ( expandAroundCenter( s , i-1 , i , max , ref ) && ref[1]-ref[0]+1 > max ) {
                 max = ref[1]-ref[0]+1 ;
                 l = ref[0] ;
                 r = ref[1]+1 ;
+                len = s.length() - max/2 ;
             }
         }
         return s.substring( l , r ) ;
