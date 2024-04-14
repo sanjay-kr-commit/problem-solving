@@ -4,7 +4,7 @@ class Solution {
         if ( s.length() < 2 ) return s ;
         int l = 0 , r = 0 , max = 0 ;
         int [] ref = new int [s.length()];
-        for ( int i = 0 ; i < s.length() ; i++ ) {
+        for ( int i = max ; i < s.length()-max/2 ; i++ ) {
             if ( expandAroundCenter( s , i , i , max , ref ) && ref[1]-ref[0]+1 > max ) {
                 max = ref[1]-ref[0]+1 ;
                 l = ref[0] ;
