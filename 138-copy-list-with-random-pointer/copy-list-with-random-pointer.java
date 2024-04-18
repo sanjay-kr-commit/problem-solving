@@ -20,12 +20,10 @@ class Solution {
     }
 
     void addRandomPointer(Node head , Node clone , int size ) {
-        int [] storeValue = new int[ size ] ;
         Node[] clonePointer = new Node[ size ] ;
         int i = 0 ;
         Node headClone = head , cloneClone = clone ;
         while ( i < size ) {
-            storeValue[i] = headClone.val ;
             headClone.val = i ;
             clonePointer[i] = cloneClone ;
             headClone = headClone.next ;
@@ -40,9 +38,11 @@ class Solution {
             cloneClone = cloneClone.next ;
         }
         headClone = head ;
+        cloneClone = clone ;
         while ( headClone != null ) {
-            headClone.val = storeValue[headClone.val] ;
+            headClone.val = cloneClone.val ;
             headClone = headClone.next ;
+            cloneClone = cloneClone.next ;
         }
 
     }
