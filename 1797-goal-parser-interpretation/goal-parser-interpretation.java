@@ -2,8 +2,8 @@ class Solution {
     public String interpret(String command) {
         StringBuilder interpretedString = new StringBuilder();
         int count = 0 ;
-        for ( char c : command.toCharArray() ) {
-            switch (c) {
+        for ( int i = 0 ; i < command.length() ; i++ ) {
+            switch ( command.charAt(i) ) {
                 case 'G' : interpretedString.append('G'); break;
                 case ')' : {
                     if ( count == 1 ) interpretedString.append( 'o' ) ;
