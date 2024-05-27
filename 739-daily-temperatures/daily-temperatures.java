@@ -1,20 +1,18 @@
-import java.util.Deque;
-import java.util.ArrayDeque;
-
-public class Solution {
-
+class Solution {
     public int[] dailyTemperatures(int[] temperatures) {
         int n = temperatures.length;
         int[] answer = new int[n];
-        Deque<Integer> stack = new ArrayDeque<>();
-        for (int i = 0; i < n; i++) {
-            while (!stack.isEmpty() && temperatures[i] > temperatures[stack.peekLast()]) {
-                int prev = stack.pollLast();
-                answer[prev] = i - prev;
+        int hottest = 0;
+        for (int currDay = n - 1; currDay >= 0; currDay--) {
+            int currentTemp = temperatures[currDay];
+            if (currentTemp >= hottest) {
+                hottest = currentTemp;
+                continue;
             }
-            stack.add(i);
+            int days = 1;
+            while (temperatures[currDay + days] <= currentTemp) days += answer[currDay + days];
+            answer[currDay] = days;
         }
-
         return answer;
     }
 }
