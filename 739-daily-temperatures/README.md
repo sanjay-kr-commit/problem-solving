@@ -18,3 +18,24 @@
 	<li><code>1 &lt;=&nbsp;temperatures.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>30 &lt;=&nbsp;temperatures[i] &lt;= 100</code></li>
 </ul>
+
+# Solution
+
+<p><strong class="example">Brute Force :</strong></p>
+
+So,
+the simplest way of solving this question is to use brute force,
+i.e, do as question say which is to look for the next greater number ,
+using a while loop
+
+Time Complexity : O(N^2) 
+
+<p><strong class="example">Brute Force :</strong></p>
+
+Because we are looking for next greater element, instead of iteratively looking 
+for the element instead we can simple keep track of it using a variable, and iterate it from 
+right to left so if a hotter day appear we know it no hotter element exist to the right and we can 
+change the hostest day to current day, if not we can try looking for more hotter day, to thr right neighbour 
+element if it's isn't hotter we can iterative add it's day count to the loop until we reach rightmost element
+
+Time Complexity : O(N)
