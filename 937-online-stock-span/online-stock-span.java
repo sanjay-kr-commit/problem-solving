@@ -2,14 +2,16 @@ import java.util.Stack;
 
 class StockSpanner {
 
-    Stack<Long> stack = new Stack<>() ;
+    int [][] stack = new int[ 10010 ][] ;
+    int size = -1 ;
 
     public int next(int price) {
         int span = 1 ;
-        while ( !stack.isEmpty() && (int)(long)(stack.peek()) <= price ) span += (int)(stack.pop() >>> 32 ) ;
-        stack.push( ((((long)span)<<32) | (price & 0xFFFFFFFFL ) )) ;
+        while ( size > -1 && stack[ size ][1] <= price ) span += stack[size--][0] ;
+        stack[++size] = new int[]{ span , price } ;
         return span ;
     }
+
 }
 
 /**
