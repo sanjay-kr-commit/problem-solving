@@ -1,13 +1,23 @@
-import java.util.HashSet;
-
 class Solution {
-    
-    HashSet<Integer> key = new HashSet<>() ;
-    
+
     public boolean findTarget(TreeNode root, int k) {
-        if ( root == null ) return false ;
-        if ( key.contains( root.val ) ) return true ;
-        key.add( k - root.val ) ;
-        return findTarget( root.left, k ) || findTarget( root.right, k) ;
+        return findTargetSum( root , root , k ) ;
     }
+
+    boolean findTargetSum( TreeNode root , TreeNode node , int k ) {
+        if ( node == null ) return false ;
+        if ( findTargetSum( root , node.left , k ) || findTargetSum( root , node.right , k ) ) return true ;
+        int check=k-node.val;
+        if ( node.val != check ) {
+            return findX(root, check);
+        }
+        return false ;
+    }
+
+    boolean findX( TreeNode root , int x ) {
+        if ( root == null ) return false ;
+        if ( root.val == x ) return true ;
+        return ( root.val < x ) ? findX( root.right , x ) : findX( root.left , x ) ;
+    }
+
 }
