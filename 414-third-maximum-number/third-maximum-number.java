@@ -2,13 +2,17 @@ import java.util.Arrays;
 
 class Solution {
     public int thirdMax(int[] nums) {
-        Arrays.sort( nums ) ;
-        int count = 1 , i = nums.length -2 ;
-        while ( i > -1 && nums[i] == nums[i+1] ) i-- ;
-        if ( i == -1 ) return nums[nums.length-1] ;
-        i-- ;
-        while ( i > -1 && nums[i] == nums[i+1] ) i-- ;
-        if ( i == -1 ) return nums[nums.length-1] ;
-        return nums[i] ;
+        long max = Long.MIN_VALUE , secondMax = max , thirdMax = max ;
+        for ( int num : nums ) {
+            if ( num > max ) {
+                thirdMax = secondMax ;
+                secondMax = max ;
+                max = num ;
+            } else if ( num > secondMax && num < max ) {
+                thirdMax = secondMax ;
+                secondMax = num ;
+            } else if ( num > thirdMax && num < secondMax ) thirdMax = num ;
+        }
+        return (int) ((thirdMax == Long.MIN_VALUE ) ? max : thirdMax) ;
     }
 }
