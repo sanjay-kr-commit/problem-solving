@@ -6,8 +6,13 @@ import java.util.List;
 class NearestMeetingCell {
 
     int currentDepth ;
+    int minDepth ;
 
     public int nearestMeetingCells(int n , List<Integer> edges , int c1 , int c2) {
+
+        minDepth = Integer.MAX_VALUE
+        ;
+
         List<List<Integer>> graph = new ArrayList<>( edges.size() ) ;
 
         for ( int i = 0 ; i < edges.size() ; i++ ) graph.add( new ArrayList<>( edges.size() ) ) ;
@@ -39,7 +44,10 @@ class NearestMeetingCell {
         int nearestVisit = -1 ;
         for ( int i : graph.get( c ) ) {
             int res = loopUpCommonNode( graph , visited , recordedVisit , i , depth + 1 ) ;
-            if ( res != -1 && currentDepth < res ) nearestVisit = res ;
+            if ( res != -1 && currentDepth < minDepth ) {
+                minDepth = currentDepth ;
+                nearestVisit = res ;
+            }
         }
         currentDepth = depth ;
         return nearestVisit ;
