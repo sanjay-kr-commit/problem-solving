@@ -10,8 +10,7 @@ class NearestMeetingCell {
 
     public int nearestMeetingCells(int n , List<Integer> edges , int c1 , int c2) {
 
-        minDepth = Integer.MAX_VALUE
-        ;
+        minDepth = Integer.MAX_VALUE;
 
         List<List<Integer>> graph = new ArrayList<>( edges.size() ) ;
 
