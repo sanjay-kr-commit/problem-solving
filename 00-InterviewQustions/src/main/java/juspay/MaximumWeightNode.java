@@ -18,11 +18,11 @@ class MaximumWeightNode {
             if ( ans <= weight[destination] ) {
                 ans = Math.max(ans, weight[destination] ) ;
                 result = destination ;
+                
             }
         }
 
-        if ( ans != Integer.MIN_VALUE ) return result ;
-        return -1 ;
+        return (( ans != Integer.MIN_VALUE ) ? result : -1) ;
     }
 
 }
