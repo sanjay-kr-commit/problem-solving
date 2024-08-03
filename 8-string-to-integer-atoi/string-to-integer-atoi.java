@@ -1,11 +1,3 @@
-//class Solution {
-//    public String minimumString(String a, String b, String c) {
-//        StringBuilder st = new StringBuilder(a.length() + b.length() + c.length() );
-//
-//        return st.toString() ;
-//    }
-//}
-
 class Solution {
 
     public int myAtoi(String s) {
