@@ -11,8 +11,6 @@
 class Solution {
     public ListNode mergeNodes(ListNode head) {
         ListNode node = head;
-        // ListNode pre = new ListNode(-1);
-        //pre.next = node;
         ListNode pre = null;
         while(node.next != null){
             if(node.val == 0){
