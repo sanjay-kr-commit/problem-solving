@@ -1,35 +1,39 @@
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.PriorityQueue;
-
 class Solution {
     public int rangeSum(int[] nums, int n, int left, int right) {
 
-        int mod = 1000000007 ;
+        int smallest = nums[0] , largest = 0 ;
 
-        LinkedList<Integer> list = new LinkedList<>();
+        for ( int i : nums ) {
+            smallest = Math.min(smallest , i);
+            largest += i ;
+        }
 
-        for ( int i = 0 ; i < n ; i++ ) {
+        int[] freq = new int[largest-smallest+1];
+
+        for ( int i = 0 ; i < nums.length ; i++ ) {
             int sum = 0 ;
-            for ( int j = i ; j < n ; j++ ) {
-                sum += nums[j];
-                list.add( sum ) ;
+            for ( int j = i ; j < nums.length ; j++ ) {
+                sum += nums[j] ;
+                freq[sum-smallest]++;
             }
         }
 
-        Collections.sort( list );
-
-        int i = 0 ;
-        Iterator<Integer> iterator = list.iterator() ;
-        while ( iterator.hasNext() && i < left-1 ) {
-            i++ ;
-            iterator.next() ;
-        }
+        int mod = (int) 1e9 + 7 , l = left , r = right-l , i = 0 ;
         int sum = 0 ;
-        while ( iterator.hasNext() && i < right ) {
-            i++ ;
-            sum = ((sum +iterator.next()) % mod );
+
+        while ( l > 1 ) {
+            while ( i < freq.length && freq[i] == 0 ) i++ ;
+            if ( i == freq.length ) break;
+            freq[i]-- ;
+            l-- ;
+        }
+
+        while ( r > -1 ) {
+            while ( i < freq.length && freq[i] == 0 ) i++ ;
+            if ( i == freq.length ) break;
+            freq[i]-- ;
+            sum = (sum + ( i + smallest))%mod ;
+            r-- ;
         }
 
         return sum ;
