@@ -62,64 +62,50 @@ class Report {
         return this
     }
 
-    infix fun <T:Comparable<T>> T.logCheck( logTimeBlock : () -> T  ) : T = logTime {
-        logTimeBlock()
-    }.let { obj ->
-        val isEqual = this == obj.first
-        if ( isEqual && !_only_show_failed_ ){
-            controlledPrintln( "Case ${case+1}" )
-            controlledPrintln("${green}$this$reset")
-        } else if ( !isEqual ) {
-            controlledPrintln( "Case ${case+1}" )
-            controlledPrintln("${green}Expected : $this$reset"  )
-            controlledPrintln("${red}Received : ${obj.first}$reset")
-        }
-        if ( _cache_time_ ) timeTakenLog.append( "${
-            if ( isEqual ) green else red
-        }Case ${case+1} ${obj.second}$reset\n" )
-        if ( _logTime_ && (( _only_show_failed_ && !isEqual ) || ( !_only_show_failed_ )) ) controlledPrintln( obj.second )
-        case++
-        if ( isEqual ) passed++
-        else failed++
-        return this
-    }
+// remove due to function overload conflict
+//    fun <T> T.logCheck( obj: T , comparableBlock : ( T , T ) -> Boolean ) : T {
+//        val isEqual = comparableBlock( this , obj )
+//        if ( isEqual && !_only_show_failed_ ) {
+//            controlledPrintln( "Case ${case+1}" )
+//            controlledPrintln("${green}$this$reset")
+//        } else if ( !isEqual ) {
+//            controlledPrintln( "Case ${case+1}" )
+//            controlledPrintln("${green}Expected : $obj$reset"  )
+//            controlledPrintln("${red}Received : $this$reset")
+//        }
+//        case++
+//        if ( isEqual ) passed++
+//        else failed++
+//        return this
+//    }
 
-    fun <T> T.logCheck( obj: T , comparableBlock : ( T , T ) -> Boolean ) : T {
-        val isEqual = comparableBlock( this , obj )
-        if ( isEqual && !_only_show_failed_ ) {
-            controlledPrintln( "Case ${case+1}" )
-            controlledPrintln("${green}$this$reset")
-        } else if ( !isEqual ) {
-            controlledPrintln( "Case ${case+1}" )
-            controlledPrintln("${green}Expected : $obj$reset"  )
-            controlledPrintln("${red}Received : $this$reset")
+    fun <T> T.logCheck( comparableBlock : ( T , T ) -> Boolean , logTimeBlock : () -> T ) : T {
+        controlledPrintln( "Running Case ${case+1}" )
+        logTime {
+            logTimeBlock()
+        }.let { obj ->
+            val isEqual = comparableBlock(this, obj.first)
+            if (isEqual && !_only_show_failed_) {
+                controlledPrintln("Case ${case + 1}")
+                controlledPrintln("${green}${obj.first}$reset")
+            } else if (!isEqual) {
+                controlledPrintln("Case ${case + 1}")
+                controlledPrintln("${green}Expected : $this$reset")
+                controlledPrintln("${red}Received : ${obj.first}$reset")
+            }
+            if (_cache_time_) timeTakenLog.append(
+                "${
+                    if (isEqual) green else red
+                }Case ${case + 1} ${obj.second}$reset\n"
+            )
+            if (_logTime_ && ((_only_show_failed_ && !isEqual) || (isEqual && !_only_show_failed_))) controlledPrintln(
+                obj.second
+            )
+            case++
+            if (isEqual) passed++
+            else failed++
+            return this
         }
-        case++
-        if ( isEqual ) passed++
-        else failed++
-        return this
-    }
-
-    fun <T> T.logCheck( comparableBlock : ( T , T ) -> Boolean , logTimeBlock : () -> T ) : T = logTime {
-        logTimeBlock()
-    }.let { obj ->
-        val isEqual = comparableBlock( this , obj.first )
-        if ( isEqual && !_only_show_failed_ ){
-            controlledPrintln( "Case ${case+1}" )
-            controlledPrintln("${green}${obj.first}$reset")
-        } else if ( !isEqual ) {
-            controlledPrintln( "Case ${case+1}" )
-            controlledPrintln("${green}Expected : $this$reset"  )
-            controlledPrintln("${red}Received : ${obj.first}$reset")
-        }
-        if ( _cache_time_ ) timeTakenLog.append( "${
-            if ( isEqual ) green else red
-        }Case ${case+1} ${obj.second}$reset\n" )
-        if ( _logTime_ && (( _only_show_failed_ && !isEqual ) || ( isEqual && !_only_show_failed_ )) ) controlledPrintln( obj.second )
-        case++
-        if ( isEqual ) passed++
-        else failed++
-        return this
     }
 
     val logReport : Unit
@@ -143,9 +129,23 @@ class Report {
             else if (timeTakenLog.isNotBlank()) controlledPrintln( timeTakenLog )
         }
 
-    private fun controlledPrintln( message: Any? ) {
-        if (!_mute_print_) println( message )
+    private fun controlledPrint( message: Any? ) {
+        if (_mute_print_) return
+        print( message )
     }
+
+    private fun controlledPrintln( message: Any? ) = controlledPrint( "$message\n" )
+
+    // proxy functions
+    infix fun <T:Comparable<T>> Array<T>.logCheck(  logTimeBlock : () -> Array<T> ) : Array<T> = logCheck( ::isEqual , logTimeBlock )
+    infix fun IntArray.logCheck(  logTimeBlock : () -> IntArray ) : IntArray = logCheck( ::isEqual , logTimeBlock )
+    infix fun LongArray.logCheck(  logTimeBlock : () -> LongArray ) : LongArray = logCheck( ::isEqual , logTimeBlock )
+    infix fun DoubleArray.logCheck(  logTimeBlock : () -> DoubleArray ) : DoubleArray = logCheck( ::isEqual , logTimeBlock )
+    infix fun FloatArray.logCheck(  logTimeBlock : () -> FloatArray ) : FloatArray = logCheck( ::isEqual , logTimeBlock )
+    infix fun CharArray.logCheck(  logTimeBlock : () -> CharArray ) : CharArray = logCheck( ::isEqual , logTimeBlock )
+    infix fun TreeNode.logCheck(  logTimeBlock : () -> TreeNode ) : TreeNode = logCheck( ::isEqual , logTimeBlock )
+    infix fun <T:Comparable<T>> T.logCheck( logTimeBlock : () -> T  ) : T = logCheck( ::isEqual , logTimeBlock )
+    infix fun <T:Comparable<T>> List<T>.logCheck( logTimeBlock: () -> List<T> ) : List<T> = logCheck( ::isEqual , logTimeBlock )
 
     val logTime : Unit
         get() {

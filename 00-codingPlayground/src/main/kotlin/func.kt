@@ -1,10 +1,3 @@
-val Silent : LogLevel
-    get() = LogLevel.Silent
-
-enum class LogLevel{
-    Silent
-}
-
 fun <R> timeTaken(observableScope : () -> R ) : R {
     val startTime = System.currentTimeMillis()
     val returnedObj : R = observableScope.invoke()
@@ -12,8 +5,6 @@ fun <R> timeTaken(observableScope : () -> R ) : R {
     println( "Time Taken : ${endTime-startTime} millisecond" )
     return returnedObj
 }
-
-infix fun <R> LogLevel.timeTaken(observableScope : () -> R ) : R = observableScope.invoke()
 
 infix fun <R> R.capture(observableScope : (R ) -> Unit ) : Unit = observableScope.invoke(this)
 
@@ -61,25 +52,6 @@ fun TreeNode?.transformToHeap() : Array<Int?> {
     val heap = Array<Int?>( count() ) { null }
     recursiveAdd( heap )
     return heap.trimNullSuffix()
-}
-
-fun tree( value : Int , scope : TreeNode.() -> Unit = {} ) : TreeNode {
-    val node = TreeNode()
-    node.`val` = value
-    node.scope()
-    return node
-}
-
-fun TreeNode.rightChild( value : Int , scope : TreeNode.() -> Unit = {} ) : Unit {
-    right = TreeNode()
-    right.`val` = value
-    right.scope()
-}
-
-fun TreeNode.leftChild( value : Int , scope : TreeNode.() -> Unit = {} ) : Unit {
-    left = TreeNode()
-    left.`val` = value
-    left.scope()
 }
 
 val IntArray.asList : ListNode?
@@ -160,17 +132,6 @@ fun <T> T.logCheck( obj: T , comparableBlock : ( T , T ) -> Boolean ) : T {
     return this
 }
 
-fun <T:Comparable<T>> isEqual( obj1 : List<T> , obj2 : List<T> ) : Boolean {
-    if ( obj1.size != obj2.size ) return false ;
-    for ( i in obj1.indices) if ( obj1[i] != obj2[i] ) return false ;
-    return true
-}
-
-fun <T:Comparable<T>> isEqual( obj1 : Array<T> , obj2 : Array<T> ) : Boolean {
-    if ( obj1.size != obj2.size ) return false ;
-    for ( i in obj1.indices) if ( obj1[i] != obj2[i] ) return false ;
-    return true
-}
 
 fun createReport( reportBlock : Report.() -> Unit ) {
     Report().also(reportBlock)
@@ -182,3 +143,8 @@ fun captureAndCreateReport( reportBlock: Report.() -> Unit ) {
     val endTime = System.currentTimeMillis()
     println( "\nNet Time Taken : ${ endTime-startTime } milliseconds" )
 }
+
+val Int.tree : TreeNode
+    get() = TreeNode( this )
+
+infix fun Int.tree( block : TreeNode.() -> Unit ) : TreeNode = TreeNode( this ).also(block)
