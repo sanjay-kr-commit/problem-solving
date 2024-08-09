@@ -1,5 +1,4 @@
-import java.util.Arrays;
-import java.util.HashMap;
+import java.util.PriorityQueue;
 
 /**
  * Definition for a binary tree node.
@@ -16,27 +15,53 @@ import java.util.HashMap;
  *     }
  * }
  */
+// let's just implement a stack
 class Solution {
-
-    long [] sum ;
+    TreeNode [] stack ;
     public long kthLargestLevelSum(TreeNode root, int k) {
-        sum = new long[depth( root, 0 )] ;
-        if ( k > sum.length ) return -1 ;
-        sum( root, 0 ) ;
-        Arrays.sort( sum );
-        return sum[ sum.length - k  ] ;
-    }
+        stack = new TreeNode[34500];
+        final int rightStart = stack.length-1 ;
+        // divide stack into two parts
+        int leftIndex = 0 , rightIndex = rightStart ;
+        stack[leftIndex++] = root ;
+        long lowestValue = Long.MIN_VALUE ;
+        PriorityQueue<Long> pq = new PriorityQueue<>( Math.min( 100 , k ) ) ;
+        while ( true ) {
 
-    int depth( TreeNode node , int level ) {
-        if ( node == null ) return level ;
-        return Math.max(depth(node.left , level+1), depth(node.right , level+1)) ;
-    }
+            long sum = 0 ;
+            // empty odd level
+            if ( leftIndex == 0 ) break;
+            while ( leftIndex != 0 ) {
+                sum += stack[--leftIndex].val ;
+                // populate even level
+                if ( stack[leftIndex].left != null ) stack[rightIndex--] = stack[leftIndex].left ;
+                if ( stack[leftIndex].right != null ) stack[rightIndex--] = stack[leftIndex].right ;
+            }
+            if ( sum > lowestValue ) {
+                pq.add(sum) ;
+                if ( pq.size() > k ) {
+                    pq.remove() ;
+                    lowestValue = pq.peek() ;
+                }
+            }
+            sum = 0 ;
+            if ( rightIndex == rightStart ) break;
+            while ( rightIndex != rightStart ) {
+                sum += stack[++rightIndex].val ;
+                // populate off level
+                if ( stack[rightIndex].left != null ) stack[leftIndex++] = stack[rightIndex].left ;
+                if ( stack[rightIndex].right != null ) stack[leftIndex++] = stack[rightIndex].right ;
+            }
+            if ( sum > lowestValue ) {
+                pq.add(sum) ;
+                if ( pq.size() > k ) {
+                    pq.remove() ;
+                    lowestValue = pq.peek() ;
+                }
+            }
+        }
 
-    void sum( TreeNode node , int level ) {
-        if ( node == null ) return;
-        sum[level] += node.val;
-        sum( node.left , level+1 ) ;
-        sum( node.right , level+1 ) ;
-    }
+        return ( pq.size() < k ) ? -1 : pq.peek() ;
 
+    }
 }
