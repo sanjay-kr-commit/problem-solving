@@ -23,17 +23,18 @@ class Solution {
         final int rightStart = stack.length-1 ;
         // divide stack into two parts
         int leftIndex = 0 , rightIndex = rightStart ;
+        // add first element to stack
         stack[leftIndex++] = root ;
         long lowestValue = Long.MIN_VALUE ;
         PriorityQueue<Long> pq = new PriorityQueue<>( Math.min( 100 , k ) ) ;
         while ( true ) {
-
             long sum = 0 ;
-            // empty odd level
+            // stack is empty
             if ( leftIndex == 0 ) break;
             while ( leftIndex != 0 ) {
+                // empty first level
                 sum += stack[--leftIndex].val ;
-                // populate even level
+                // populate second level
                 if ( stack[leftIndex].left != null ) stack[rightIndex--] = stack[leftIndex].left ;
                 if ( stack[leftIndex].right != null ) stack[rightIndex--] = stack[leftIndex].right ;
             }
@@ -45,10 +46,12 @@ class Solution {
                 }
             }
             sum = 0 ;
+            // stack is empty
             if ( rightIndex == rightStart ) break;
             while ( rightIndex != rightStart ) {
+                // empty second level
                 sum += stack[++rightIndex].val ;
-                // populate off level
+                // populate first level
                 if ( stack[rightIndex].left != null ) stack[leftIndex++] = stack[rightIndex].left ;
                 if ( stack[rightIndex].right != null ) stack[leftIndex++] = stack[rightIndex].right ;
             }
@@ -60,8 +63,6 @@ class Solution {
                 }
             }
         }
-
         return ( pq.size() < k ) ? -1 : pq.peek() ;
-
     }
 }
