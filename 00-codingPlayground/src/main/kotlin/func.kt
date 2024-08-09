@@ -138,10 +138,11 @@ fun createReport( reportBlock : Report.() -> Unit ) {
 }
 
 fun captureAndCreateReport( reportBlock: Report.() -> Unit ) {
-    val startTime = System.currentTimeMillis()
+    val startTime = System.nanoTime()
     createReport(reportBlock)
-    val endTime = System.currentTimeMillis()
-    println( "\nNet Time Taken : ${ endTime-startTime } milliseconds" )
+    val endTime = System.nanoTime()
+    println( "\nNet Time Taken : ${ ((endTime/1e6)-(startTime/1e6)).toLong() } milliseconds" )
+    println( "Net Time Taken : ${ endTime-startTime } nanoseconds" )
 }
 
 val Int.tree : TreeNode
