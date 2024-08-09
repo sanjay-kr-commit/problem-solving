@@ -28,7 +28,7 @@ class Report {
         } catch ( e : Exception ) {
             val endTime = if ( _nano_precision_ ) System.nanoTime() else System.currentTimeMillis()
             timeLoggedForCases++
-            timeTaken += endTime - startTime
+            timeTaken += if ( _nano_precision_ ) ((endTime - startTime)/(1e6)).toLong() else endTime-startTime
             if (_cache_time_) timeTakenLog.append(
                 "${red}Case ${case+1} Time Taken : ${endTime-startTime} ${
                     if ( _nano_precision_ ) "nanoseconds" else "milliseconds"
@@ -38,7 +38,7 @@ class Report {
         }
         val endTime = if ( _nano_precision_ ) System.nanoTime() else System.currentTimeMillis()
         timeLoggedForCases++
-        timeTaken += ((endTime - startTime)/(1e6)).toLong()
+        timeTaken += if ( _nano_precision_ ) ((endTime - startTime)/(1e6)).toLong() else endTime-startTime
         return Pair( returnedObj!! , "Time Taken : ${endTime-startTime} ${
             if ( _nano_precision_ ) "nanoseconds" else "milliseconds"
         }" )
