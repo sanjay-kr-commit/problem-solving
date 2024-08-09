@@ -27,6 +27,9 @@ class Report {
             val endTime = System.currentTimeMillis()
             timeLoggedForCases++
             timeTaken += endTime - startTime
+            if (_cache_time_) timeTakenLog.append(
+                "${red}Case ${case+1} Time Taken : ${endTime-startTime} milliseconds$reset\n"
+            )
             throw e
         }
         val endTime = System.currentTimeMillis()
@@ -63,7 +66,7 @@ class Report {
         } catch (e: Exception) {
             case++
             failed++
-            controlledPrintln( "${red}Failed With Exception : ${e.javaClass.name}${
+            controlledPrintln( "${red}> Failed With Exception : ${e.javaClass.name}${
                 if ( _print_stack_trace_ ) "\n${e.stackTraceToString()}"
                 else ""
             }$reset" )
@@ -135,7 +138,7 @@ class Report {
         } catch ( e : Exception ) {
             case++
             failed++
-            controlledPrintln( "${red}Failed With Exception : ${e.javaClass.name}${
+            controlledPrintln( "${red}> Failed With Exception : ${e.javaClass.name}${
                 if ( _print_stack_trace_ ) "\n${e.stackTraceToString()}"
                 else ""
             }$reset" )
