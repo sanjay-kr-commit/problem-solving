@@ -12,14 +12,16 @@ class Report {
 
     val toStringHandler : HashMap<( Any? )->Boolean,( Any? )->String> = hashMapOf()
 
-
     private var _logTime_ : Boolean = false
     private var _only_show_failed_ = false
     private var _cache_time_ : Boolean = false
     private var _mute_print_ : Boolean = false
     private var _print_stack_trace_ : Boolean = false
     private var _nano_precision_ : Boolean = false
+    private var _log_at_exit_ : Boolean = false
 
+    val logAtExit: Boolean
+        get() = _log_at_exit_
     val isNanoSecondPrecisionEnable : Boolean
         get() = _nano_precision_
 
@@ -265,6 +267,11 @@ class Report {
     val disableNanoPrecision : Unit
         get() {
             _nano_precision_ = false
+        }
+
+    val enableLogAtExit : Unit
+        get() {
+            _log_at_exit_ = true
         }
 
 }

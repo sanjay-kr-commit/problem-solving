@@ -141,6 +141,8 @@ fun captureAndCreateReport( reportBlock: Report.() -> Unit ) = Report().run {
     val startTime = System.nanoTime()
     reportBlock()
     val endTime = System.nanoTime()
+    println()
+    if ( logAtExit ) logReport
     if ( !isNanoSecondPrecisionEnable ) println("Net Time Taken : ${((endTime / 1e6) - (startTime / 1e6)).toLong()} milliseconds")
     else println("Net Time Taken : ${endTime - startTime} nanoseconds")
 }
