@@ -20,6 +20,9 @@ class Report {
     private var _print_stack_trace_ : Boolean = false
     private var _nano_precision_ : Boolean = false
 
+    val isNanoSecondPrecisionEnable : Boolean
+        get() = _nano_precision_
+
     private fun <R> logTime( observableScope : () -> R ) : Pair<R,String> {
         val returnedObj : R
         val startTime = if ( _nano_precision_ ) System.nanoTime() else System.currentTimeMillis()
