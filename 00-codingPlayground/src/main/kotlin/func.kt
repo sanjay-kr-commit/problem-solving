@@ -148,3 +148,14 @@ val Int.tree : TreeNode
     get() = TreeNode( this )
 
 infix fun Int.tree( block : TreeNode.() -> Unit ) : TreeNode = TreeNode( this ).also(block)
+
+val List<Int>.toListNode : ListNode?
+    get() {
+        val dummyHead = ListNode()
+        var temp = dummyHead
+        forEach {
+            temp.next = ListNode( it )
+            temp = temp.next
+        }
+        return dummyHead.next
+    }
