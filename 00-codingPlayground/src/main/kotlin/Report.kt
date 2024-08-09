@@ -17,7 +17,6 @@ class Report {
     private var _mute_print_ : Boolean = false
     private var _print_stack_trace_ : Boolean = false
 
-
     private fun <R> logTime( observableScope : () -> R ) : Pair<R,String> {
         val startTime = System.currentTimeMillis()
         val returnedObj : R
@@ -73,11 +72,11 @@ class Report {
         val isEqual = this == obj
         if ( isEqual && !_only_show_failed_ ) {
             controlledPrintln( "Case ${case+1}" )
-            controlledPrintln("${green}$this$reset")
+            controlledPrintln("${green}${this.toString}$reset")
         } else if ( !isEqual ) {
             controlledPrintln( "Case ${case+1}" )
-            controlledPrintln("${green}Expected : $obj$reset"  )
-            controlledPrintln("${red}Received : $this$reset")
+            controlledPrintln("${green}Expected : ${obj.toString}$reset"  )
+            controlledPrintln("${red}Received : ${this.toString}$reset")
         }
         case++
         if ( isEqual ) passed++
@@ -111,11 +110,11 @@ class Report {
                 val isEqual = comparableBlock(this, obj.first)
                 if (isEqual && !_only_show_failed_) {
                     controlledPrintln("Case ${case + 1}")
-                    controlledPrintln("${green}${obj.first}$reset")
+                    controlledPrintln("${green}${obj.first.toString}$reset")
                 } else if (!isEqual) {
                     controlledPrintln("Case ${case + 1}")
-                    controlledPrintln("${green}Expected : $this$reset")
-                    controlledPrintln("${red}Received : ${obj.first}$reset")
+                    controlledPrintln("${green}Expected : ${this.toString}$reset")
+                    controlledPrintln("${red}Received : ${obj.first.toString}$reset")
                 }
                 if (_cache_time_) timeTakenLog.append(
                     "${
