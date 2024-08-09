@@ -6,36 +6,42 @@ class Report {
     private var timeTaken = 0L
     private var timeLoggedForCases = 0
     private val timeTakenLog = StringBuilder()
-
     private val red = "\u001b[31m"
     private val green = "\u001b[32m"
     private val reset = "\u001b[0m"
+
+    val toStringHandler : HashMap<( Any? )->Boolean,( Any? )->String> = hashMapOf()
+
 
     private var _logTime_ : Boolean = false
     private var _only_show_failed_ = false
     private var _cache_time_ : Boolean = false
     private var _mute_print_ : Boolean = false
     private var _print_stack_trace_ : Boolean = false
-    val toStringHandler : HashMap<( Any? )->Boolean,( Any? )->String> = hashMapOf()
+    private var _nano_precision_ : Boolean = false
 
     private fun <R> logTime( observableScope : () -> R ) : Pair<R,String> {
-        val startTime = System.currentTimeMillis()
         val returnedObj : R
+        val startTime = if ( _nano_precision_ ) System.nanoTime() else System.currentTimeMillis()
         try {
             returnedObj = observableScope.invoke()
         } catch ( e : Exception ) {
-            val endTime = System.currentTimeMillis()
+            val endTime = if ( _nano_precision_ ) System.nanoTime() else System.currentTimeMillis()
             timeLoggedForCases++
             timeTaken += endTime - startTime
             if (_cache_time_) timeTakenLog.append(
-                "${red}Case ${case+1} Time Taken : ${endTime-startTime} milliseconds$reset\n"
+                "${red}Case ${case+1} Time Taken : ${endTime-startTime} ${
+                    if ( _nano_precision_ ) "nanoseconds" else "milliseconds"
+                }$reset\n"
             )
             throw e
         }
-        val endTime = System.currentTimeMillis()
+        val endTime = if ( _nano_precision_ ) System.nanoTime() else System.currentTimeMillis()
         timeLoggedForCases++
-        timeTaken += endTime - startTime
-        return Pair( returnedObj!! , "Time Taken : ${endTime-startTime} milliseconds" )
+        timeTaken += ((endTime - startTime)/(1e6)).toLong()
+        return Pair( returnedObj!! , "Time Taken : ${endTime-startTime} ${
+            if ( _nano_precision_ ) "nanoseconds" else "milliseconds"
+        }" )
     }
 
     fun <T:Comparable<T>> T.check( obj : T ) : Boolean {
@@ -246,6 +252,16 @@ class Report {
         set(value) {
             if ( value == null ) return
             toStringHandler[value.first] = value.second
+        }
+
+    val enableNanoPrecision : Unit
+        get() {
+            _nano_precision_ = true
+        }
+
+    val disableNanoPrecision : Unit
+        get() {
+            _nano_precision_ = false
         }
 
 }
