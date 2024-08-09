@@ -170,7 +170,7 @@ class Report {
             if ( passed > 0 ) controlledPrintln( "${green}Success Rate : ${(passed*100)/case}%$reset" )
             if ( failed > 0 ) controlledPrintln( "${red}Failure Rate : ${(failed*100)/case}%$reset" )
             if ( timeLoggedForCases > 0 ) {
-                controlledPrintln( "Time Take For ${ 
+                controlledPrintln( "Time Taken For ${ 
                     if ( case == timeLoggedForCases ) "All"
                     else timeLoggedForCases
                 } Cases : $timeTaken milliseconds" )
