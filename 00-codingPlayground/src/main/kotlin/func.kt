@@ -159,3 +159,13 @@ val List<Int>.toListNode : ListNode?
         }
         return dummyHead.next
     }
+
+fun listNodeOf( vararg node : Int ) : ListNode {
+    val dummyNode = ListNode()
+    var curr = dummyNode
+    node.forEach {
+        curr.next = ListNode( it )
+        curr = curr.next
+    }
+    return dummyNode.next
+}
