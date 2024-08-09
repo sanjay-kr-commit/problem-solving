@@ -172,6 +172,11 @@ class Report {
 
     // proxy functions
     infix fun <T:Comparable<T>> Array<T>.logCheck(  logTimeBlock : () -> Array<T> ) : Array<T>? = logCheck( ::isEqual , logTimeBlock )
+    infix fun Array<IntArray>.logCheck(  logTimeBlock : () -> Array<IntArray> ) : Array<IntArray>? = logCheck( ::isEqual , logTimeBlock )
+    infix fun Array<CharArray>.logCheck(  logTimeBlock : () -> Array<CharArray> ) : Array<CharArray>? = logCheck( ::isEqual , logTimeBlock )
+    infix fun Array<FloatArray>.logCheck(  logTimeBlock : () -> Array<FloatArray> ) : Array<FloatArray>? = logCheck( ::isEqual , logTimeBlock )
+    infix fun Array<DoubleArray>.logCheck(  logTimeBlock : () -> Array<DoubleArray> ) : Array<DoubleArray>? = logCheck( ::isEqual , logTimeBlock )
+    infix fun Array<LongArray>.logCheck(  logTimeBlock : () -> Array<LongArray> ) : Array<LongArray>? = logCheck( ::isEqual , logTimeBlock )
     infix fun IntArray.logCheck(  logTimeBlock : () -> IntArray ) : IntArray? = logCheck( ::isEqual , logTimeBlock )
     infix fun LongArray.logCheck(  logTimeBlock : () -> LongArray ) : LongArray? = logCheck( ::isEqual , logTimeBlock )
     infix fun DoubleArray.logCheck(  logTimeBlock : () -> DoubleArray ) : DoubleArray? = logCheck( ::isEqual , logTimeBlock )
