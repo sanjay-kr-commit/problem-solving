@@ -15,15 +15,24 @@ class Report {
     private var _only_show_failed_ = false
     private var _cache_time_ : Boolean = false
     private var _mute_print_ : Boolean = false
+    private var _print_stack_trace_ : Boolean = false
 
 
     private fun <R> logTime( observableScope : () -> R ) : Pair<R,String> {
         val startTime = System.currentTimeMillis()
-        val returnedObj : R = observableScope.invoke()
+        val returnedObj : R
+        try {
+            returnedObj = observableScope.invoke()
+        } catch ( e : Exception ) {
+            val endTime = System.currentTimeMillis()
+            timeLoggedForCases++
+            timeTaken += endTime - startTime
+            throw e
+        }
         val endTime = System.currentTimeMillis()
         timeLoggedForCases++
         timeTaken += endTime - startTime
-        return Pair( returnedObj , "Time Taken : ${endTime-startTime} milliseconds" )
+        return Pair( returnedObj!! , "Time Taken : ${endTime-startTime} milliseconds" )
     }
 
     fun <T:Comparable<T>> T.check( obj : T ) : Boolean {
@@ -34,16 +43,30 @@ class Report {
         return isEqual
     }
 
-    infix fun <T:Comparable<T>> T.check( logTimeBlock : () -> T ) : Boolean = logTime {
-        logTimeBlock()
-    }.let {
-        it.first.check( this )
-            .also { isEqual ->
-                if ( _cache_time_ ) timeTakenLog.append( "${
-                    if ( isEqual ) green else red
-                }Case $case ${it.second}$reset\n" )
-                if ( _logTime_ && (( _only_show_failed_ && !isEqual ) || ( isEqual && !_only_show_failed_ )) ) controlledPrintln( it.second )
+    infix fun <T:Comparable<T>> T.check( logTimeBlock : () -> T ) : Boolean {
+        try {
+            logTime {
+                logTimeBlock()
+            }.let {
+                it.first.check(this)
+                    .also { isEqual ->
+                        if (_cache_time_) timeTakenLog.append(
+                            "${
+                                if (isEqual) green else red
+                            }Case $case ${it.second}$reset\n"
+                        )
+                        if (_logTime_ && ((_only_show_failed_ && !isEqual) || (isEqual && !_only_show_failed_))) controlledPrintln(
+                            it.second
+                        )
+                    }
             }
+        } catch (e: Exception) {
+            controlledPrintln( "${red}Failed With Exception : ${e.javaClass.name}${
+                if ( _print_stack_trace_ ) "\n${e.stackTraceToString()}"
+                else ""
+            }$reset" )
+        }
+        return false
     }
 
     fun <T:Comparable<T>> T.logCheck( obj: T  ) : T {
@@ -79,46 +102,57 @@ class Report {
 //        return this
 //    }
 
-    fun <T> T.logCheck( comparableBlock : ( T , T ) -> Boolean , logTimeBlock : () -> T ) : T {
+    fun <T> T.logCheck( comparableBlock : ( T , T ) -> Boolean , logTimeBlock : () -> T ) : T? {
         controlledPrintln( "Running Case ${case+1}" )
-        logTime {
-            logTimeBlock()
-        }.let { obj ->
-            val isEqual = comparableBlock(this, obj.first)
-            if (isEqual && !_only_show_failed_) {
-                controlledPrintln("Case ${case + 1}")
-                controlledPrintln("${green}${obj.first}$reset")
-            } else if (!isEqual) {
-                controlledPrintln("Case ${case + 1}")
-                controlledPrintln("${green}Expected : $this$reset")
-                controlledPrintln("${red}Received : ${obj.first}$reset")
+        try {
+            logTime {
+                logTimeBlock()
+            }.let { obj ->
+                val isEqual = comparableBlock(this, obj.first)
+                if (isEqual && !_only_show_failed_) {
+                    controlledPrintln("Case ${case + 1}")
+                    controlledPrintln("${green}${obj.first}$reset")
+                } else if (!isEqual) {
+                    controlledPrintln("Case ${case + 1}")
+                    controlledPrintln("${green}Expected : $this$reset")
+                    controlledPrintln("${red}Received : ${obj.first}$reset")
+                }
+                if (_cache_time_) timeTakenLog.append(
+                    "${
+                        if (isEqual) green else red
+                    }Case ${case + 1} ${obj.second}$reset\n"
+                )
+                if (_logTime_ && ((_only_show_failed_ && !isEqual) || (isEqual && !_only_show_failed_))) controlledPrintln(
+                    obj.second
+                )
+                case++
+                if (isEqual) passed++
+                else failed++
+                return this
             }
-            if (_cache_time_) timeTakenLog.append(
-                "${
-                    if (isEqual) green else red
-                }Case ${case + 1} ${obj.second}$reset\n"
-            )
-            if (_logTime_ && ((_only_show_failed_ && !isEqual) || (isEqual && !_only_show_failed_))) controlledPrintln(
-                obj.second
-            )
+        } catch ( e : Exception ) {
             case++
-            if (isEqual) passed++
-            else failed++
-            return this
+            failed++
+            controlledPrintln( "${red}Failed With Exception : ${e.javaClass.name}${
+                if ( _print_stack_trace_ ) "\n${e.stackTraceToString()}"
+                else ""
+            }$reset" )
         }
+        return null
     }
 
     val logReport : Unit
         get() {
-            if ( !_mute_print_ ) println()
             controlledPrintln( "Logging Report" )
             if ( case == 0 ) {
                 controlledPrintln( "Nothing to log" )
                 return
             }
             controlledPrintln( "Total Cases  : $case" )
-            if ( passed > 0 ) controlledPrintln( "${green}Cases Passed : $passed ${(passed*100)/case}%$reset" )
-            if ( failed > 0 ) controlledPrintln( "${red}Cases Failed : $failed ${(failed*100)/case}%$reset" )
+            if ( passed > 0 ) controlledPrintln( "${green}Cases Passed : $passed$reset" )
+            if ( failed > 0 ) controlledPrintln( "${red}Cases Failed : $failed$reset" )
+            if ( passed > 0 ) controlledPrintln( "${green}Success Rate : ${(passed*100)/case}%$reset" )
+            if ( failed > 0 ) controlledPrintln( "${red}Failure Rate : ${(failed*100)/case}%$reset" )
             if ( timeLoggedForCases > 0 ) {
                 controlledPrintln( "Time Take For ${ 
                     if ( case == timeLoggedForCases ) "All"
@@ -137,15 +171,15 @@ class Report {
     private fun controlledPrintln( message: Any? ) = controlledPrint( "$message\n" )
 
     // proxy functions
-    infix fun <T:Comparable<T>> Array<T>.logCheck(  logTimeBlock : () -> Array<T> ) : Array<T> = logCheck( ::isEqual , logTimeBlock )
-    infix fun IntArray.logCheck(  logTimeBlock : () -> IntArray ) : IntArray = logCheck( ::isEqual , logTimeBlock )
-    infix fun LongArray.logCheck(  logTimeBlock : () -> LongArray ) : LongArray = logCheck( ::isEqual , logTimeBlock )
-    infix fun DoubleArray.logCheck(  logTimeBlock : () -> DoubleArray ) : DoubleArray = logCheck( ::isEqual , logTimeBlock )
-    infix fun FloatArray.logCheck(  logTimeBlock : () -> FloatArray ) : FloatArray = logCheck( ::isEqual , logTimeBlock )
-    infix fun CharArray.logCheck(  logTimeBlock : () -> CharArray ) : CharArray = logCheck( ::isEqual , logTimeBlock )
-    infix fun TreeNode.logCheck(  logTimeBlock : () -> TreeNode ) : TreeNode = logCheck( ::isEqual , logTimeBlock )
-    infix fun <T:Comparable<T>> T.logCheck( logTimeBlock : () -> T  ) : T = logCheck( ::isEqual , logTimeBlock )
-    infix fun <T:Comparable<T>> List<T>.logCheck( logTimeBlock: () -> List<T> ) : List<T> = logCheck( ::isEqual , logTimeBlock )
+    infix fun <T:Comparable<T>> Array<T>.logCheck(  logTimeBlock : () -> Array<T> ) : Array<T>? = logCheck( ::isEqual , logTimeBlock )
+    infix fun IntArray.logCheck(  logTimeBlock : () -> IntArray ) : IntArray? = logCheck( ::isEqual , logTimeBlock )
+    infix fun LongArray.logCheck(  logTimeBlock : () -> LongArray ) : LongArray? = logCheck( ::isEqual , logTimeBlock )
+    infix fun DoubleArray.logCheck(  logTimeBlock : () -> DoubleArray ) : DoubleArray? = logCheck( ::isEqual , logTimeBlock )
+    infix fun FloatArray.logCheck(  logTimeBlock : () -> FloatArray ) : FloatArray? = logCheck( ::isEqual , logTimeBlock )
+    infix fun CharArray.logCheck(  logTimeBlock : () -> CharArray ) : CharArray? = logCheck( ::isEqual , logTimeBlock )
+    infix fun TreeNode.logCheck(  logTimeBlock : () -> TreeNode ) : TreeNode? = logCheck( ::isEqual , logTimeBlock )
+    infix fun <T:Comparable<T>> T.logCheck( logTimeBlock : () -> T  ) : T? = logCheck( ::isEqual , logTimeBlock )
+    infix fun <T:Comparable<T>> List<T>.logCheck( logTimeBlock: () -> List<T> ) : List<T>? = logCheck( ::isEqual , logTimeBlock )
 
     val logTime : Unit
         get() {
@@ -185,6 +219,16 @@ class Report {
     val enableLogging : Unit
         get() {
             _mute_print_ = false
+        }
+
+    val logStackTrace : Unit
+        get() {
+            _print_stack_trace_ = true
+        }
+
+    val disableStackTraceLog : Unit
+        get() {
+            _print_stack_trace_ = false
         }
 
 }
