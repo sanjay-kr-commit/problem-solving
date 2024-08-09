@@ -1,66 +1,17 @@
-val Any?.toString: String
-    get() = this?.run {
+fun Report.toStr(obj : Any? ) : String
+    = obj?.run {
+
+        for ( ( checker , modifier ) in toStringHandler ) {
+            if ( checker( obj ) ) return@run modifier(obj)
+        }
+
         when {
-            this is Array<*> && this.isArrayOf<IntArray>() -> {
-                StringBuilder().apply {
-                    append( "[" )
-                    (this@toString as Array<IntArray>).forEach {
-                        append( it.toList() )
-                        append( "," )
-                    }
-                    append( "]" )
-                }.toString()
-            }
-            this is Array<*> && this.isArrayOf<DoubleArray>() -> {
-                StringBuilder().apply {
-                    append( "[" )
-                    (this@toString as Array<IntArray>).forEach {
-                        append( it.toList() )
-                        append( "," )
-                    }
-                    append( "]" )
-                }.toString()
-            }
-            this is Array<*> && this.isArrayOf<FloatArray>() -> {
-                StringBuilder().apply {
-                    append( "[" )
-                    (this@toString as Array<IntArray>).forEach {
-                        append( it.toList() )
-                        append( "," )
-                    }
-                    append( "]" )
-                }.toString()
-            }
-            this is Array<*> && this.isArrayOf<ShortArray>() -> {
-                StringBuilder().apply {
-                    append( "[" )
-                    (this@toString as Array<IntArray>).forEach {
-                        append( it.toList() )
-                        append( "," )
-                    }
-                    append( "]" )
-                }.toString()
-            }
-            this is Array<*> && this.isArrayOf<LongArray>() -> {
-                StringBuilder().apply {
-                    append( "[" )
-                    (this@toString as Array<IntArray>).forEach {
-                        append( it.toList() )
-                        append( "," )
-                    }
-                    append( "]" )
-                }.toString()
-            }
-            this is Array<*> && this.isArrayOf<BooleanArray>() -> {
-                StringBuilder().apply {
-                    append( "[" )
-                    (this@toString as Array<IntArray>).forEach {
-                        append( it.toList() )
-                        append( "," )
-                    }
-                    append( "]" )
-                }.toString()
-            }
+            isArrayOfTypeIntArray( obj ) -> arrayOfTypeIntArrayToString( obj )
+            isArrayOfTypeDoubleArray( obj )-> arrayOfTypeDoubletArrayToString( obj )
+            isArrayOfTypeFloatArray(obj) -> arrayOfTypeFloatArrayToString( obj )
+            isArrayOfTypeShortArray( obj) -> arrayOfTypeShortArrayToString( obj )
+            isArrayOfTypeLongArray( obj ) -> arrayOfTypeLongArrayToString( obj )
+            isArrayOfTypeBooleanArray( obj ) -> arrayOfTypeBooleanArrayToString( obj )
             this is Array<*> -> toList().toString()
             this is IntArray -> toList().toString()
             this is LongArray -> toList().toString()

@@ -16,6 +16,7 @@ class Report {
     private var _cache_time_ : Boolean = false
     private var _mute_print_ : Boolean = false
     private var _print_stack_trace_ : Boolean = false
+    val toStringHandler : HashMap<( Any? )->Boolean,( Any? )->String> = hashMapOf()
 
     private fun <R> logTime( observableScope : () -> R ) : Pair<R,String> {
         val startTime = System.currentTimeMillis()
@@ -60,6 +61,8 @@ class Report {
                     }
             }
         } catch (e: Exception) {
+            case++
+            failed++
             controlledPrintln( "${red}Failed With Exception : ${e.javaClass.name}${
                 if ( _print_stack_trace_ ) "\n${e.stackTraceToString()}"
                 else ""
@@ -72,11 +75,11 @@ class Report {
         val isEqual = this == obj
         if ( isEqual && !_only_show_failed_ ) {
             controlledPrintln( "Case ${case+1}" )
-            controlledPrintln("${green}${this.toString}$reset")
+            controlledPrintln("${green}${toStr(this)}$reset")
         } else if ( !isEqual ) {
             controlledPrintln( "Case ${case+1}" )
-            controlledPrintln("${green}Expected : ${obj.toString}$reset"  )
-            controlledPrintln("${red}Received : ${this.toString}$reset")
+            controlledPrintln("${green}Expected : ${toStr(obj)}$reset"  )
+            controlledPrintln("${red}Received : ${toStr(this)}$reset")
         }
         case++
         if ( isEqual ) passed++
@@ -110,11 +113,11 @@ class Report {
                 val isEqual = comparableBlock(this, obj.first)
                 if (isEqual && !_only_show_failed_) {
                     controlledPrintln("Case ${case + 1}")
-                    controlledPrintln("${green}${obj.first.toString}$reset")
+                    controlledPrintln("${green}${toStr(obj.first)}$reset")
                 } else if (!isEqual) {
                     controlledPrintln("Case ${case + 1}")
-                    controlledPrintln("${green}Expected : ${this.toString}$reset")
-                    controlledPrintln("${red}Received : ${obj.first.toString}$reset")
+                    controlledPrintln("${green}Expected : ${toStr(this)}$reset")
+                    controlledPrintln("${red}Received : ${toStr(obj.first)}$reset")
                 }
                 if (_cache_time_) timeTakenLog.append(
                     "${
@@ -233,6 +236,13 @@ class Report {
     val disableStackTraceLog : Unit
         get() {
             _print_stack_trace_ = false
+        }
+
+    var addStringHandler : Pair<(Any?)->Boolean,(Any?)->String>?
+        get() = null
+        set(value) {
+            if ( value == null ) return
+            toStringHandler[value.first] = value.second
         }
 
 }
