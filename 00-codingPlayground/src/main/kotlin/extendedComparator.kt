@@ -42,8 +42,22 @@ fun  isEqual( obj1 : DoubleArray , obj2 : DoubleArray ) : Boolean {
     return true
 }
 
-fun isEqual( obj1 : TreeNode? , obj2: TreeNode? ) : Boolean {
+fun isEqual( obj1 : TreeNode? , obj2: TreeNode? , level : Int = 0 , nodeIndex : Int = 0 ) : Boolean {
     if ( obj1 == null && obj2 == null ) return true
-    if ( obj1 == null || obj2 == null ) return false
-    return obj1.`val` == obj2.`val` && isEqual( obj1.left , obj2.left ) && isEqual( obj1.right , obj2.right )
+    if ( obj1 == null || obj2 == null ) {
+        println( "Data Mismatch At level : $level , index : $nodeIndex\nnode1 : ${
+            obj1?.`val`
+        } != node2 : ${obj2?.`val`}" )
+
+        return false
+    }
+    return (obj1.`val` == obj2.`val`)
+        .also {
+            if ( !it ) {
+                println( "Data Mismatch At level : $level , index : $nodeIndex" )
+            }
+        } &&
+            isEqual( obj1.left , obj2.left , level+1, nodeIndex*2 ) &&
+            isEqual( obj1.right , obj2.right , level+1 , (nodeIndex*2)+1 )
+
 }
