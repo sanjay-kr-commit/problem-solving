@@ -137,12 +137,22 @@ fun createReport( reportBlock : Report.() -> Unit ) {
     Report().also(reportBlock)
 }
 
-fun captureAndCreateReport( reportBlock: Report.() -> Unit ) {
+fun captureAndCreateReport( reportBlock: Report.() -> Unit ) = Report().run {
     val startTime = System.nanoTime()
-    createReport(reportBlock)
+    reportBlock()
     val endTime = System.nanoTime()
-    println( "\nNet Time Taken : ${ ((endTime/1e6)-(startTime/1e6)).toLong() } milliseconds" )
-    println( "Net Time Taken : ${ endTime-startTime } nanoseconds" )
+    if ( !isNanoSecondPrecisionEnable ) println("Net Time Taken : ${((endTime / 1e6) - (startTime / 1e6)).toLong()} milliseconds")
+    else println("Net Time Taken : ${endTime - startTime} nanoseconds")
+}
+
+fun captureAndCreateReportLog( reportBlock: Report.() -> Unit ) = Report().run {
+    val startTime = System.nanoTime()
+    reportBlock()
+    val endTime = System.nanoTime()
+    println()
+    logReport
+    if ( !isNanoSecondPrecisionEnable ) println("Net Time Taken : ${((endTime / 1e6) - (startTime / 1e6)).toLong()} milliseconds")
+    else println("Net Time Taken : ${endTime - startTime} nanoseconds")
 }
 
 val Int.tree : TreeNode
