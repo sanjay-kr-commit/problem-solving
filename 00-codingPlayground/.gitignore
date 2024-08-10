@@ -40,3 +40,8 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+### ignore classes ###
+Main.kt
+Solution.kt
+Solution.java
