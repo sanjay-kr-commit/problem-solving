@@ -20,7 +20,8 @@ class Report {
     private var _nano_precision_ : Boolean = false
     private var _log_at_exit_ : Boolean = false
     private var _ask_for_log_ : Boolean = false
-
+    private var _break_execution_on_error_ : Boolean = false
+    private var _error_occured_ : Boolean = false
 
     val logAtExit: Boolean
         get() = _log_at_exit_
@@ -121,6 +122,7 @@ class Report {
 //    }
 
     fun <T> T.logCheck( comparableBlock : ( T , T ) -> Boolean , logTimeBlock : LogScope.() -> T ) : T? {
+        if ( _break_execution_on_error_ && _error_occured_ ) return null
         controlledPrintln( "Running Case ${case+1}" )
         val logScope = LogScope()
         try {
@@ -152,6 +154,7 @@ class Report {
         } catch ( e : Exception ) {
             case++
             failed++
+            _error_occured_ = true
             controlledPrintln( "${red}> Failed With Exception : ${e.javaClass.name}${
                 if ( _print_stack_trace_ || logScope.isPrintStackTraceEnabled || ( (_ask_for_log_||logScope.isAskForLogEnabled) && readConsent() )) "\n${e.stackTraceToString()}"
                 else ""
@@ -285,6 +288,11 @@ class Report {
     val askForExceptionLog : Unit
         get() {
             _ask_for_log_ = true
+        }
+
+    val stopExecutionOnError : Unit
+        get() {
+            _break_execution_on_error_ = true
         }
 
 }
