@@ -4,21 +4,22 @@ import java.util.Set;
 class Solution {
     public int numDifferentIntegers(String word) {
         StringBuffer buffer = new StringBuffer(word);
-        for ( int i = 0 ; i < word.length() ; i++ ) if ( !Character.isDigit(word.charAt(i)) ) buffer.setCharAt(i, ' ');
-        String[] nums = buffer.toString().split(" ");
-        Set<String> st = new HashSet<>();
-        for ( int i = 0 ; i < nums.length ; i++ ) {
-            if (!nums[i].trim().isEmpty()) {
-                StringBuffer sb2 = new StringBuffer(nums[i].trim());
-                int j =0;
-                while (sb2.length() > 0) {
-                    char ch = sb2.charAt(j);
-                    if (ch != '0') break;
-                    sb2.deleteCharAt(j);
-                }
-                st.add(sb2.toString());
+        for ( int i = 0 ; i < word.length() ; i++ ) if ( word.charAt( i ) < '0' || word.charAt( i ) > '9' ) buffer.setCharAt( i , ' ');
+        Set<String> count = new HashSet<>();
+        buffer.append( ' ' ) ;
+        int index = 0 , len = buffer.length() ;
+        boolean containsDigit = false;
+        while ( index < len ) {
+            while ( index < len && buffer.charAt( index ) == ' ' ) index++ ;
+            int startIndex = index ;
+            while ( index < len && buffer.charAt( index ) == '0' ) index++ ;
+            if ( startIndex < index && index < len && buffer.charAt( index ) == ' ' ) {
+                startIndex = --index ;
             }
+            else startIndex = index ;
+            while ( index < len && buffer.charAt( index ) != ' ' ) index++ ;
+            if ( startIndex < index ) count.add( buffer.substring(startIndex, index) ) ;
         }
-        return st.size();
+        return count.size() ;
     }
 }
