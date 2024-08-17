@@ -19,6 +19,8 @@ class Report {
     private var _print_stack_trace_ : Boolean = false
     private var _nano_precision_ : Boolean = false
     private var _log_at_exit_ : Boolean = false
+    private var _ask_for_log_ : Boolean = false
+
 
     val logAtExit: Boolean
         get() = _log_at_exit_
@@ -118,11 +120,12 @@ class Report {
 //        return this
 //    }
 
-    fun <T> T.logCheck( comparableBlock : ( T , T ) -> Boolean , logTimeBlock : () -> T ) : T? {
+    fun <T> T.logCheck( comparableBlock : ( T , T ) -> Boolean , logTimeBlock : LogScope.() -> T ) : T? {
         controlledPrintln( "Running Case ${case+1}" )
+        val logScope = LogScope()
         try {
             logTime {
-                logTimeBlock()
+                logScope.logTimeBlock()
             }.let { obj ->
                 val isEqual = comparableBlock(this, obj.first)
                 if (isEqual && !_only_show_failed_) {
@@ -150,11 +153,16 @@ class Report {
             case++
             failed++
             controlledPrintln( "${red}> Failed With Exception : ${e.javaClass.name}${
-                if ( _print_stack_trace_ ) "\n${e.stackTraceToString()}"
+                if ( _print_stack_trace_ || logScope.isPrintStackTraceEnabled || ( (_ask_for_log_||logScope.isAskForLogEnabled) && readConsent() )) "\n${e.stackTraceToString()}"
                 else ""
             }$reset" )
         }
         return null
+    }
+
+    private fun readConsent() : Boolean {
+        print( "Enter y to log exception : " )
+        return readln() == "y"
     }
 
     val logReport : Unit
@@ -187,20 +195,20 @@ class Report {
     private fun controlledPrintln( message: Any? ) = controlledPrint( "$message\n" )
 
     // proxy functions
-    infix fun <T:Comparable<T>> Array<T>.logCheck(  logTimeBlock : () -> Array<T> ) : Array<T>? = logCheck( ::isEqual , logTimeBlock )
-    infix fun Array<IntArray>.logCheck(  logTimeBlock : () -> Array<IntArray> ) : Array<IntArray>? = logCheck( ::isEqual , logTimeBlock )
-    infix fun Array<CharArray>.logCheck(  logTimeBlock : () -> Array<CharArray> ) : Array<CharArray>? = logCheck( ::isEqual , logTimeBlock )
-    infix fun Array<FloatArray>.logCheck(  logTimeBlock : () -> Array<FloatArray> ) : Array<FloatArray>? = logCheck( ::isEqual , logTimeBlock )
-    infix fun Array<DoubleArray>.logCheck(  logTimeBlock : () -> Array<DoubleArray> ) : Array<DoubleArray>? = logCheck( ::isEqual , logTimeBlock )
-    infix fun Array<LongArray>.logCheck(  logTimeBlock : () -> Array<LongArray> ) : Array<LongArray>? = logCheck( ::isEqual , logTimeBlock )
-    infix fun IntArray.logCheck(  logTimeBlock : () -> IntArray ) : IntArray? = logCheck( ::isEqual , logTimeBlock )
-    infix fun LongArray.logCheck(  logTimeBlock : () -> LongArray ) : LongArray? = logCheck( ::isEqual , logTimeBlock )
-    infix fun DoubleArray.logCheck(  logTimeBlock : () -> DoubleArray ) : DoubleArray? = logCheck( ::isEqual , logTimeBlock )
-    infix fun FloatArray.logCheck(  logTimeBlock : () -> FloatArray ) : FloatArray? = logCheck( ::isEqual , logTimeBlock )
-    infix fun CharArray.logCheck(  logTimeBlock : () -> CharArray ) : CharArray? = logCheck( ::isEqual , logTimeBlock )
-    infix fun TreeNode.logCheck(  logTimeBlock : () -> TreeNode ) : TreeNode? = logCheck( ::isEqual , logTimeBlock )
-    infix fun <T:Comparable<T>> T.logCheck( logTimeBlock : () -> T  ) : T? = logCheck( ::isEqual , logTimeBlock )
-    infix fun <T:Comparable<T>> List<T>.logCheck( logTimeBlock: () -> List<T> ) : List<T>? = logCheck( ::isEqual , logTimeBlock )
+    infix fun <T:Comparable<T>> Array<T>.logCheck(  logTimeBlock : LogScope.() -> Array<T> ) : Array<T>? = logCheck( ::isEqual , logTimeBlock )
+    infix fun Array<IntArray>.logCheck(  logTimeBlock : LogScope.() -> Array<IntArray> ) : Array<IntArray>? = logCheck( ::isEqual , logTimeBlock )
+    infix fun Array<CharArray>.logCheck(  logTimeBlock : LogScope.() -> Array<CharArray> ) : Array<CharArray>? = logCheck( ::isEqual , logTimeBlock )
+    infix fun Array<FloatArray>.logCheck(  logTimeBlock : LogScope.() -> Array<FloatArray> ) : Array<FloatArray>? = logCheck( ::isEqual , logTimeBlock )
+    infix fun Array<DoubleArray>.logCheck(  logTimeBlock : LogScope.() -> Array<DoubleArray> ) : Array<DoubleArray>? = logCheck( ::isEqual , logTimeBlock )
+    infix fun Array<LongArray>.logCheck(  logTimeBlock : LogScope.() -> Array<LongArray> ) : Array<LongArray>? = logCheck( ::isEqual , logTimeBlock )
+    infix fun IntArray.logCheck(  logTimeBlock : LogScope.() -> IntArray ) : IntArray? = logCheck( ::isEqual , logTimeBlock )
+    infix fun LongArray.logCheck(  logTimeBlock : LogScope.() -> LongArray ) : LongArray? = logCheck( ::isEqual , logTimeBlock )
+    infix fun DoubleArray.logCheck(  logTimeBlock : LogScope.() -> DoubleArray ) : DoubleArray? = logCheck( ::isEqual , logTimeBlock )
+    infix fun FloatArray.logCheck(  logTimeBlock : LogScope.() -> FloatArray ) : FloatArray? = logCheck( ::isEqual , logTimeBlock )
+    infix fun CharArray.logCheck(  logTimeBlock : LogScope.() -> CharArray ) : CharArray? = logCheck( ::isEqual , logTimeBlock )
+    infix fun TreeNode.logCheck(  logTimeBlock : LogScope.() -> TreeNode ) : TreeNode? = logCheck( ::isEqual , logTimeBlock )
+    infix fun <T:Comparable<T>> T.logCheck( logTimeBlock : LogScope.() -> T  ) : T? = logCheck( ::isEqual , logTimeBlock )
+    infix fun <T:Comparable<T>> List<T>.logCheck( logTimeBlock: LogScope.() -> List<T> ) : List<T>? = logCheck( ::isEqual , logTimeBlock )
 
     val logTime : Unit
         get() {
@@ -272,6 +280,11 @@ class Report {
     val enableLogAtExit : Unit
         get() {
             _log_at_exit_ = true
+        }
+
+    val askForExceptionLog : Unit
+        get() {
+            _ask_for_log_ = true
         }
 
 }
