@@ -1,12 +1,11 @@
 class Solution {
     public String truncateSentence(String s, int k) {
-        int index = 0 ;
-        while ( index < s.length() && s.charAt(index) == ' ' ) index++ ;
-        for ( int wordCount = k , prior = 0 , len = s.length() ; index < len && wordCount > 0 ; index++ ) {
-            if ( prior != s.charAt( index ) && s.charAt( index ) == ' ' ) wordCount-- ;
-            prior = s.charAt( index ) ;
+        int size = s.length() ;
+        int count = 0 ;
+        for( int i = 0 ; i < size ; i++) {
+            if ( s.charAt(i) == ' ' ) count++ ;
+            if( count == k ) return s.substring( 0 , i ) ;
         }
-        if ( index < s.length() ) index-- ;
-        return s.substring( 0 , index ) ;
+        return s;
     }
 }
