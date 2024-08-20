@@ -1,52 +1,42 @@
 import java.util.ArrayList;
 import java.util.List;
 
-class TrieNode {
-    TrieNode[] child = new TrieNode[27];
-    boolean isEnd;
-}
-
 class Solution {
+    
+    Trie root;
+    List<String> res;
 
     public List<String> removeSubfolders(String[] folder) {
-        TrieNode root = new TrieNode();
-        int maxSize = 0 ;
-        for ( String dir : folder ){
-            int len = dir.length() ;
-            insertString( root , dir , 0 , len );
-            maxSize = ( maxSize < len ) ? len : maxSize;
+        //sort the folders by length
+        List<String>[] lists = new List[101];
+        for (int i = 0; i < lists.length; ++i) lists[i] = new ArrayList<>();
+        for (String s : folder) lists[s.length()].add(s);
+        root = new Trie();
+        res = new ArrayList<>();
+        for (List<String> list : lists) for (String path : list) {
+            if ( insert( path, root, 0 ) ) res.add(path);
         }
-        ArrayList<String> rootFolder = new ArrayList<>();
-        traverse( root , rootFolder , new char[ maxSize ] , 0 );
-        return rootFolder ;
+        return res;
     }
 
-    void insertString( TrieNode node , String string , int index , int len ) {
-        if ( node == null ) return;
-        if ( index == len ) {
-            node.isEnd = true;
-            return;
+    public boolean insert(String path, Trie cur, int index) {
+        if ( index == path.length() ) {
+            cur.isEnd = true;
+            return true;
         }
-        int addr = ( string.charAt( index ) == '/' ) ? 26 : string.charAt( index ) - 'a' ;
-        if ( node.child[addr] == null ) node.child[addr] = new TrieNode();
-        insertString( node.child[addr] , string , index + 1 , len );
+        char c = path.charAt( index );
+        int p = c == '/' ? 26 : c - 'a';
+        if ( cur.next[p] == null ) cur.next[p] = new Trie();
+        else if (cur.next[p].isEnd && index < path.length() - 1 && path.charAt(index + 1) == '/') return false;
+        return insert(path, cur.next[p], index + 1);
     }
 
-    void traverse( TrieNode node , ArrayList<String> rootFolder , char [] buffer , int size) {
-        if ( node == null ) return;
-        if ( node.isEnd ) {
-            rootFolder.add( new String( buffer , 0 , size ) );
-        }
-        if ( node.child[26] != null && !node.isEnd ) {
-            buffer[size] = '/' ;
-            traverse( node.child[26] , rootFolder , buffer, size + 1 ) ;
-        }
-        for ( int i = 0 ; i < 26 ; i++ ) {
-            if ( node.child[i] == null ) continue;
-            buffer[size] = (char)(i+'a');
-            traverse( node.child[i] , rootFolder , buffer, size + 1 ) ;
+    class Trie {
+        Trie[] next;
+        boolean isEnd;
+        public Trie() {
+            next = new Trie[27];
         }
     }
-
-
+    
 }
