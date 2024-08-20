@@ -2,7 +2,6 @@ class Solution {
 
     class TrieNode {
         TrieNode[] child = new TrieNode[26];
-//        int[] childFreq = new int[26];
         int freq = 0;
     }
 
@@ -25,7 +24,6 @@ class Solution {
         int addr = str.charAt( index ) - 'a' ;
         node.freq++ ;
         if ( node.child[addr] == null ) node.child[addr] = new TrieNode();
-//        node.childFreq[addr]++ ;
         insert( node.child[addr] , str , index+1 , len );
     }
 
