@@ -1,53 +1,52 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+
+class TrieNode {
+    TrieNode[] child = new TrieNode[27];
+    boolean isEnd;
+}
 
 class Solution {
+
     public List<String> removeSubfolders(String[] folder) {
         TrieNode root = new TrieNode();
         int maxSize = 0 ;
-        for ( int i = 0 ; i < folder.length ; i++ ) {
-            TrieNode node = root;
-            char [] buff = new char[ folder[i].length() ];
-            int size = 0 ;
-            if ( maxSize < folder[i].length() ) maxSize = folder[i].length();
-            for ( int j = 0 ; j < folder[i].length() ; j++ ) {
-                if ( folder[i].charAt( j ) == '/' && size > 0 ) {
-                    String str = new String( buff , 0 , size ) ;
-                    if ( !node.nextNode.containsKey( str ) ) node.nextNode.put( str , new TrieNode() ) ;
-                    node = node.nextNode.get( str ) ;
-                    size = 0 ;
-                } else if ( folder[i].charAt( j ) != '/' )buff[size++] = folder[i].charAt(j);
-            }
-            if ( size > 0 ) {
-                String str = new String( buff , 0 , size ) ;
-                if ( !node.nextNode.containsKey( str ) ) node.nextNode.put( str , new TrieNode() ) ;
-                node = node.nextNode.get( str ) ;
-            }
-            node.isEnd = true ;
+        for ( String dir : folder ){
+            int len = dir.length() ;
+            insertString( root , dir , 0 , len );
+            maxSize = ( maxSize < len ) ? len : maxSize;
         }
-        ArrayList<String> result = new ArrayList<>( folder.length ) ;
-        extractString( root , result , new char[ maxSize ] , 0 );
-        return result ;
+        ArrayList<String> rootFolder = new ArrayList<>();
+        traverse( root , rootFolder , new char[ maxSize ] , 0 );
+        return rootFolder ;
     }
 
-    void extractString( TrieNode node , ArrayList<String> result , char [] buff , int size ) {
+    void insertString( TrieNode node , String string , int index , int len ) {
         if ( node == null ) return;
-        if ( node.isEnd ){
-            result.add( new String( buff , 0 , size ) );
+        if ( index == len ) {
+            node.isEnd = true;
             return;
         }
-        Iterator hmIterator = node.nextNode.entrySet().iterator();
-        while ( hmIterator.hasNext() ) {
-            Map.Entry mapElement = (Map.Entry) hmIterator.next();
-            int newSize = size ;
-            buff[newSize++] = '/' ;
-            String str = (String) mapElement.getKey() ;
-            for ( int i = 0 ; i < str.length() ; i++ ) buff[newSize++] = str.charAt( i ) ;
-            extractString( (TrieNode) mapElement.getValue() , result , buff , newSize ) ;
+        int addr = ( string.charAt( index ) == '/' ) ? 26 : string.charAt( index ) - 'a' ;
+        if ( node.child[addr] == null ) node.child[addr] = new TrieNode();
+        insertString( node.child[addr] , string , index + 1 , len );
+    }
+
+    void traverse( TrieNode node , ArrayList<String> rootFolder , char [] buffer , int size) {
+        if ( node == null ) return;
+        if ( node.isEnd ) {
+            rootFolder.add( new String( buffer , 0 , size ) );
+        }
+        if ( node.child[26] != null && !node.isEnd ) {
+            buffer[size] = '/' ;
+            traverse( node.child[26] , rootFolder , buffer, size + 1 ) ;
+        }
+        for ( int i = 0 ; i < 26 ; i++ ) {
+            if ( node.child[i] == null ) continue;
+            buffer[size] = (char)(i+'a');
+            traverse( node.child[i] , rootFolder , buffer, size + 1 ) ;
         }
     }
 
-}
-class TrieNode {
-    HashMap<String,TrieNode> nextNode = new HashMap<>();
-    boolean isEnd = false;
+
 }
