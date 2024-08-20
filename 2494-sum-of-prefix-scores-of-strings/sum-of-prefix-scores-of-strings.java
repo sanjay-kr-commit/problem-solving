@@ -1,38 +1,93 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 class Solution {
-
-    class TrieNode {
-        TrieNode[] child = new TrieNode[26];
-        int freq = 0;
-    }
-
     public int[] sumPrefixScores(String[] words) {
-        int [] prefixScore = new int[words.length];
-        TrieNode root = new TrieNode();
-        for ( String word : words ) insert( root , word , 0 , word.length() );
-        for ( int i = 0 ; i < words.length ; i++ ) {
-            prefixScore[i] = countPrefixScore( root , words[i] , 0 , words[i].length() ) - root.freq;
+        Trie trie = new Trie();
+        int n = words.length;
+        for (String word : words) trie.insert(word);
+        int[] ans = new int[n];
+        for(int i = 0; i < n; i++) ans[i] = trie.startsWith(words[i])-n;
+        return ans;
+    }
+}
+
+class Trie {
+    int root;
+    List<TrieNode> list;
+    
+    public Trie() {
+        root = 0;
+        list = new ArrayList<>();
+        list.add(new TrieNode());
+    }
+
+    public void insert(String word) {
+        int n = word.length();
+        TrieNode temp = list.get(root);
+        for( int i = 0; i < n; i++) {
+            int curr = word.charAt(i)-'a';
+            if( temp.getIndex(curr) == -1) {
+                temp.addChar(curr, list.size());
+                list.add(new TrieNode());
+            }
+            temp.increaseCount();
+            temp = list.get(temp.getNext(curr));
         }
-        return prefixScore ;
+        temp.markEnd();
     }
 
-    void insert( TrieNode node , String str , int index , int len ) {
-        if ( node == null ) return;
-        if ( index == len ) {
-            node.freq++ ;
-            return;
+    public int startsWith(String prefix) {
+        int n = prefix.length();
+        TrieNode temp = list.get(root);
+        int count = 0;
+        for(int i = 0; i < n; i++) {
+            int curr = prefix.charAt(i)-'a';
+            if(temp.getIndex(curr) == -1) return 0;
+            int currCount = temp.getPrefixCount();
+            // System.out.println(prefix.charAt(i)+" "+currCount);
+            count += temp.getPrefixCount();
+            temp = list.get(temp.getNext(curr));
         }
-        int addr = str.charAt( index ) - 'a' ;
-        node.freq++ ;
-        if ( node.child[addr] == null ) node.child[addr] = new TrieNode();
-        insert( node.child[addr] , str , index+1 , len );
+        count += temp.getPrefixCount();
+        return count;
+    }
+}
+
+class TrieNode {
+    int endCount;
+    int prefixCount;
+    int[] map;
+    TrieNode () {
+        endCount = 0;
+        prefixCount = 0;
+        map = new int[26];
+        Arrays.fill(map, -1);
     }
 
-    int countPrefixScore( TrieNode node , String str , int index , int len ) {
-        if ( node == null ) return 0 ;
-        if ( index == len ) return node.freq ;
-        int addr = str.charAt( index ) - 'a' , count = node.freq ;
-        count += countPrefixScore( node.child[addr] , str , index+1 , len );
-        return count ;
+    int getIndex(int curr) {
+        return map[curr];
     }
 
+    int getNext(int curr) {
+        return (map[curr] == -1)? -1 : map[curr];
+    }
+
+    void addChar(int curr, int index) {
+        map[curr] = index;
+    }
+
+    void increaseCount() {
+        prefixCount++;
+    }
+
+    void markEnd() {
+        prefixCount++;
+        endCount++;
+    }
+
+    int getPrefixCount() {
+        return prefixCount;
+    }
 }
