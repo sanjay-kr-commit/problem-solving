@@ -121,7 +121,6 @@ class Report {
 //        return this
 //    }
 
-    @Suppress("UNCHECKED_CAST")
     fun <T> T.logCheck(comparableBlock : (T, T ) -> Boolean, logTimeBlock : LogScope.() -> T ) : T? {
         if ( _break_execution_on_error_ && _error_occured_ ) return null
         controlledPrintln( "Running Case ${case+1}" )
@@ -130,7 +129,8 @@ class Report {
             logTime {
                 logScope.logTimeBlock()
             }.let { obj ->
-                val overriddenChecker : ( T , T ) -> Boolean = when {
+                @Suppress("UNCHECKED_CAST")
+                val overriddenChecker : (T, T ) -> Boolean = when {
                     logScope.isOverrideCheckerInitialized -> logScope.overrideChecker as (T,T)->Boolean
                     obj.first != null && _override_checker_.contains( obj.first!!::class.java ) -> _override_checker_[obj.first!!::class.java] as (T,T)->Boolean
                     else -> comparableBlock
@@ -221,6 +221,11 @@ class Report {
     infix fun TreeNode.logCheck(  logTimeBlock : LogScope.() -> TreeNode ) : TreeNode? = logCheck( ::isEqual , logTimeBlock )
     infix fun <T:Comparable<T>> T.logCheck( logTimeBlock : LogScope.() -> T  ) : T? = logCheck( ::isEqual , logTimeBlock )
     infix fun <T:Comparable<T>> List<T>.logCheck( logTimeBlock: LogScope.() -> List<T> ) : List<T>? = logCheck( ::isEqual , logTimeBlock )
+    infix fun <T> T.logCheck( logTimeBlock: LogScope.() -> T ) : T? = this?.run {
+        @Suppress("UNCHECKED_CAST")
+        val overrideChecker : (T, T)->Boolean = if ( _override_checker_.contains( this::class.java ) ) _override_checker_[this::class.java] as (T, T)->Boolean else throw Exception( "No Checker Found" )
+        logCheck( overrideChecker , logTimeBlock )
+    }
 
     val logTime : Unit
         get() {
