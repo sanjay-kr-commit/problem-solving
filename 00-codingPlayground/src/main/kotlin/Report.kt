@@ -223,8 +223,27 @@ class Report {
     infix fun <T:Comparable<T>> List<T>.logCheck( logTimeBlock: LogScope.() -> List<T> ) : List<T>? = logCheck( ::isEqual , logTimeBlock )
     infix fun <T> T.logCheck( logTimeBlock: LogScope.() -> T ) : T? = this?.run {
         @Suppress("UNCHECKED_CAST")
-        val overrideChecker : (T, T)->Boolean = if ( _override_checker_.contains( this::class.java ) ) _override_checker_[this::class.java] as (T, T)->Boolean else throw Exception( "No Checker Found" )
-        logCheck( overrideChecker , logTimeBlock )
+        val overrideChecker : ((T, T)->Boolean)? = if ( _override_checker_.contains( this::class.java ) ) _override_checker_[this::class.java] as (T, T)->Boolean else null
+        overrideChecker?.let {
+            logCheck( it , logTimeBlock )
+        } ?: run {
+            controlledPrintln( "Running Case ${case+1}" )
+            case++
+            failed++
+            timeLoggedForCases++
+            println( "${red}No Checker Found For Class : ${this@logCheck!!::class.java}${reset}" )
+            if (_logTime_) controlledPrintln(
+                "${red}Case $case Time Taken : 0 ${
+                    if ( _nano_precision_ ) "nanoseconds" else "milliseconds"
+                }$reset"
+            )
+            if (_cache_time_) timeTakenLog.append(
+                "${red}Case $case Time Taken : 0 ${
+                    if ( _nano_precision_ ) "nanoseconds" else "milliseconds"
+                }$reset\n"
+            )
+            null
+        }
     }
 
     val logTime : Unit
