@@ -1,10 +1,8 @@
 fun Report.toStr(obj : Any? ) : String
     = obj?.run {
-
-        for ( ( checker , modifier ) in toStringHandler ) {
-            if ( checker( obj ) ) return@run modifier(obj)
+        _to_string_handler_.forEach { (type, string) ->
+            if ( this::class.java == type ) return@run string.invoke( this )
         }
-
         when {
             isArrayOfTypeIntArray( obj ) -> arrayOfTypeIntArrayToString( obj )
             isArrayOfTypeDoubleArray( obj )-> arrayOfTypeDoubletArrayToString( obj )

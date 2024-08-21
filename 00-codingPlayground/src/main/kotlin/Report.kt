@@ -10,8 +10,7 @@ class Report {
     private val green = "\u001b[32m"
     private val reset = "\u001b[0m"
 
-    val toStringHandler : HashMap<( Any? )->Boolean,( Any? )->String> = hashMapOf()
-
+    val _to_string_handler_ : HashMap<Class<*>,(Any)->String> = hashMapOf()
     private var _logTime_ : Boolean = false
     private var _only_show_failed_ = false
     private var _cache_time_ : Boolean = false
@@ -270,11 +269,14 @@ class Report {
             _print_stack_trace_ = false
         }
 
-    var addStringHandler : Pair<(Any?)->Boolean,(Any?)->String>?
+    /**
+     * Primitive data types not supported
+     */
+    var addStringHandler : Pair<Class<*>,(Any?)->String>?
         get() = null
         set(value) {
             if ( value == null ) return
-            toStringHandler[value.first] = value.second
+            _to_string_handler_[value.first] = value.second
         }
 
     /**
