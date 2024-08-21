@@ -11,6 +11,7 @@ class Report {
     private val reset = "\u001b[0m"
 
     val _to_string_handler_ : HashMap<Class<*>,(Any)->String> = hashMapOf()
+    val _generic_to_string_handler_ : HashMap<(Any?)->Boolean,(Any?)->String> = hashMapOf()
     private var _logTime_ : Boolean = false
     private var _only_show_failed_ = false
     private var _cache_time_ : Boolean = false
@@ -22,6 +23,18 @@ class Report {
     private var _break_execution_on_error_ : Boolean = false
     private var _error_occured_ : Boolean = false
     private var _override_checker_ : HashMap<Class<*>,(Any,Any)->Boolean> = hashMapOf()
+    private var _override_generic_checker_ : HashMap<(Any?)->Boolean,(Any?,Any?)->Boolean> = hashMapOf()
+    private var genericChecker : ((Any?,Any?)->Boolean)? = null
+    private fun HashMap<(Any?)->Boolean,(Any?,Any?)->Boolean>.contains( data : Any? ) : Boolean {
+        genericChecker = null
+        for ( ( checker , modifier ) in this ) {
+            if ( checker( data ) ) {
+                genericChecker = modifier
+                break
+            }
+        }
+        return genericChecker != null
+    }
 
     val logAtExit: Boolean
         get() = _log_at_exit_
@@ -136,6 +149,7 @@ class Report {
                 val overriddenChecker : (T, T ) -> Boolean = when {
                     logScope.isOverrideCheckerInitialized -> logScope.overrideChecker as (T,T)->Boolean
                     obj.first != null && _override_checker_.contains( obj.first!!::class.java ) -> _override_checker_[obj.first!!::class.java] as (T,T)->Boolean
+                    _override_generic_checker_.contains( obj.first ) -> genericChecker!!
                     else -> comparableBlock
                 }
                 val isEqual = overriddenChecker(this, obj.first)
@@ -226,7 +240,15 @@ class Report {
     infix fun <T:Comparable<T>> List<T>.logCheck( logTimeBlock: LogScope.() -> List<T> ) : List<T>? = logCheck( ::isEqual , logTimeBlock )
     infix fun <T> T.logCheck( logTimeBlock: LogScope.() -> T ) : T? = this?.run {
         @Suppress("UNCHECKED_CAST")
-        val overrideChecker : ((T, T)->Boolean)? = if ( _override_checker_.contains( this::class.java ) ) _override_checker_[this::class.java] as (T, T)->Boolean else null
+        var overrideChecker : ((T, T)->Boolean)? = if ( _override_checker_.contains( this::class.java ) ) _override_checker_[this::class.java] as (T, T)->Boolean else null
+        if ( overrideChecker == null ) {
+            for ( ( checker , equator ) in _override_generic_checker_ ) {
+                if ( checker( this@logCheck ) ) {
+                    overrideChecker = equator
+                    break
+                }
+            }
+        }
         overrideChecker?.let {
             logCheck( it , logTimeBlock )
         } ?: run {
@@ -234,7 +256,7 @@ class Report {
             case++
             failed++
             timeLoggedForCases++
-            println( "${red}No Checker Found For Class : ${this@logCheck!!::class.java}${reset}" )
+            println( "${red}No Checker Found For ${this@logCheck!!::class.java}${reset}" )
             if (_logTime_) controlledPrintln(
                 "${red}Case $case Time Taken : 0 ${
                     if ( _nano_precision_ ) "nanoseconds" else "milliseconds"
@@ -309,6 +331,13 @@ class Report {
             _to_string_handler_[value.first] = value.second
         }
 
+    var addGenericStringHandler : Pair<(Any?)->Boolean,(Any?)->String>?
+        get() = null
+        set(value) {
+            if ( value == null ) return
+            _generic_to_string_handler_[value.first] = value.second
+        }
+
     /**
      * Primitive data types not supported
      */
@@ -317,6 +346,13 @@ class Report {
         set(value) {
             if ( value == null ) return
             _override_checker_[value.first] = value.second
+        }
+
+    var overrideGenericChecker : Pair<(Any?)->Boolean,(Any?,Any?)->Boolean>?
+        get() = null
+        set(value) {
+            if ( value == null ) return
+            _override_generic_checker_[value.first] = value.second
         }
 
     val enableNanoPrecision : Unit

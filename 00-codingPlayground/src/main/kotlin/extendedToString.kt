@@ -3,6 +3,9 @@ fun Report.toExtendedStr(obj : Any? ) : String
         _to_string_handler_.forEach { (type, string) ->
             if ( this::class.java == type ) return@run string.invoke( this )
         }
+        _generic_to_string_handler_.forEach { (checker, string) ->
+            if ( checker( obj ) ) return@run string.invoke( checker )
+        }
         when {
             isArrayOfTypeIntArray( obj ) -> arrayOfTypeIntArrayToString( obj )
             isArrayOfTypeDoubleArray( obj )-> arrayOfTypeDoubletArrayToString( obj )
