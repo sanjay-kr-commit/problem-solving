@@ -88,15 +88,15 @@ class Report {
         return false
     }
 
-    fun <T:Comparable<T>> T.logCheck( obj: T  ) : T {
+    fun <T:Comparable<T>> T.logCheck( obj: T ) : T {
         val isEqual = this == obj
         if ( isEqual && !_only_show_failed_ ) {
             controlledPrintln( "Case ${case+1}" )
-            controlledPrintln("${green}${toStr(this)}$reset")
+            controlledPrintln("${green}${toExtendedStr(this)}$reset")
         } else if ( !isEqual ) {
             controlledPrintln( "Case ${case+1}" )
-            controlledPrintln("${green}Expected : ${toStr(obj)}$reset"  )
-            controlledPrintln("${red}Received : ${toStr(this)}$reset")
+            controlledPrintln("${green}Expected : ${toExtendedStr(obj)}$reset"  )
+            controlledPrintln("${red}Received : ${toExtendedStr(this)}$reset")
         }
         case++
         if ( isEqual ) passed++
@@ -136,6 +136,9 @@ class Report {
                     else -> comparableBlock
                 }
                 val isEqual = overriddenChecker(this, obj.first)
+                val toStr : (Any?) -> String = if ( logScope.isOverrideToStringInitialized ) logScope.overrideToString else { a ->
+                    toExtendedStr( a )
+                }
                 if (isEqual && !_only_show_failed_) {
                     controlledPrintln("Case ${case + 1}")
                     controlledPrintln("${green}${toStr(obj.first)}$reset")

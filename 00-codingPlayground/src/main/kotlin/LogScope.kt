@@ -18,5 +18,8 @@ class LogScope {
     lateinit var overrideChecker : ( Any , Any ) -> Boolean
     val isOverrideCheckerInitialized : Boolean
         get() = this::overrideChecker.isInitialized
+    lateinit var overrideToString : ( Any? ) -> String
+    val isOverrideToStringInitialized : Boolean
+        get() = this::overrideToString.isInitialized
 
 }

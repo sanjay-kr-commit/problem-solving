@@ -1,4 +1,4 @@
-fun Report.toStr(obj : Any? ) : String
+fun Report.toExtendedStr(obj : Any? ) : String
     = obj?.run {
         _to_string_handler_.forEach { (type, string) ->
             if ( this::class.java == type ) return@run string.invoke( this )
