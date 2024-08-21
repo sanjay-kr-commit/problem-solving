@@ -1,44 +1,58 @@
 class Trie {
-
-    TrieNode root;
-
-    class TrieNode {
-        TrieNode[] children = new TrieNode[26];
-        boolean isWord = false ;
-    }
+    Node root;
 
     public Trie() {
-        root = new TrieNode();
+        root = new Node();
     }
-
+    
     public void insert(String word) {
-        TrieNode current = root;
-        int index = 0 , len = word.length();
-        while ( index < len ) {
-            int addr = word.charAt(index++) - 'a';
-            if ( current.children[addr] == null ) current.children[addr] = new TrieNode();
-            current = current.children[addr];
-        }
-        current.isWord = true ;
+        root.insert(word, 0);
     }
-
+    
     public boolean search(String word) {
-        TrieNode current = root;
-        int index = 0 , len = word.length();
-        while ( index < len && current != null ) {
-            int addr = word.charAt(index++) - 'a';
-            current = current.children[addr];
-        }
-        return index == len && current != null && current.isWord ;
+        return root.search(word, 0);
+    }
+    
+    public boolean startsWith(String prefix) {
+        return root.startsWith(prefix, 0);
     }
 
-    public boolean startsWith(String prefix) {
-        TrieNode current = root;
-        int index = 0 , len = prefix.length();
-        while ( index < len && current != null ) {
-            int addr = prefix.charAt(index++) - 'a';
-            current = current.children[addr];
+    class Node {
+        Node[] nodes;
+        boolean isEnd;
+
+        Node() {
+            nodes = new Node[26];
         }
-        return index == len && current != null;
+
+        private void insert(String word, int idx) {
+            if (idx >= word.length()) return;
+            int i = word.charAt(idx) - 'a';
+            if (nodes[i] == null) {
+                nodes[i] = new Node();
+            }
+
+            if (idx == word.length()-1) nodes[i].isEnd = true;
+            nodes[i].insert(word, idx+1);
+        }
+
+        private boolean search(String word, int idx) {
+            if (idx >= word.length()) return false;
+            Node node = nodes[word.charAt(idx) - 'a'];
+            if (node == null) return false;
+            if (idx == word.length() - 1 && node.isEnd) return true;
+
+            return node.search(word, idx+1);
+
+        }
+
+        private boolean startsWith(String prefix, int idx) {
+            if (idx >= prefix.length()) return false;
+            Node node = nodes[prefix.charAt(idx) - 'a'];
+            if (node == null) return false;
+            if (idx == prefix.length() - 1) return true;
+
+            return node.startsWith(prefix, idx+1);
+        }
     }
 }
