@@ -22,6 +22,7 @@ class Report {
     private var _ask_for_log_ : Boolean = false
     private var _break_execution_on_error_ : Boolean = false
     private var _error_occured_ : Boolean = false
+    private var _override_checker_ : HashMap<Class<*>,(Any,Any)->Boolean> = hashMapOf()
 
     val logAtExit: Boolean
         get() = _log_at_exit_
@@ -121,7 +122,8 @@ class Report {
 //        return this
 //    }
 
-    fun <T> T.logCheck( comparableBlock : ( T , T ) -> Boolean , logTimeBlock : LogScope.() -> T ) : T? {
+    @Suppress("UNCHECKED_CAST")
+    fun <T> T.logCheck(comparableBlock : (T, T ) -> Boolean, logTimeBlock : LogScope.() -> T ) : T? {
         if ( _break_execution_on_error_ && _error_occured_ ) return null
         controlledPrintln( "Running Case ${case+1}" )
         val logScope = LogScope()
@@ -129,7 +131,12 @@ class Report {
             logTime {
                 logScope.logTimeBlock()
             }.let { obj ->
-                val isEqual = comparableBlock(this, obj.first)
+                val overriddenChecker : ( T , T ) -> Boolean = when {
+                    logScope.isOverrideCheckerInitialized -> logScope.overrideChecker as (T,T)->Boolean
+                    obj.first != null && _override_checker_.contains( obj.first!!::class.java ) -> _override_checker_[obj.first!!::class.java] as (T,T)->Boolean
+                    else -> comparableBlock
+                }
+                val isEqual = overriddenChecker(this, obj.first)
                 if (isEqual && !_only_show_failed_) {
                     controlledPrintln("Case ${case + 1}")
                     controlledPrintln("${green}${toStr(obj.first)}$reset")
@@ -268,6 +275,16 @@ class Report {
         set(value) {
             if ( value == null ) return
             toStringHandler[value.first] = value.second
+        }
+
+    /**
+     * Primitive data types not supported
+     */
+    var overrideChecker : Pair<Class<*>,(Any,Any)->Boolean>?
+        get() = null
+        set(value) {
+            if ( value == null ) return
+            _override_checker_[value.first] = value.second
         }
 
     val enableNanoPrecision : Unit

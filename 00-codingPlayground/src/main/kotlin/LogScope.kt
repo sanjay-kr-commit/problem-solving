@@ -1,4 +1,5 @@
 class LogScope {
+
     private var _print_stack_trace_ : Boolean = false
     val isPrintStackTraceEnabled : Boolean
     get() = _print_stack_trace_
@@ -13,4 +14,9 @@ class LogScope {
         get() {
             _ask_for_log_ = true
         }
+
+    lateinit var overrideChecker : ( Any , Any ) -> Boolean
+    val isOverrideCheckerInitialized : Boolean
+        get() = this::overrideChecker.isInitialized
+
 }
