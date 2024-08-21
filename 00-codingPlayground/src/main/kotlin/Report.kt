@@ -28,6 +28,8 @@ class Report {
     val isNanoSecondPrecisionEnable : Boolean
         get() = _nano_precision_
 
+    var configureLogScope : LogScope.() -> Unit = { }
+
     private fun <R> logTime( observableScope : () -> R ) : Pair<R,String> {
         val returnedObj : R
         val startTime = if ( _nano_precision_ ) System.nanoTime() else System.currentTimeMillis()
@@ -125,6 +127,7 @@ class Report {
         if ( _break_execution_on_error_ && _error_occured_ ) return null
         controlledPrintln( "Running Case ${case+1}" )
         val logScope = LogScope()
+        logScope.configureLogScope()
         try {
             logTime {
                 logScope.logTimeBlock()
