@@ -22,6 +22,7 @@ class Report {
     private var _ask_for_log_ : Boolean = false
     private var _break_execution_on_error_ : Boolean = false
     private var _error_occured_ : Boolean = false
+    private var _skip_test_ : Int = 0
     private var _override_checker_ : HashMap<Class<*>,(Any,Any)->Boolean> = hashMapOf()
     private var _override_generic_checker_ : HashMap<(Any?)->Boolean,(Any?,Any?)->Boolean> = hashMapOf()
     private var genericChecker : ((Any?,Any?)->Boolean)? = null
@@ -137,6 +138,10 @@ class Report {
 //    }
 
     fun <T> T.logCheck(comparableBlock : (T, T ) -> Boolean, logTimeBlock : LogScope.() -> T ) : T? {
+        if ( _skip_test_ > 0 ) {
+            _skip_test_--
+            return null
+        }
         if ( _break_execution_on_error_ && _error_occured_ ) return null
         controlledPrintln( "Running Case ${case+1}" )
         val logScope = LogScope()
@@ -239,6 +244,10 @@ class Report {
     infix fun <T:Comparable<T>> T.logCheck( logTimeBlock : LogScope.() -> T  ) : T? = logCheck( ::isEqual , logTimeBlock )
     infix fun <T:Comparable<T>> List<T>.logCheck( logTimeBlock: LogScope.() -> List<T> ) : List<T>? = logCheck( ::isEqual , logTimeBlock )
     infix fun <T> T.logCheck( logTimeBlock: LogScope.() -> T ) : T? = this?.run {
+        if ( _skip_test_ > 0 ) {
+            _skip_test_--
+            return null
+        }
         @Suppress("UNCHECKED_CAST")
         var overrideChecker : ((T, T)->Boolean)? = if ( _override_checker_.contains( this::class.java ) ) _override_checker_[this::class.java] as (T, T)->Boolean else null
         if ( overrideChecker == null ) {
@@ -378,6 +387,15 @@ class Report {
     val stopExecutionOnError : Unit
         get() {
             _break_execution_on_error_ = true
+        }
+
+    var skipTest : Int
+        get() {
+            _skip_test_++
+            return -1
+        }
+        set(value) {
+            _skip_test_ += value
         }
 
 }
