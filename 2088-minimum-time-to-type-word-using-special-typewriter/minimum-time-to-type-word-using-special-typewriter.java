@@ -1,19 +1,16 @@
 class Solution {
     public int minTimeToType(String word) {
-        int timeTaken = 0 ;
-        for ( int i = 0 ,
-              len = word.length() , prev = 0 ;
-              i < len ; i++
-        ) {
-            int token = word.charAt(i)-'a' ;
-            if ( token != prev ) {
-                int a = ( token < prev ) ? token : prev ,
-                    b = token+prev-a ;
-                timeTaken += Math.min( b-a , ('z'-b)+(a-'a')+1 ) ;
-            }
-            timeTaken++ ;
-            prev = token ;
+        int counter = 0;
+        char previous = 'a';
+        for (char c : word.toCharArray()) {
+            counter += move(previous, c) + 1;
+            previous = c;
         }
-        return timeTaken ;
+        return counter;
+    }
+
+    private int move(char a, char b) {
+        int diff = Math.abs(b - a);
+        return Math.min(diff, 26 - diff);
     }
 }
