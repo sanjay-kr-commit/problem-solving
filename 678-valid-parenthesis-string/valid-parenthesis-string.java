@@ -1,25 +1,32 @@
 class Solution {
     public boolean checkValidString(String s) {
-        return isValid( s , 0 , 0 , s.length() , new int [ s.length()+1 ] ) ;
-    }
-
-    boolean isValid(String s , int size , int index , int len , int [] dp ) {
-        if ( dp[index] != 0 ) return dp[index] == 1;
-        while ( index < len && size > -1 ) {
-            char ch = s.charAt(index) ;
-            if ( ch == '(' ) size++ ;
-            else if ( ch == ')' ) size-- ;
-            else {
-                if ( isValid( s , size+1 , index+1 , len ,dp ) || isValid( s , size-1 , index+1 , len, dp ) ) {
-                    dp[index] = 1 ;
-                    return true ;
-                } else {
-                    dp[index] = -1 ;
-                }
+        int bal = 0 , star = 0;
+        for( int j = 0 ; j < s.length() ; j++ ) {
+            char i = s.charAt(j);
+            if( i == '(' ) bal++;
+            else if( i == ')' ) bal--;
+            else star++;
+            if ( bal < 0 && star > 0 ) {
+                bal++;
+                star--;
             }
-            index++ ;
+            if( bal < 0 ) return false;
         }
-        return size == 0 ;
+   
+        bal = 0 ;
+        star = 0 ;
+   
+        for( int j = s.length()-1 ; j >= 0 ; j-- ){
+            char i = s.charAt(j) ;
+            if( i == ')' ) bal++;
+            else if( i == '(' ) bal-- ;
+            else star++ ;
+            if ( bal < 0 && star > 0 ) {
+                bal++;
+                star--;
+            }
+            if(bal<0) return false;
+        }
+        return true;
     }
-
 }
