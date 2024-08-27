@@ -1,22 +1,37 @@
-import java.util.ArrayList;
-import java.util.Stack;
-
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
 class Solution {
     public int[] nextLargerNodes(ListNode head) {
-        ArrayList<Integer> list = new ArrayList<>();
-        ListNode cur = head;
-        while ( cur != null ) {
-            list.add(cur.val);
-            cur = cur.next;
+        ListNode prev = null;
+        ListNode current = head;
+        int size = 0;
+        while ( current != null ) {
+            ListNode nextNode = current.next;
+            current.next = prev;
+            prev = current;
+            current = nextNode;
+            size++;
         }
-        Stack<Integer> stack = new Stack<>();
-        int [] result = new int[list.size()];
-        for ( int i = 0 ; i < list.size() ; i++ ) {
-            while ( !stack.isEmpty() && list.get( stack.peek() ) < list.get( i )  ) {
-                result[stack.pop()] = list.get(i);
-            }
-            stack.push(i);
+        int[] stack = new int[size] ,
+              result = new int[size];
+        int top = -1;
+        ListNode reversedHead = prev;
+        for (int i = size - 1; i >= 0; i--) {
+            int currentValue = reversedHead.val;
+            while (top >= 0 && stack[top] <= currentValue) top--;
+            result[i] = ( top == -1 ) ? 0 : stack[top];
+            stack[++top] = currentValue;
+            reversedHead = reversedHead.next;
         }
-        return result ;
+
+        return result;
     }
 }
