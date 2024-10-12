@@ -1,9 +1,20 @@
 class Solution {
     public int maxVowels(String s, int k) {
+        boolean [] isVowels = new boolean[128];
+        isVowels['a'] = true ;
+        isVowels['e'] = true ;
+        isVowels['i'] = true ;
+        isVowels['o'] = true ;
+        isVowels['u'] = true ;
+        isVowels['A'] = true ;
+        isVowels['E'] = true ;
+        isVowels['I'] = true ;
+        isVowels['O'] = true ;
+        isVowels['U'] = true ;
         int [] deque = new int[ s.length() ] ;
         int size = 0 , maxVowelCount = 0 , windowVowelCount = 0 , peek = 0 ;
         for ( int i = 0 , len = Math.min( k , s.length() ) ; i < len ; i++ ) {
-            if ( isVowel( s.charAt( i ) ) ) {
+            if ( isVowels[ s.charAt( i ) ] ) {
                 windowVowelCount++ ;
                 deque[size++] = i ;
             }
@@ -14,16 +25,16 @@ class Solution {
                 peek++ ;
                 windowVowelCount-- ;
             }
-            if ( isVowel( s.charAt( i ) ) ) {
+            if ( isVowels[ s.charAt( i ) ] ) {
                 windowVowelCount++ ;
                 deque[size++] = i ;
             }
-            maxVowelCount = Math.max( maxVowelCount , windowVowelCount ) ;
+            if ( maxVowelCount < windowVowelCount ) maxVowelCount = windowVowelCount ;
         }
         return maxVowelCount ;
     }
 
-    boolean isVowel( char c ) {
-        return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' || c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U' ;
-    }
+//    boolean isVowel( char c ) {
+//        return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' || c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U' ;
+//    }
 }
