@@ -1,51 +1,86 @@
-import java.util.ArrayList;
-import java.util.List;
-
 class Solution {
-
-    private static class TrieNode {
-        TrieNode[] children = new TrieNode[26];
-        boolean isEnd = false ;
-        void insert(String word) {
-            insert( word , 0 , word.length() );
+    public List<List<String>> suggestedProducts(String[] products, String searchWord) {
+        Arrays.sort(products);
+        List<List<String>> suggestions = new ArrayList<>();
+        helper(suggestions,products,searchWord,0,0,products.length-1);
+        return suggestions;
+    }
+    private void helper(List<List<String>> suggestions,String[] products,String search,int idx,int start,int end){
+        if(idx>=search.length()||start>end){
+            return;
         }
-        private void insert( String word , int index , int len ) {
-            if ( index >= len ) {
-                isEnd = true ;
+        if(!suggestions.isEmpty()){
+            char ch=search.charAt(idx);
+            boolean flag = true;
+            for(String s:suggestions.getLast()){
+                if(idx>=s.length()||s.charAt(idx)!=ch){
+                    flag = false;
+                    break;
+                }
+            }
+            if(flag){
+                int l = getEnd(products,search.charAt(idx),idx,start,end);
+                suggestions.add(suggestions.getLast());
+                helper(suggestions,products,search,idx+1,start,l);
                 return;
             }
-            int childIndex = word.charAt( index ) - 'a' ;
-            if ( children[childIndex] == null ) children[childIndex] = new TrieNode();
-            children[childIndex].insert( word ,index+1 , len );
         }
+        int s = getStart(products,search.charAt(idx),idx,start,end);
+        if(s<0){
+            for(int j=suggestions.size();j<search.length();j++){
+                suggestions.add(new ArrayList<>());
+            }
+            return;
+        }
+        int e = getEnd(products,search.charAt(idx),idx,s,end);
+        List<String> inner = new ArrayList<>();
+        for(int i=s;i<=Math.min(s+2,e);i++){
+            inner.add(products[i]);
+        }
+        suggestions.add(inner);
+        helper(suggestions,products,search,idx+1,s,e);
     }
-
-    public List<List<String>> suggestedProducts(String[] products, String searchWord) {
-        TrieNode root = new TrieNode();
-        for ( String product : products ) root.insert( product );
-        ArrayList<List<String>> autoCompletePrompt = new ArrayList<>();
-        TrieNode curr = root ;
-        for ( int i = 0 ; i < searchWord.length() ; i++ ) {
-            if ( curr == null ) break;
-            curr = curr.children[searchWord.charAt(i) - 'a'];
-            ArrayList<String> prompts = new ArrayList<>( 3 );
-            genPrompts( searchWord.substring( 0 , i+1 )  , curr , prompts );
-            autoCompletePrompt.add( prompts ) ;
-            if ( prompts.isEmpty() ) break;
+    private int getStart(String[] products,char target,int idx,int s,int e){
+        int result = -1;
+        while(s<=e){
+            int m = s+(e-s)/2;
+            if(idx>=products[m].length()){
+                s=m+1;
+                continue;
+            }
+            char ch = products[m].charAt(idx);
+            if(ch==target){
+                result = m;
+                e=m-1;
+            } else if(ch<target){
+                s=m+1;
+            } else {
+                e=m-1;
+            }
         }
-        for ( int i = autoCompletePrompt.size() ; i < searchWord.length() ; i++ ) {
-            autoCompletePrompt.add( new ArrayList<>() ) ;
-        }
-        return autoCompletePrompt ;
+        return result;
     }
+    private int getEnd(String[] products,char target,int idx,int s,int e){
+        int result = -1;
+        while(s <= e){
+            int m = s + (e - s)/2;
 
-    private void genPrompts( String st , TrieNode node , ArrayList<String> prompts ) {
-        if ( node == null || prompts.size() > 2 ) return;
-        if ( node.isEnd ) prompts.add(st);
-        if ( prompts.size() > 2 ) return;
-        for ( int i = 0 ; i < 26 ; i++ ) {
-            genPrompts( st + (( char ) ( i + 'a' )) , node.children[i] , prompts );
+            if(idx >= products[m].length()){
+                s = m + 1;
+                continue;
+            }
+            char ch = products[m].charAt(idx);
+
+            if( ch == target){
+                result = m;
+                s = m + 1;
+            }else if(ch < target){
+                s = m + 1;
+            }else {
+                e = m - 1;
+            }
         }
-    }
 
+        return result;
+    }
 }
