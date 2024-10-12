@@ -32,34 +32,3 @@ There are no more pairs that sum up to 6, hence a total of 1 operation.</pre>
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 	<li><code>1 &lt;= k &lt;= 10<sup>9</sup></code></li>
 </ul>
-
-# Solution
-<p><strong class="example">First Thought:</strong></p>
-
-Because this question demands us to know the place about two number whoes sum will be k
-we can either cache it which will take O(n) space or look for it which will take O(n) time
-in each Look up and for n elements we'll be left with O(n^2) time complexity which is bad,
-also there will be headache of maintaining wether an element is already counted or not, which
-can be done by marking a counted value as negative because the range of number is always
-greater than zero
-
-<p><strong class="example">Second Thought ( The Pattern ):</strong></p>
-
-we have two pointer l which points at zero and increases with iteration and r which point at
-end, and decreases multiple time with each l iteration ,
-now
-
-If we sort this array than we can narrow down search path, because with each iteration the
-value will either increase or stay constant that means the distance from i to k will decrease,
-so if i-1 cannot be found till r, that also imply i won't be available at r either,
-so we don't have to re iterate every element of each iteration and the whole array will be
-traversed only once
-
-<p><strong class="example">Third Thought ( optimization ):</strong></p>
-
-We Already brought the runtime to O(n) time with O(1) space, what now. well there is one more
-thing that can be done, because we know only positive number exist in array so any number which
-is greater than k will produce a negative pair, which will never exist as we already know ,
-so we can narrow down the element in array by only applying above operations one num which
-is smaller than k, it won't change complexity of code, but it will show some improvement in
-overall time when running the algo, on large data sample
