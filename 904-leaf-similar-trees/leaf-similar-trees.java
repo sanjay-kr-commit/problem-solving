@@ -24,8 +24,6 @@ class Solution {
         leafNode( root2 , list2 ) ;
         if ( list1.size() != list2.size() ) return false ;
         boolean isEqual = true ;
-        System.out.println( list1.size() );
-        System.out.println( list2.size() );
         for ( int i = 0 , len = list1.size(); i < len && isEqual ; i++ ) {
             isEqual = list1.get(i).equals(list2.get(i)) ;
         }
