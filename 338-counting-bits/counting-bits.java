@@ -1,16 +1,14 @@
 class Solution {
     public int[] countBits(int n) {
-        n++ ;
-        int[] result = new int[n];
-        for ( int i = 1 ; i < n ; i++ ) result[i] = countBit( i ) ; 
-        return result ;
+        int [] dp = new int[n+1];
+        rcdp(dp, 1, 1);
+        return dp;
     }
-    private int countBit( int n ) {
-        int bitCount = 0;
-        while ( n > 0 ) {
-            bitCount += n & 1 ;
-            n >>= 1 ;
-        }
-        return bitCount ;
+
+    public void rcdp( int [] dp, int index, int numsOnes ) {
+        if( index >= dp.length ) return;
+        dp[index] = numsOnes;
+        rcdp(dp, index*2, numsOnes);
+        rcdp(dp, index*2+1, numsOnes+1);
     }
 }
