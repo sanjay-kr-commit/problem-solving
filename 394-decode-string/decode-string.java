@@ -25,10 +25,10 @@ class Solution {
                 if ( st.charAt( endIdx ) == '[' ) {
                     endIdx = index+1 ;
                     buff = new StringBuilder() ;
-                    int prev = index ;
+                 //   int prev = index ;
                     index = endIdx ;
                     decode( st );
-                    index = prev;
+                    //index = prev;
                 }
                 buff.append(st.charAt(endIdx));
             }
