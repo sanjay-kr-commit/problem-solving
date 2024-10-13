@@ -228,9 +228,16 @@ class Report {
 
     private fun controlledPrintln( message: Any? ) = controlledPrint( "$message\n" )
 
-    infix fun <T> T.logPassReference( scopeBlock : () -> Unit ) {
-        if (_skip_test_ > 0) _skip_test_--
-        else scopeBlock.invoke()
+    data class PassedReference<T>(
+        var data : T
+    )
+
+    infix fun <T> T.logPassReference( scopeBlock : PassedReference<T>.() -> Unit ) {
+        if (_skip_test_ > 0) {
+            _skip_test_--
+            return
+        }
+        PassedReference( this ).scopeBlock()
     }
     // proxy functions
     infix fun <T:Comparable<T>> Array<T>.logCheck(  logTimeBlock : LogScope.() -> Array<T> ) : Array<T>? = logCheck( ::isEqual , logTimeBlock )
@@ -251,6 +258,10 @@ class Report {
         if ( _skip_test_ > 0 ) {
             _skip_test_--
             return null
+        }
+        if ( this is PassedReference<*> ) {
+            this.data logCheck( logTimeBlock )
+            return@run null
         }
         @Suppress("UNCHECKED_CAST")
         var overrideChecker : ((T, T)->Boolean)? = if ( _override_checker_.contains( this::class.java ) ) _override_checker_[this::class.java] as (T, T)->Boolean else null
