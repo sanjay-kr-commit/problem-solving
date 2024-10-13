@@ -22,11 +22,8 @@ class Solution {
     }
     
     private void deleteMiddle( ListNode node , int index , int mid ) {
-        if ( node == null || index > mid ) return;
-        if ( index < mid ) {
-            deleteMiddle( node.next , index+1 , mid ) ;
-            return;
-        }
-        if ( node.next != null ) node.next = node.next.next;
+        if ( index < mid ) deleteMiddle( node.next , index+1 , mid ) ;
+        if ( node == null || index != mid ) return;
+        node.next = node.next.next;
     }
 }
