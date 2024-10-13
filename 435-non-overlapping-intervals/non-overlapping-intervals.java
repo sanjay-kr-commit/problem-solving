@@ -1,24 +1,35 @@
-import java.util.Arrays;
-
 class Solution {
     public int eraseOverlapIntervals(int[][] intervals) {
-        Arrays.sort( intervals , ( a , b ) -> {
-            if ( a[0] == b[0] ) return Integer.compare(a[1], b[1]);
-            else if ( a[0] < b[0] ) return -1;
-            return 1 ;
-        } );
-        int overlaps = 0;
-        for ( int i = 1 , j = 0 , end = intervals[j][1] , len = intervals.length ; i < len ; i++ ) {
-            if ( intervals[i][0] == intervals[j][0] ) {
-                overlaps++ ;
-                continue;
-            }
-            if (  intervals[i][0] < end ) {
-                end = Math.min( intervals[i][1] , end );
-                overlaps++ ;
-            } else end = Math.max( intervals[i][1] , end );
-            j = i ;
+        int maxEnd = intervals[0][1];
+        int minStart = maxEnd;
+
+        for (int i = 1; i < intervals.length; i++) {
+            minStart = Math.min(intervals[i][1], minStart);
+            maxEnd = Math.max(intervals[i][1], maxEnd);
         }
-        return overlaps;
+
+        int maxRange = 2 + maxEnd - minStart;
+        int[] rightEnds = new int[maxRange];
+
+        int shift = 1 - minStart;
+        for (int[] interval : intervals) {
+            int right = interval[1] + shift;
+            int left = interval[0] + shift;
+            if (left > rightEnds[right]) {
+                rightEnds[right] = left;
+            }
+        }
+
+        int start = 1;
+        int count = 1;
+        for (int i = 2; i < maxRange; i++) {
+            if (start <= rightEnds[i]) {
+                start = i;
+                count++;
+            }
+        }
+
+        return intervals.length - count;
+        
     }
 }
