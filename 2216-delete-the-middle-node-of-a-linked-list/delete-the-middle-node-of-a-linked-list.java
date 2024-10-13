@@ -17,13 +17,11 @@ class Solution {
             curr = curr.next;
         }
         if ( size < 2 ) return null ;
-        deleteMiddle( head , 0 , (size/2)-1 ) ;
+        curr = head ;
+        for ( int i = 0 , len = (size/2)-1 ; i < len ; i++ ) {
+            curr = curr.next;
+        }
+        curr.next = curr.next.next ;
         return head ;
-    }
-    
-    private void deleteMiddle( ListNode node , int index , int mid ) {
-        if ( index < mid ) deleteMiddle( node.next , index+1 , mid ) ;
-        if ( node == null || index != mid ) return;
-        node.next = node.next.next;
     }
 }
