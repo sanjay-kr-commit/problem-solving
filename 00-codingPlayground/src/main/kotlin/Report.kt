@@ -372,6 +372,10 @@ class Report {
             _override_checker_[value.first] = value.second
         }
 
+    infix fun Class<*>.overrideChecker( isEqualLambda: (Any,Any) -> Boolean ) {
+        _override_checker_[this] = isEqualLambda
+    }
+
     var overrideGenericChecker : Pair<(Any?)->Boolean,(Any?,Any?)->Boolean>?
         get() = null
         set(value) {
