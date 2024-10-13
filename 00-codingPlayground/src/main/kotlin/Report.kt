@@ -228,6 +228,10 @@ class Report {
 
     private fun controlledPrintln( message: Any? ) = controlledPrint( "$message\n" )
 
+    infix fun <T> T.logPassReference( scopeBlock : () -> Unit ) {
+        if (_skip_test_ > 0) _skip_test_--
+        else scopeBlock.invoke()
+    }
     // proxy functions
     infix fun <T:Comparable<T>> Array<T>.logCheck(  logTimeBlock : LogScope.() -> Array<T> ) : Array<T>? = logCheck( ::isEqual , logTimeBlock )
     infix fun Array<IntArray>.logCheck(  logTimeBlock : LogScope.() -> Array<IntArray> ) : Array<IntArray>? = logCheck( ::isEqual , logTimeBlock )
