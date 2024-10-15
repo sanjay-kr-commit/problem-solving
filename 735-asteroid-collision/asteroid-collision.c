@@ -4,22 +4,21 @@
  */
 int* asteroidCollision(int* asteroids, int asteroidsSize, int* returnSize) {
 
-  // create a stack using int
-  int *stack = (int*) malloc(sizeof(int)*asteroidsSize) ;
-  int size = 0 ;
+  int size = 0 ,
+      *stack = (int*) malloc(sizeof(int)*asteroidsSize) ;
 
   for ( int i = 0 ; i < asteroidsSize ; i++ ) {
-
+    // filling stack
     stack[size] = asteroids[i] ;
     size++ ;
-
+    // calculating collisions
     while ( size > 1 && stack[size-1] < 0 && stack[size-2] > -1 ) {
 
-      int mod_a = stack[size-1] , mod_b = stack[size-2] ;
-      mod_a = ( mod_a < 0 ) ? -1 * mod_a : mod_a ;
+      int mod_top = -1 * stack[size-1] ;
 
-      if ( mod_b == mod_a ) size-- ;
-      else if ( mod_b < mod_a ) stack[size-2] = stack[size-1] ;
+      if ( mod_top == stack[size-2] ) size-- ;
+      else if ( mod_top > stack[size-2] ) stack[size-2] = stack[size-1] ;
+    
       size-- ;
 
     }
@@ -28,4 +27,5 @@ int* asteroidCollision(int* asteroids, int asteroidsSize, int* returnSize) {
 
   *returnSize = size ;
   return stack;
+
 }
