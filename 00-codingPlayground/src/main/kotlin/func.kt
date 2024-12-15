@@ -182,6 +182,6 @@ fun listNodeOf( vararg node : Int ) : ListNode {
     }
     return dummyNode.next
 }
-k
+
 inline infix fun <T> Class<T>.open( lambda : T.() -> Unit ) : Unit = ( getConstructor().newInstance() as T ).lambda()
 inline infix fun String.open(lambda: Any.() -> Unit ) : Unit = Class.forName(this).getConstructor().newInstance().lambda()
