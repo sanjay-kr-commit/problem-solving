@@ -16,4 +16,8 @@ Like leet code or geekforgeeks
 |  |
 | ------- |
 | [0747-min-cost-climbing-stairs](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0747-min-cost-climbing-stairs) |
+## String
+|  |
+| ------- |
+| [0006-zigzag-conversion](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0006-zigzag-conversion) |
 <!---LeetCode Topics End-->
