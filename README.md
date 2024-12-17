@@ -20,4 +20,9 @@ Like leet code or geekforgeeks
 |  |
 | ------- |
 | [0006-zigzag-conversion](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0006-zigzag-conversion) |
+| [0125-valid-palindrome](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0125-valid-palindrome) |
+## Two Pointers
+|  |
+| ------- |
+| [0125-valid-palindrome](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0125-valid-palindrome) |
 <!---LeetCode Topics End-->
