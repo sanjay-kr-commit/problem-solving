@@ -1,15 +1,13 @@
 class Solution {
-  public int countEven(int num) {
-    int count = 0 , sum , temp ;
-    for ( int i = 1 , len = num +1 ; i < len ; i++ ) {
-      sum = 0 ;
-      temp = i ;
-      while (temp > 0 ) {
-        sum += temp % 10 ;
-        temp /= 10 ;
-      }
-      count += (sum+1)%2; 
+    public int countEven(int num) {
+        int sum=0;
+        int temp = num;
+        while(num>0){
+            sum +=(num%10);
+            num = num/10;
+        }
+        if(sum%2==0) return temp/2;
+        else return (temp-1)/2;
+        
     }
-    return count ;
-  }
 }
