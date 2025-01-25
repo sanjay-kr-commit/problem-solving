@@ -14,35 +14,28 @@
  * }
  */
 class Solution {
-    class List {
-        TreeNode data ;
-        List next ;
-    }
+
+    int [] cache = new int [1000];
+    int cl = 0 ;
+
     int paths = 0 ;
     public int pathSum(TreeNode root, int targetSum) {
         if ( root != null ) {
-            List head = new List() ;
-            head.data = root ;
-            if ( root.val == targetSum ) paths++ ;
-            sum( root.left , targetSum , root.val , head , head ) ;
-            sum( root.right , targetSum, root.val , head , head ) ;
+            sum( root , targetSum , 0 ) ;
         }
         return paths ;
     }
-    void sum( TreeNode node , int targetSum , long sum , List head , List end ) {
+    void sum( TreeNode node , int targetSum , long sum ) {
         if ( node == null ) return ;
-        List curr = head ;
-        long lSum = sum + node.val ;
+        long lSum = sum + node.val;
         if ( lSum == targetSum ) paths++ ;
-        while (curr!=null) {
-            lSum -= curr.data.val ;
+        for ( int i = 0 ; i < cl ; i++ ) {
+            lSum -= cache[i];
             if ( lSum == targetSum ) paths++ ;
-            curr = curr.next ;
         }
-        end.next = new List() ;
-        end.next.data = node ;
-        sum( node.left , targetSum , sum + node.val , head , end.next ) ;
-        sum( node.right , targetSum , sum + node.val , head , end.next ) ;
-        end.next = null ;
+        cache[cl++] = node.val;
+        sum( node.left , targetSum , sum+node.val ) ;
+        sum( node.right , targetSum , sum+node.val ) ;
+        cl-- ;
     }
 }
