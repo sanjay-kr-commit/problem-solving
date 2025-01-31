@@ -1,42 +1,24 @@
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 
 class Solution {
     public List<List<Integer>> combinationSum3(int k, int n) {
-        ArrayList<List<Integer>> combinations = new ArrayList<>();
-        calculatePermutations(
-                k , n , 0 , 0 , 0 , combinations , new HashSet<>()
-        );
-        return combinations ;
+        List<List<Integer>> subsets = new ArrayList<>();
+        int[] nums = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        findSums(subsets, nums, new ArrayList<>(), 0, k, n);
+        return subsets;
     }
-
-    void calculatePermutations(
-            int places , int target , int sum , int placesOccupied , int numOccupied ,
-            ArrayList<List<Integer>> combinations , HashSet<Integer> occupiedSet
-    ) {
-        if ( occupiedSet.contains( numOccupied ) ) return;
-        occupiedSet.add( numOccupied );
-        if ( places == placesOccupied ) {
-            if ( sum != target ) return;
-            ArrayList<Integer> combination = new ArrayList<>( places );
-            for ( int i = 0 ; i < 9 ; i++ ) {
-                if ( (numOccupied&1) == 1 ) combination.add( i + 1 ) ;
-                numOccupied >>= 1 ;
-            }
-            combinations.add( combination );
+    public static void findSums(List<List<Integer>> subsets, int[] nums, ArrayList<Integer> temp, int index, int k, int sum) {
+        if (index == nums.length || k == 0) {
+            if (sum == 0 && k == 0)
+                subsets.add(new ArrayList<>(temp));
             return;
         }
-        if ( sum >= target ) return;
-        long localNumOccupied = numOccupied ;
-        for ( int i = 0 ; i < 9 ; i++ ) {
-            if ( (localNumOccupied & 1) == 1 ) continue;
-            calculatePermutations(
-                    places , target , sum + i + 1 , placesOccupied+1 , ( numOccupied | ( 1 << i ) ) ,
-                    combinations , occupiedSet
-            );
-            localNumOccupied >>= 1 ;
-        }
+        temp.add(nums[index]);
+        findSums(subsets, nums, temp, index+1, k-1, sum-nums[index]);
+        temp.remove(temp.size()-1);
+        findSums(subsets, nums, temp, index+1, k, sum);
     }
+
 
 }
