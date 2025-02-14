@@ -9,29 +9,28 @@
  * }
  */
 class Solution {
-    public int[] nextLargerNodes(ListNode head) {
-        ListNode prev = null;
-        ListNode current = head;
-        int size = 0;
-        while ( current != null ) {
-            ListNode nextNode = current.next;
-            current.next = prev;
-            prev = current;
-            current = nextNode;
-            size++;
-        }
-        int[] stack = new int[size] ,
-              result = new int[size];
-        int top = -1;
-        ListNode reversedHead = prev;
-        for (int i = size - 1; i >= 0; i--) {
-            int currentValue = reversedHead.val;
-            while (top >= 0 && stack[top] <= currentValue) top--;
-            result[i] = ( top == -1 ) ? 0 : stack[top];
-            stack[++top] = currentValue;
-            reversedHead = reversedHead.next;
-        }
-
-        return result;
+  public int[] nextLargerNodes(ListNode head) {
+    ListNode prev = null , cur = head ;
+    int size = 0 ;
+    while (cur != null) {
+      ListNode next = cur.next ;
+      cur.next = prev ;
+      prev = cur ;
+      cur = next ;
+      size++ ; 
     }
+    int [] stack = new int [size] ,
+           result = new int [size] ;
+    int stackPointer = -1 ;
+    int res = size-1 ;
+    while ( prev != null ) {
+      int num = prev.val ;
+      while ( stackPointer > -1 && stack[stackPointer] <= num ) stackPointer-- ;
+      if ( stackPointer != -1 ) result[res--] = stack[stackPointer] ;
+      else res-- ;
+      stack[++stackPointer] = num ;
+      prev = prev.next ;
+    }
+    return result ;
+  }
 }
