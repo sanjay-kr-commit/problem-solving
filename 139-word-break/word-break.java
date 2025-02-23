@@ -29,7 +29,7 @@ class Solution {
         int addr = string.charAt( index ) - 'a' ;
         if ( node.child[addr] == null ) node.child[addr] = new TrieNode();
         insert( node.child[addr] , string , index + 1 , len ) ;
-     }
+    }
 
     class TrieNode {
         TrieNode[] child= new TrieNode[26];
