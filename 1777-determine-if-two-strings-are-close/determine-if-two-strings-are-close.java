@@ -11,7 +11,7 @@ class Solution {
             max = Math.max(max, Math.max( j , k ));
         }
         for ( int i = 0 ; i < 26 ; i++ ) {
-            if ( (map1[i] == 0 && map2[i] != 0) || (map1[i] != 0 && map2[i] == 0) ) return false;
+            if ( map1[i] == 0 ^ map2[i] == 0 ) return false;
         }
         int [] freq1 = new int[max - min + 1] ,
                freq2 = new int[max - min + 1];
