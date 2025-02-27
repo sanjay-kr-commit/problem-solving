@@ -1,6 +1,6 @@
 class Solution {
     public boolean closeStrings(String word1, String word2) {
-        if ( word1.length() != word2.length() || !containsSameCharacters( word1, word2 ) ) return false;
+        if ( word1.length() != word2.length() ) return false;
         int [] map1 = new int[26] ,
                map2 = new int[26];
         int min = 0 , max = 0 ;
@@ -9,6 +9,9 @@ class Solution {
             int k = ++map2[word2.charAt(i) - 'a'];
             min = Math.min(min, Math.min( j , k ));
             max = Math.max(max, Math.max( j , k ));
+        }
+        for ( int i = 0 ; i < 26 ; i++ ) {
+            if ( (map1[i] == 0 && map2[i] != 0) || (map1[i] != 0 && map2[i] == 0) ) return false;
         }
         int [] freq1 = new int[max - min + 1] ,
                freq2 = new int[max - min + 1];
