@@ -1,3 +1,17 @@
+inline fun <T> Iterable<T>.forEach(vararg executionOrder : Int, action: (T) -> Unit): Unit {
+    var count = -1
+    executionOrder.forEach {
+        println( "\u001B[33mindex $it ran\u001B[0m" )
+        action(this.elementAt(it))
+    }
+    for (element in this) {
+        count++
+        if ( executionOrder.contains(count) ) continue
+        println( "\u001B[33mindex $count ran\u001B[0m" )
+        action(element)
+    }
+}
+
 fun <T> T.coloredOutput(
     other : T
 ) : String = "${
