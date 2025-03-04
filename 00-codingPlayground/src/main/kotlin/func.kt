@@ -1,3 +1,9 @@
+fun <T> T.coloredOutput(
+    other : T
+) : String = "${
+    if (this@coloredOutput!! == other) "\u001b[32m"
+    else "\u001b[31m" }$this\u001b[0m"
+
 fun <R> timeTaken(observableScope : () -> R ) : R {
     val startTime = System.currentTimeMillis()
     val returnedObj : R = observableScope.invoke()
