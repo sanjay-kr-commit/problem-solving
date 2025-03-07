@@ -16,9 +16,7 @@ class Solution {
             last = i ;
             int sq = i*i ;
             sq-- ;
-            for ( int j = i+i ; j < right ; j += i ) {
-                if ( j > sq ) isPrime[j] = false;
-            }
+            for ( int j = sq+1 ; j > i && j < right ; j += i ) isPrime[j] = false;
         }
         if ( first < left ) return new int[] { -1 , -1 } ;
         return new int[] { first, second };
