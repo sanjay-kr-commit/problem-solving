@@ -1,25 +1,38 @@
-import java.util.Arrays;
-import java.util.Comparator;
-
+import java.util.*;
 class Solution {
     public int smallestChair(int[][] times, int targetFriend) {
-        if ( times.length <= targetFriend ) return -1 ;
-        targetFriend = times[targetFriend][0] ;
-        Arrays.sort( times , Comparator.comparingInt(o -> o[0]));
-        int [] chair = new int[times.length];
-        int lastOccupied = 0;
-        outer:
-        for ( int [] time : times ) {
-            for ( int i = 0 ; i < lastOccupied ; i++ ) {
-                if ( chair[i] <= time[0] ) {
-                    if ( time[0] == targetFriend ) return i ;
-                    chair[i] = time[1] ;
-                    continue outer ;
-                }
-            }
-            if ( time[0] == targetFriend ) return lastOccupied ;
-            chair[lastOccupied++] = time[1] ;
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        Map<Integer, Integer> map = new HashMap<>();
+        int n = times.length, max = 0, counter = 0;
+        for(int[] time : times) max = Math.max(max, time[1]);
+        List<Integer>[] timeline = new ArrayList[max + 1];
+        for( int i = 0; i < n; i++ ){
+            int[] time = times[i];
+            int arrive = time[0], leave = time[1];
+            if( timeline[arrive] == null ) timeline[arrive] = new ArrayList<>();
+            if( timeline[leave] == null ) timeline[leave] = new ArrayList<>();
+            timeline[arrive].add(i);
+            timeline[leave].add(i);
         }
-        return lastOccupied ;
+        for (List<Integer> integers : timeline) {
+            if (integers == null) continue;
+            int[] tracker = new int[integers.size()];
+            for (int j = 0; j < integers.size(); j++) {
+                if (!map.containsKey(integers.get(j))) continue;
+                tracker[j] = 1;
+                pq.offer(map.get(integers.get(j)));
+                map.remove(integers.get(j));
+                counter--;
+            }
+            for (int j = 0; j < integers.size(); j++) {
+                if (tracker[j] == 1) continue;
+                int person = integers.get(j);
+                if (!pq.isEmpty()) map.put(person, pq.poll());
+                else map.put(person, counter);
+                counter++;
+                if (person == targetFriend) return map.get(person);
+            }
+        }
+        return -1;
     }
 }
