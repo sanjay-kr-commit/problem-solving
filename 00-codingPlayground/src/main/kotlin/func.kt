@@ -1,3 +1,47 @@
+import kotlin.math.min
+
+infix fun <E> List<E>.zipWithNextN(n : Int ) : List<List<E>> = ArrayList<List<E>>() . apply {
+    var toAdd = ArrayList<E>(n)
+    this@zipWithNextN.forEach {
+        toAdd.add( it )
+        if ( toAdd.size == n ) {
+            add( toAdd )
+            toAdd = ArrayList(n)
+        }
+    }
+    if ( toAdd.size > 0 ) add( toAdd )
+}
+
+infix fun <E> List<List<E>>.appendResult( expected : List<E> ) : List<List<E>> = ArrayList<List<E>>() . apply {
+    for ( i in 0 until min( this@appendResult.size , expected.size ) ) {
+        val toAdd : ArrayList<E> = this@appendResult[i] as ArrayList
+        toAdd.add( expected[i] )
+        add( toAdd )
+    }
+}
+
+fun List<String>.argumentSignature(vararg serializerLambda : (String) -> Any ) : List<Any> = ArrayList<Any>() . apply {
+    for ( i in 0 until serializerLambda.size.coerceAtMost(this@argumentSignature.size)) {
+        add( serializerLambda[i]( this@argumentSignature[i] ) )
+    }
+}
+
+fun ignore(received : Any ) : Any = received
+fun removeQuote( received: String) : Any = received.let {
+    it.substring( 1 , it.length-1)
+}
+fun int( received: String ) : Any = received.toInt()
+fun long( received: String ) : Any = received.toLong()
+fun bool( received: String ) : Any = received.toBoolean()
+
+
+
+fun String.testcase() : List<String> = ArrayList<String>().apply {
+    split("\n").forEach {
+        if ( it.isNotEmpty() ) add( it )
+    }
+}
+
 inline fun <T> Iterable<T>.forEach(vararg executionOrder : Int, action: (T) -> Unit): Unit {
     var count = -1
     executionOrder.forEach {
