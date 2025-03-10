@@ -27,7 +27,7 @@ fun List<String>.argumentSignature(vararg serializerLambda : (String) -> Any ) :
 }
 
 fun ignore(received : Any ) : Any = received
-fun removeQuote( received: String) : Any = received.let {
+fun unquote(received: String) : Any = received.let {
     it.substring( 1 , it.length-1)
 }
 fun int( received: String ) : Any = received.toInt()
