@@ -24,7 +24,7 @@ fun main() : Unit = Solution().run {
                 ::int
             )
         }
-        .forEach ( 3 ) { ( candies , k , expected ) ->
+        .forEach { ( candies , k , expected ) ->
             maximumCandies(
                 candies as IntArray,
                 k as Long

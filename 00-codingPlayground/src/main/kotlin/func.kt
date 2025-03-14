@@ -90,7 +90,8 @@ inline fun <T> Iterable<T>.forEach(vararg executionOrder : Int, action: (T) -> U
 
 data class ColoredOutput<T>(
     val data : T ,
-    var showDifference : Boolean = false
+    var showDifference : Boolean = false ,
+    var ifIncorrect : (() -> Unit)? = null
 ) {
     override fun toString(): String {
         return data.toString()
@@ -105,6 +106,14 @@ fun <T> T.showDifference() : ColoredOutput<*> {
     return ColoredOutput( data = this , showDifference = true )
 }
 
+fun <T> T.ifIncorrect( executionBlock : () -> Unit ) : ColoredOutput<*> {
+    if ( this is ColoredOutput<*> ) {
+        ifIncorrect = executionBlock
+        return this
+    }
+    return ColoredOutput( data = this , ifIncorrect = executionBlock )
+}
+
 fun <T,E> T.coloredOutput(
     other : E
 ) : String {
@@ -114,12 +123,13 @@ fun <T,E> T.coloredOutput(
     val st = StringBuilder( "${
         if (isEqual) "\u001b[32m"
         else "\u001b[31m" }$this\u001b[0m" )
-    if ( this is ColoredOutput<*> ) when {
-        showDifference && !isEqual -> {
+    if ( this is ColoredOutput<*> ) {
+        if ( !isEqual ) ifIncorrect?.invoke()
+        if ( showDifference && !isEqual ) {
             val buffer = st.toString()
             st.clear()
-            st.append( "\u001B[32mExpected : $other\u001B[0m\n" )
-            st.append( "\u001B[31mReceived : \u001B[0m" )
+            st.append("\u001B[32mExpected : $other\u001B[0m\n")
+            st.append("\u001B[31mReceived : \u001B[0m")
             st.append(buffer)
         }
     }
