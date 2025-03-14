@@ -88,10 +88,24 @@ inline fun <T> Iterable<T>.forEach(vararg executionOrder : Int, action: (T) -> U
     }
 }
 
+data class Indexer(
+    private var index : Int = 0
+) {
+    val Any.index : Any
+        get() =
+            if ( this is ColoredOutput<*> )
+                index = this@Indexer.index++
+            else ColoredOutput( this , index = this@Indexer.index++ )
+
+}
+
+fun indexer( indexerBlock : Indexer.() -> Unit ) : Unit = Indexer().indexerBlock()
+
 data class ColoredOutput<T>(
     val data : T ,
     var showDifference : Boolean = false ,
-    var ifIncorrect : (() -> Unit)? = null
+    var ifIncorrect : (() -> Unit)? = null ,
+    var index : Int? = null
 ) {
     override fun toString(): String {
         return data.toString()
@@ -130,6 +144,12 @@ fun <T,E> T.coloredOutput(
             st.clear()
             st.append("\u001B[32mExpected : $other\u001B[0m\n")
             st.append("\u001B[31mReceived : \u001B[0m")
+            st.append(buffer)
+        }
+        if ( index != null ) {
+            val buffer = st.toString()
+            st.clear()
+            st.append( "\u001B[33mindex $index \u001B[0m\n" )
             st.append(buffer)
         }
     }

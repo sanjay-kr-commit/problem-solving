@@ -23,15 +23,19 @@ fun main() : Unit = Solution().run {
                 ::long ,
                 ::int
             )
-        }
-        .forEach { ( candies , k , expected ) ->
-            maximumCandies(
-                candies as IntArray,
-                k as Long
-            )
-                .showDifference()
-                .coloredOutput( expected as Int )
-                .also( ::println )
+        } . run {
+            indexer {
+                forEach { (candies, k, expected) ->
+                    maximumCandies(
+                        candies as IntArray,
+                        k as Long
+                    )
+                        .index
+                        .showDifference()
+                        .coloredOutput(expected as Int)
+                        .also(::println)
+                }
+            }
         }
 
 }
