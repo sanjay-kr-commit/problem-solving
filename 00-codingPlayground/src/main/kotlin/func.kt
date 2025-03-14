@@ -1,8 +1,9 @@
+import java.awt.Color
 import kotlin.math.min
 
-infix fun <E> List<E>.zipWithNextN(n : Int ) : List<List<E>> = ArrayList<List<E>>() . apply {
+infix fun <E> List<E>.groupInto(n : Int ) : List<List<E>> = ArrayList<List<E>>() . apply {
     var toAdd = ArrayList<E>(n)
-    this@zipWithNextN.forEach {
+    this@groupInto.forEach {
         toAdd.add( it )
         if ( toAdd.size == n ) {
             add( toAdd )
@@ -11,6 +12,8 @@ infix fun <E> List<E>.zipWithNextN(n : Int ) : List<List<E>> = ArrayList<List<E>
     }
     if ( toAdd.size > 0 ) add( toAdd )
 }
+
+fun <E> List<List<E>>.appendResult( vararg expected : E ) : List<List<E>> = appendResult( expected.toList() )
 
 infix fun <E> List<List<E>>.appendResult( expected : List<E> ) : List<List<E>> = ArrayList<List<E>>() . apply {
     for ( i in 0 until min( this@appendResult.size , expected.size ) ) {
@@ -33,7 +36,36 @@ fun unquote(received: String) : Any = received.let {
 fun int( received: String ) : Any = received.toInt()
 fun long( received: String ) : Any = received.toLong()
 fun bool( received: String ) : Any = received.toBoolean()
+fun intArray( received: String ) : Any = received.substring( 1 , received.length-1 )
+        .split(",")
+        .map {
+            it.toInt()
+        }.toIntArray()
 
+fun String.array( serializedType : (String) -> Any ) : Array<Any> = substring( 1 , length-1 ).let {
+    val arrayNesting = it.contains("]")
+    var size : Int
+    val list = it.split(
+        if ( arrayNesting ) "]," else ","
+    ).also { size = it.size-1 }
+        .let {
+            if ( arrayNesting ) it.mapIndexed { index, s ->
+                if ( index == size ) serializedType( s )
+                else serializedType( "$s]" )
+            } else it.map {
+                serializedType(it)
+            }
+        }
+    Array(list.size) {
+        list[it]
+    }
+}
+
+fun longArray( received: String ) : Any = received.substring( 1 , received.length-1 )
+    .split(",")
+    .map {
+        it.toLong()
+    }.toLongArray()
 
 
 fun String.testcase() : List<String> = ArrayList<String>().apply {
@@ -56,11 +88,43 @@ inline fun <T> Iterable<T>.forEach(vararg executionOrder : Int, action: (T) -> U
     }
 }
 
-fun <T> T.coloredOutput(
-    other : T
-) : String = "${
-    if (this@coloredOutput!! == other) "\u001b[32m"
-    else "\u001b[31m" }$this\u001b[0m"
+data class ColoredOutput<T>(
+    val data : T ,
+    var showDifference : Boolean = false
+) {
+    override fun toString(): String {
+        return data.toString()
+    }
+}
+
+fun <T> T.showDifference() : ColoredOutput<*> {
+    if ( this is ColoredOutput<*> ) {
+        showDifference = true
+        return this
+    }
+    return ColoredOutput( data = this , showDifference = true )
+}
+
+fun <T,E> T.coloredOutput(
+    other : E
+) : String {
+    val isEqual =
+        if ( this is ColoredOutput<*> ) this@coloredOutput.data == other
+        else this@coloredOutput == other
+    val st = StringBuilder( "${
+        if (isEqual) "\u001b[32m"
+        else "\u001b[31m" }$this\u001b[0m" )
+    if ( this is ColoredOutput<*> ) when {
+        showDifference && !isEqual -> {
+            val buffer = st.toString()
+            st.clear()
+            st.append( "\u001B[32mExpected : $other\u001B[0m\n" )
+            st.append( "\u001B[31mReceived : \u001B[0m" )
+            st.append(buffer)
+        }
+    }
+    return st.toString()
+}
 
 fun <R> timeTaken(observableScope : () -> R ) : R {
     val startTime = System.currentTimeMillis()

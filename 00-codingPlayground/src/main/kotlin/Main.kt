@@ -1,29 +1,37 @@
+@file:Suppress("UNCHECKED_CAST")
+
 fun main() : Unit = Solution().run {
 
     """
-        "aeioqq"
-        1
-        0
-        "aeiou"
-        0
-        1
-        "ieaouqqieaouqq"
-        1
+        [5,8,6]
         3
-        "iqeaouqi"
-        2
-        0
+        [2,5]
+        11
+        [4,7,5]
+        4
+        [1,2,3,4,10]
+        5
     """.trimIndent()
-        .testcase()
-        .zipWithNextN(3)
+        .split("\n")
+        .groupInto(2)
+        .appendResult(
+            "5" , "0" , "3" , "3"
+        )
         .map {
             it.argumentSignature(
-                ::removeQuote ,
-                ::int ,
-                ::long
+                ::intArray ,
+                ::long ,
+                ::int
             )
         }
-        .forEach { ( f , s , ans ) ->
-
+        .forEach ( 3 ) { ( candies , k , expected ) ->
+            maximumCandies(
+                candies as IntArray,
+                k as Long
+            )
+                .showDifference()
+                .coloredOutput( expected as Int )
+                .also( ::println )
         }
+
 }
