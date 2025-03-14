@@ -104,9 +104,20 @@ fun indexer( indexerBlock : Indexer.() -> Unit ) : Unit = Indexer().indexerBlock
 data class ColoredOutput<T>(
     val data : T ,
     var showDifference : Boolean = false ,
-    var ifIncorrect : (() -> Unit)? = null ,
     var index : Int? = null
 ) {
+
+    private var _ifIncorrect_ : (()->Unit)? = null
+
+    var ifIncorrect : () -> Unit
+        get() {
+            if ( _ifIncorrect_ == null ) throw Exception( "Null Access" )
+            return _ifIncorrect_!!
+        }
+        set(value) {
+            _ifIncorrect_ = value
+        }
+
     override fun toString(): String {
         return data.toString()
     }
@@ -125,7 +136,9 @@ fun <T> T.ifIncorrect( executionBlock : () -> Unit ) : ColoredOutput<*> {
         ifIncorrect = executionBlock
         return this
     }
-    return ColoredOutput( data = this , ifIncorrect = executionBlock )
+    return ColoredOutput( data = this ).apply {
+        ifIncorrect = executionBlock
+    }
 }
 
 fun <T,E> T.coloredOutput(
@@ -138,7 +151,7 @@ fun <T,E> T.coloredOutput(
         if (isEqual) "\u001b[32m"
         else "\u001b[31m" }$this\u001b[0m" )
     if ( this is ColoredOutput<*> ) {
-        if ( !isEqual ) ifIncorrect?.invoke()
+        if ( !isEqual ) ifIncorrect.invoke()
         if ( showDifference && !isEqual ) {
             val buffer = st.toString()
             st.clear()

@@ -32,6 +32,9 @@ fun main() : Unit = Solution().run {
                     )
                         .index
                         .showDifference()
+                        .ifIncorrect {
+                            println( "Failed At ${candies.toList()} $k" )
+                        }
                         .coloredOutput(expected as Int)
                         .also(::println)
                 }
