@@ -1,4 +1,3 @@
-import java.awt.Color
 import kotlin.math.min
 
 infix fun <E> List<E>.groupInto(n : Int ) : List<List<E>> = ArrayList<List<E>>() . apply {
@@ -109,11 +108,8 @@ data class ColoredOutput<T>(
 
     private var _ifIncorrect_ : (()->Unit)? = null
 
-    var ifIncorrect : () -> Unit
-        get() {
-            if ( _ifIncorrect_ == null ) throw Exception( "Null Access" )
-            return _ifIncorrect_!!
-        }
+    var ifIncorrect : (() -> Unit)?
+        get() = _ifIncorrect_
         set(value) {
             _ifIncorrect_ = value
         }
@@ -151,7 +147,7 @@ fun <T,E> T.coloredOutput(
         if (isEqual) "\u001b[32m"
         else "\u001b[31m" }$this\u001b[0m" )
     if ( this is ColoredOutput<*> ) {
-        if ( !isEqual ) ifIncorrect.invoke()
+        if ( !isEqual ) ifIncorrect?.invoke()
         if ( showDifference && !isEqual ) {
             val buffer = st.toString()
             st.clear()
