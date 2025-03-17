@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm") version "1.9.22"
+    kotlin("jvm") version "2.1.10"
 }
 
 group = "org.example"
@@ -25,6 +25,10 @@ dependencies {
 tasks.test {
     useJUnitPlatform()
 }
+
 kotlin {
     jvmToolchain(17)
+    compilerOptions {
+        freeCompilerArgs.add( "-Xcontext-receivers" )
+    }
 }

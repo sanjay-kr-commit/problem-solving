@@ -22,9 +22,11 @@ infix fun <E> List<List<E>>.appendResult( expected : List<E> ) : List<List<E>> =
     }
 }
 
-fun List<String>.argumentSignature(vararg serializerLambda : (String) -> Any ) : List<Any> = ArrayList<Any>() . apply {
-    for ( i in 0 until serializerLambda.size.coerceAtMost(this@argumentSignature.size)) {
-        add( serializerLambda[i]( this@argumentSignature[i] ) )
+fun List<List<String>>.argumentSignature( vararg serializerLambda : (String) -> Any ) : List<List<Any>> = map {
+    ArrayList<Any>() . apply {
+        for ( i in 0 until serializerLambda.size.coerceAtMost(it.size)) {
+            add( serializerLambda[i]( it[i] ) )
+        }
     }
 }
 
@@ -73,6 +75,27 @@ fun String.testcase() : List<String> = ArrayList<String>().apply {
     }
 }
 
+context(RecordState)
+inline fun <T> Iterable<T>.forEach( vararg executionOrder : Int, action: (T) -> Unit ) {
+
+    disableIndexing
+
+    var count = -1
+    executionOrder.forEach {
+        println( "\u001B[33mindex $it ran\u001B[0m" )
+        action(this.elementAt(it))
+    }
+    for (element in this) {
+        count++
+        if ( executionOrder.contains(count) ) continue
+        println( "\u001B[33mindex $count ran\u001B[0m" )
+        action(element)
+    }
+
+    enableIndexing
+
+}
+
 inline fun <T> Iterable<T>.forEach(vararg executionOrder : Int, action: (T) -> Unit): Unit {
     var count = -1
     executionOrder.forEach {
@@ -87,18 +110,26 @@ inline fun <T> Iterable<T>.forEach(vararg executionOrder : Int, action: (T) -> U
     }
 }
 
-data class Indexer(
+data class RecordState(
     private var index : Int = 0
 ) {
+
+    private var _isDisabled_ : Boolean = false
+
+    val disableIndexing : Unit
+        get() { _isDisabled_ = true }
+    val enableIndexing : Unit
+        get() { _isDisabled_ = false }
+
     val Any.index : Any
         get() =
-            if ( this is ColoredOutput<*> )
-                index = this@Indexer.index++
-            else ColoredOutput( this , index = this@Indexer.index++ )
+            if ( _isDisabled_ ) ColoredOutput( this  )
+            else if ( this is ColoredOutput<*> ) index = this@RecordState.index++
+            else ColoredOutput( this , index = this@RecordState.index++ )
 
 }
 
-fun indexer( indexerBlock : Indexer.() -> Unit ) : Unit = Indexer().indexerBlock()
+infix fun <T> T.recordState(recordStateBlock : context(T) RecordState.() -> Unit ) : Unit = recordStateBlock( this , RecordState() )
 
 data class ColoredOutput<T>(
     val data : T ,
