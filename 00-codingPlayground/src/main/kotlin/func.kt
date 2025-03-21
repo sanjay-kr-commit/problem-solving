@@ -22,7 +22,7 @@ infix fun <E> List<List<E>>.appendResult( expected : List<E> ) : List<List<E>> =
     }
 }
 
-fun List<List<String>>.argumentSignature( vararg serializerLambda : (String) -> Any ) : List<List<Any>> = map {
+fun List<List<String>>.argumentSignature( vararg serializerLambda : context(String) () -> Any ) : List<List<Any>> = map {
     ArrayList<Any>() . apply {
         for ( i in 0 until serializerLambda.size.coerceAtMost(it.size)) {
             add( serializerLambda[i]( it[i] ) )
@@ -39,14 +39,32 @@ fun long( received: String ) : Any = received.toLong()
 fun bool( received: String ) : Any = received.toBoolean()
 fun intArray( received: String ) : Any = received.substring( 1 , received.length-1 )
         .split(",")
+        .filter { it.isNotEmpty() && it.isNotBlank() }
         .map {
-            it.toInt()
+            it.trim().toInt()
         }.toIntArray()
+fun stringArray( received: String ) : Any = received.substring( 1 , received.length-1 )
+    .split( "," )
+    .map {
+        it.let {
+            it.substring( it.indexOf("\"")+1 )
+                .let {
+                    it.substring( 0 , it.lastIndexOf( "\"" ) )
+                }
+        }
+    }.toTypedArray()
 
-fun String.array( serializedType : (String) -> Any ) : Array<Any> = substring( 1 , length-1 ).let {
+fun String.serializeStringToArrayOf( serializedType : (String) -> Any ) : Array<Any> = substring( 1 , length-1 ).let {
+    val list = serializeStringToListOf(serializedType)
+    Array(list.size) {
+        list[it]
+    }
+}
+
+fun String.serializeStringToListOf(serializedType : (String) -> Any ) : List<Any> = substring( 1 , length-1 ).let {
     val arrayNesting = it.contains("]")
     var size : Int
-    val list = it.split(
+    it.split(
         if ( arrayNesting ) "]," else ","
     ).also { size = it.size-1 }
         .let {
@@ -57,15 +75,26 @@ fun String.array( serializedType : (String) -> Any ) : Array<Any> = substring( 1
                 serializedType(it)
             }
         }
-    Array(list.size) {
-        list[it]
-    }
+}
+
+fun listOfString( received: String ) : Any = ArrayList<String>().apply {
+    received.substring( 1 , received.length-1 )
+        .split( "," )
+        .map {
+            it.let {
+                it.substring( it.indexOf("\"")+1 )
+                    .let {
+                        it.substring( 0 , it.lastIndexOf( "\"" ) )
+                    }
+            }
+        }.toTypedArray()
 }
 
 fun longArray( received: String ) : Any = received.substring( 1 , received.length-1 )
     .split(",")
+    .filter { it.isNotEmpty() && it.isNotBlank() }
     .map {
-        it.toLong()
+        it.trim().toLong()
     }.toLongArray()
 
 
@@ -111,7 +140,9 @@ inline fun <T> Iterable<T>.forEach(vararg executionOrder : Int, action: (T) -> U
 }
 
 data class RecordState(
-    private var index : Int = 0
+    private var index : Int = 0 ,
+    private var failedCaseCount : Int = 0 ,
+    private var passedCaseCount : Int = 0
 ) {
 
     private var _isDisabled_ : Boolean = false
@@ -127,6 +158,22 @@ data class RecordState(
             else if ( this is ColoredOutput<*> ) index = this@RecordState.index++
             else ColoredOutput( this , index = this@RecordState.index++ )
 
+    val Any.recordStatus : Any
+        get() {
+            if ( this is ColoredOutput<*> ) {
+                testFailed = { failedCaseCount++ }
+                testPassed = { passedCaseCount++ }
+                return this
+            }
+            return ColoredOutput( this , testFailed = { failedCaseCount++ } , testPassed = { passedCaseCount++ })
+        }
+
+    val logReport : Unit
+        get() {
+            println( "\u001B[32mTest Passed : $passedCaseCount\u001B[0m\n\u001B[31mTest Failed : $failedCaseCount\u001B[0m" )
+        }
+
+
 }
 
 infix fun <T> T.recordState(recordStateBlock : context(T) RecordState.() -> Unit ) : Unit = recordStateBlock( this , RecordState() )
@@ -134,7 +181,9 @@ infix fun <T> T.recordState(recordStateBlock : context(T) RecordState.() -> Unit
 data class ColoredOutput<T>(
     val data : T ,
     var showDifference : Boolean = false ,
-    var index : Int? = null
+    var index : Int? = null ,
+    var testFailed : () -> Unit = {} ,
+    var testPassed : () -> Unit = {}
 ) {
 
     private var _ifIncorrect_ : (()->Unit)? = null
@@ -178,7 +227,10 @@ fun <T,E> T.coloredOutput(
         if (isEqual) "\u001b[32m"
         else "\u001b[31m" }$this\u001b[0m" )
     if ( this is ColoredOutput<*> ) {
-        if ( !isEqual ) ifIncorrect?.invoke()
+        if ( !isEqual ) {
+            testFailed()
+            ifIncorrect?.invoke()
+        } else testPassed()
         if ( showDifference && !isEqual ) {
             val buffer = st.toString()
             st.clear()
