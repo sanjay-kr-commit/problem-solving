@@ -84,10 +84,10 @@ fun listOfString( received: String ) : Any = ArrayList<String>().apply {
             it.let {
                 it.substring( it.indexOf("\"")+1 )
                     .let {
-                        it.substring( 0 , it.lastIndexOf( "\"" ) )
+                        add(it.substring( 0 , it.lastIndexOf( "\"" ) ))
                     }
             }
-        }.toTypedArray()
+        }
 }
 
 fun longArray( received: String ) : Any = received.substring( 1 , received.length-1 )
