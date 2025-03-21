@@ -1,34 +1,22 @@
 class Solution {
     public int trap(int[] height) {
-        int trappedWater = 0 , pointer = 0 ,
-                stackPointer = 0 ,
-                len = height.length ,
-                maxHeight = 0 ,
-                minHeight = 0 ;
-        int [] stack = new int[height.length];
-        while ( pointer < len ) {
-            if ( height[pointer] < maxHeight ) stack[stackPointer++] = height[pointer];
-            if ( height[pointer] > minHeight && height[pointer] <= maxHeight ) {
-                // level the cavities to the new max
-                for ( int i = 0 ; i < stackPointer ; i++ ) {
-                    if ( height[pointer] > stack[i] ) {
-                        trappedWater += height[pointer] - stack[i];
-                        stack[i] = height[pointer];
-                    }
-                }
-                minHeight = height[pointer];
+        int left = 0;
+        int right = height.length-1;
+        int total = 0;
+        int leftMax = 0;
+        int rightMax = 0;
+        while( left < right ){
+            if ( height[left] <= height[right] ) {
+                if ( leftMax > height[left] ) total += leftMax - height[left] ;
+                else leftMax = height[left];
+                left++;
+            } else {
+                if( rightMax > height[right] ) total += rightMax - height[right];
+                else rightMax = height[right];
+                right--;
             }
-            if ( height[pointer] > maxHeight ) {
-                while ( stackPointer > 0 ) {
-                    trappedWater += maxHeight - stack[--stackPointer] ;
-                }
-                stack[stackPointer++] = height[pointer];
-                maxHeight = height[pointer];
-                minHeight = height[pointer];
-            }
-            minHeight = Math.min(minHeight, height[pointer]);
-            pointer++ ;
         }
-        return trappedWater;
+        return total;
+
     }
 }
