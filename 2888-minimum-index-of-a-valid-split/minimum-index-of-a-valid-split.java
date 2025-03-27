@@ -1,17 +1,25 @@
-import java.util.HashMap;
 import java.util.List;
 
 class Solution {
     public int minimumIndex(List<Integer> nums) {
-        HashMap<Integer,Integer> map = new HashMap<>();
-        HashMap<Integer,Integer> map2 = new HashMap<>();
-        for ( int i = 0 ; i < nums.size() ; i++ ) {
-            map.put( nums.get(i), map.getOrDefault(nums.get(i), 0) + 1 );
+        int n = nums.size();
+        int dominant = -1;
+        int cnt = 0;
+        for ( Integer num : nums ) {
+            if ( cnt == 0 ) {
+                dominant = num;
+                cnt++;
+            } else if ( num == dominant ) cnt++;
+            else cnt--;
         }
-        for ( int i = 0 ; i < nums.size() ; i++ ) {
-            map2.put( nums.get(i), map2.getOrDefault(nums.get(i), 0) + 1 );
-            map.put( nums.get(i) , map.getOrDefault(nums.get(i), 0) - 1 );
-            if (map2.get(nums.get(i))*2 > (i+1) && map.get(nums.get(i))*2 > (nums.size()-i-1)) return i;
+        int maxC = 0;
+        for ( int i = 0 ; i < n ; i++ ) {
+            if( nums.get(i) == dominant ) maxC++;
+        }
+        int c = 0;
+        for( int i = 0 ; i < n ; i++ ) {
+            if( nums.get(i) == dominant ) c++;
+            if( c * 2 > ( i+1 ) && ( maxC-c ) * 2 > ( n-i-1 ) ) return i;
         }
         return -1;
     }
