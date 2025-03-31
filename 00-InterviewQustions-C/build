@@ -1,0 +1,237 @@
+#!/bin/env bash
+
+# configurable variables
+executableFile=executable
+buildDirectory=buildDirectory
+src=src
+
+# polymorphic functions
+assemble() {
+  log "-> assembling"
+  if [[ ! -d $buildDirectory ]]; then
+    log "-> create build dir"
+    mkdir $buildDirectory
+  fi
+  sourceFile=""
+  for i in $(ls src); do
+    if [[ $i =~ $".c" ]]; then
+      sourceFile="$sourceFile src/$i"
+    fi
+  done
+  # compile object files if changes detected
+  gcc -S $sourceFile -o "$buildDirectory/$executableFile.s"
+}
+
+logAssembled() {
+  if [[ ! -f "$buildDirectory/$executableFile.s" ]]; then
+    assemble
+  fi
+  cat "$buildDirectory/$executableFile.s" | less
+}
+
+#private
+containsMainFunction() {
+  if [[ "$(cat $1 | grep -o "int *main(.*)")" != "" ]]; then
+    echo "main"
+  else
+    echo "normal"
+  fi
+}
+
+# polymorphic functions
+compile() {
+  if [[ ! -d $buildDirectory ]]; then
+    log "-> create build dir"
+    mkdir $buildDirectory
+  fi
+  objectFileList=""
+  changesDetected=""
+  mainfilelist=""
+  # compile object files if changes detected
+  log "-> compiling object files"
+  for file in $(ls $src); do
+    if [[ "$file" =~ $".c" ]]; then
+      if [[ ! -f "$buildDirectory/$file.hash" ]] || [[ "$(cat "$buildDirectory/$file.hash")" != "$(sha512sum "$src/$file")" ]]; then
+        log "-> Generating Object file : $file.o"
+        log "-> gcc -c $src/$file -o $buildDirectory/$file.o"
+        output=$(gcc -c $src/$file -o $buildDirectory/$file.o 2>&1 1>/dev/tty >/dev/null)
+        if [[ $(echo $output | grep "error") == "" ]]; then
+          log "-> Generating Hash"
+          sha512sum "$src/$file" >"$buildDirectory/$file.hash"
+        else
+          logError $output
+          logError "-> Object Generation Failed : $file.o"
+          exit -1
+        fi
+        changesDetected="true"
+      else
+        log "-> No Changes Detected Skipping Object File Generation : $file"
+      fi
+      if [[ "$(containsMainFunction "$src/$file")" == "main" ]]; then
+        mainfilelist="$mainfilelist $buildDirectory/$file.o"
+      else
+        objectFileList="$objectFileList $buildDirectory/$file.o"
+      fi
+    fi
+  done
+  mainfilelist=($mainfilelist)
+  mainfilenamesupplied=("$(echo "$@" | grep -o "\-mf *src/[a-zA-Z0-9_]*\.c" | sed 's/\-mf *//g' | sed 'N; s/\n/ /g' | sed "s/$src/$buildDirectory/g")")
+  mainfilenamesuppliedCount="$(echo ${mainfilenamesupplied[@]} | wc -w)"
+  if [[ $mainfilenamesuppliedCount != "0" ]]; then
+    case $mainfilenamesuppliedCount in
+    "1")
+      if [[ "${mainfilelist[@]}" =~ "${mainfilenamesupplied[0]}.o" ]]; then
+        objectFileList="$objectFileList ${mainfilenamesupplied[0]}.o"
+      else
+        logError "-> supplied -mf file \"$(echo "${mainfilenamesupplied[0]}" | sed "s/$buildDirectory/$src/g")\" not found"
+        exit -1
+      fi
+      ;;
+    *)
+      logError "-> -mf argument should be passed only once"
+      exit -1
+      ;;
+    esac
+  else
+    case "${#mainfilelist[@]}" in
+    "0")
+      logError "-> no file containing main function found"
+      exit -1
+      ;;
+    "1")
+      objectFileList="$objectFileList ${mainfilelist[0]}"
+      ;;
+    *)
+      log "-> Manual Intervention Required"
+      log "-> More than one file containing main function found"
+      log "-> $(echo "${mainfilelist[@]}" | sed 's/ \([a-zA-Z0-9]\)/ \"\1/g' | sed 's/\([a-zA-Z0-9]\) /\1\" /g' | sed 's/\(^[a-zA-Z0-9]\)/\"\1/g' | sed 's/\([a-zA-Z0-9]$\)/\1\"/g')"
+      log "-> Enter index : \c"
+      read index
+      if [[ $index -lt 0 ]]; then
+        logError "-> Index Underflowed for \"$index\""
+        exit -1
+      fi
+      len="$(echo ${mainfilelist[@]} | wc -w)"
+      if [[ $index -gt $len ]] || [[ $index == $len ]]; then
+        logError "-> Index Overflowed for \"$index\""
+        exit -1
+      fi
+      objectFileList="$objectFileList ${mainfilelist[$index]}"
+      ;;
+    esac
+  fi
+  if [[ "$changesDetected" == "true" ]]; then
+    log "-> compiling executable : linking files"
+    linkingCommand="gcc $objectFileList -o $buildDirectory/$executableFile"
+    log "-> running : $linkingCommand"
+    output=$($linkingCommand 2>&1 1>/dev/tty >/dev/null)
+    if [[ $(echo $output | grep "error") != "" ]]; then
+      logError $output
+      logError "-> linking failed : $file.o"
+      exit -1
+    fi
+  else
+    log "-> No Changes detect linking skipped"
+  fi
+  log "-> compilation complete"
+}
+
+run() {
+  changesDetected=""
+  for file in $(ls $src); do
+    if [[ ! -f "$buildDirectory/$file.hash" ]] || [[ "$(cat "$buildDirectory/$file.hash")" != "$(sha512sum "$src/$file")" ]]; then
+      changesDetected="true"
+    fi
+  done
+  if [[ ! -f "$buildDirectory/$executableFile" ]] || [[ changesDetected == "true" ]]; then
+    compile
+  fi
+  log "-> running"
+  $buildDirectory/$executableFile $@
+}
+
+clean() {
+  log "-> cleaning"
+  if [[ -d $buildDirectory ]]; then
+    rm -r $buildDirectory
+  fi
+}
+
+# Code Below is responsible for generating and cleaning symlink as well as making the function callable ################
+########################################################################################################################
+
+# non configurable variables
+absoluteFilePath="$(realpath $0)"
+absoluteFileName="$(echo $absoluteFilePath | rev | grep -o "[^/]*" | head -1 | rev)"
+symlinkFileName="$(echo $0 | rev | grep -o "[^/]*" | head -1 | rev)"
+scriptDirectory="$(realpath build | rev | grep -o "/.*" | rev)"
+symlinkFilePath="$scriptDirectory$symlinkFileName"
+# grep all the function present inside the script
+# that strictly follows variable names
+functionNames=($(cat $absoluteFileName | pcregrep -o -M '#*.*\n[a-zA-Z0-9][a-zA-Z0-9]*[(]' | sed 'N;s/#.*private\n.*//g' | sed 's/(//g' | grep -o "^[a-zA-Z0-9].*"))
+# move to script directory
+cd $scriptDirectory
+
+#private
+log() {
+  echo -e "\033[33m$@\033[0m"
+}
+
+#private
+logError() {
+  echo -e "\e[31m$@\e[0m"
+}
+
+refreshSymlink() {
+  ./$absoluteFileName
+}
+
+deleteSymlink() {
+  for file in $(ls); do
+    if [[ -f $file ]] && [[ $file != $absoluteFileName ]] && [[ "$(realpath $file | rev | grep -o "[^/]*" | head -1 | rev)" == $absoluteFileName ]]; then
+      log "-> rm $file -> $(realpath $file)"
+      rm $file
+    fi
+  done
+}
+
+#private
+removeSymlinks() {
+  for file in $(ls); do
+    if [[ -f $file ]] && [[ $file != $absoluteFileName ]] && [[ "$(realpath $file | rev | grep -o "[^/]*" | head -1 | rev)" == $absoluteFileName ]] && [[ ! ${functionNames[*]} =~ "$file" ]]; then
+      log "-> rm $file -> $(realpath $file)"
+      rm $file
+    fi
+  done
+}
+
+#private
+addSymlinks() {
+  for function in ${functionNames[@]}; do
+    if [[ ! -f $function ]] && [[ $function != "" ]]; then
+      log "-> creating symlink : \"$function\" -> $absoluteFileName"
+      ln -s $absoluteFilePath "$scriptDirectory$function"
+      chmod +x "$scriptDirectory$function"
+    fi
+  done
+}
+
+if [[ $symlinkFilePath == $absoluteFilePath ]]; then
+  # remove deleted function symlinks
+  removeSymlinks
+  # create new symlinks
+  addSymlinks
+  log "-> these function are callable : ${functionNames[@]}"
+  exit
+fi
+
+# this code should be at the bottom of the file
+if [[ $symlinkFilePath != $absoluteFilePath ]]; then
+  if [[ ! "${functionNames[*]}" =~ $symlinkFileName ]]; then
+    log "-> function not found : $symlinkFileName"
+    log "-> cleaning Symlink"
+    rm $symlinkFilePath
+  else
+    $symlinkFileName $@
+  fi
+fi
