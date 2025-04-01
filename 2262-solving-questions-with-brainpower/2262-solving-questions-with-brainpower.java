@@ -1,18 +1,16 @@
 class Solution {
     public long mostPoints(int[][] questions) {
-        long[] cache = new long[questions.length] ;
-        for ( int i = 0 ; i < questions.length ; i++ ) cache[i] = -1 ;
-        return ans( 0 , 0 , questions , cache  );
-    }
+        int n = questions.length;
+        long[] dp = new long[n];
+        dp[n - 1] = questions[n - 1][0];
+        for (int i = n - 2 ; i >= 0 ; i--) {
+            long take = questions[i][0];
+            int newIndex = i + questions[i][1] + 1;
+            take += (newIndex < n) ? dp[newIndex] : 0;
+            long notTake = dp[i + 1];
+            dp[i] = Math.max(take, notTake);
+        }
 
-    long ans( int index , long sum , int [][] questions , long[] cache ) {
-        if ( index >= questions.length ) return sum ;
-        if ( cache[index] != -1 ) return cache[index] ;
-        cache[index] = Math.max(
-            questions[index][0] + ans( index+questions[index][1]+1 , sum , questions , cache ) ,
-                ans( index+1 , sum , questions , cache )
-        );
-        return cache[index] ;
+        return dp[0];
     }
-
 }
