@@ -15,6 +15,7 @@ Like leet code or geekforgeeks
 | [0238-product-of-array-except-self](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0238-product-of-array-except-self) |
 | [0747-min-cost-climbing-stairs](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0747-min-cost-climbing-stairs) |
 | [2262-solving-questions-with-brainpower](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2262-solving-questions-with-brainpower) |
+| [3154-maximum-value-of-an-ordered-triplet-i](https://github.com/sanjay-kr-commit/problem-solving/tree/master/3154-maximum-value-of-an-ordered-triplet-i) |
 ## Dynamic Programming
 |  |
 | ------- |
