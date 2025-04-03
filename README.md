@@ -14,6 +14,7 @@ Like leet code or geekforgeeks
 | [0033-search-in-rotated-sorted-array](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0033-search-in-rotated-sorted-array) |
 | [0121-best-time-to-buy-and-sell-stock](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0121-best-time-to-buy-and-sell-stock) |
 | [0238-product-of-array-except-self](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0238-product-of-array-except-self) |
+| [0268-missing-number](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0268-missing-number) |
 | [0747-min-cost-climbing-stairs](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0747-min-cost-climbing-stairs) |
 | [2262-solving-questions-with-brainpower](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2262-solving-questions-with-brainpower) |
 | [3152-maximum-value-of-an-ordered-triplet-ii](https://github.com/sanjay-kr-commit/problem-solving/tree/master/3152-maximum-value-of-an-ordered-triplet-ii) |
@@ -42,6 +43,7 @@ Like leet code or geekforgeeks
 |  |
 | ------- |
 | [0033-search-in-rotated-sorted-array](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0033-search-in-rotated-sorted-array) |
+| [0268-missing-number](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0268-missing-number) |
 ## Prefix Sum
 |  |
 | ------- |
@@ -50,6 +52,7 @@ Like leet code or geekforgeeks
 |  |
 | ------- |
 | [0141-linked-list-cycle](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0141-linked-list-cycle) |
+| [0268-missing-number](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0268-missing-number) |
 ## Linked List
 |  |
 | ------- |
@@ -57,5 +60,14 @@ Like leet code or geekforgeeks
 ## Bit Manipulation
 |  |
 | ------- |
+| [0268-missing-number](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0268-missing-number) |
 | [0338-counting-bits](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0338-counting-bits) |
+## Math
+|  |
+| ------- |
+| [0268-missing-number](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0268-missing-number) |
+## Sorting
+|  |
+| ------- |
+| [0268-missing-number](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0268-missing-number) |
 <!---LeetCode Topics End-->
