@@ -35,6 +35,7 @@ Like leet code or geekforgeeks
 |  |
 | ------- |
 | [0125-valid-palindrome](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0125-valid-palindrome) |
+| [0141-linked-list-cycle](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0141-linked-list-cycle) |
 | [0392-is-subsequence](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0392-is-subsequence) |
 ## Binary Search
 |  |
@@ -44,4 +45,12 @@ Like leet code or geekforgeeks
 |  |
 | ------- |
 | [0238-product-of-array-except-self](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0238-product-of-array-except-self) |
+## Hash Table
+|  |
+| ------- |
+| [0141-linked-list-cycle](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0141-linked-list-cycle) |
+## Linked List
+|  |
+| ------- |
+| [0141-linked-list-cycle](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0141-linked-list-cycle) |
 <!---LeetCode Topics End-->
