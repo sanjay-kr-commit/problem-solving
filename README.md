@@ -54,6 +54,7 @@ Like leet code or geekforgeeks
 | ------- |
 | [0141-linked-list-cycle](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0141-linked-list-cycle) |
 | [0268-missing-number](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0268-missing-number) |
+| [1218-lowest-common-ancestor-of-deepest-leaves](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1218-lowest-common-ancestor-of-deepest-leaves) |
 ## Linked List
 |  |
 | ------- |
@@ -72,4 +73,20 @@ Like leet code or geekforgeeks
 |  |
 | ------- |
 | [0268-missing-number](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0268-missing-number) |
+## Tree
+|  |
+| ------- |
+| [1218-lowest-common-ancestor-of-deepest-leaves](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1218-lowest-common-ancestor-of-deepest-leaves) |
+## Depth-First Search
+|  |
+| ------- |
+| [1218-lowest-common-ancestor-of-deepest-leaves](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1218-lowest-common-ancestor-of-deepest-leaves) |
+## Breadth-First Search
+|  |
+| ------- |
+| [1218-lowest-common-ancestor-of-deepest-leaves](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1218-lowest-common-ancestor-of-deepest-leaves) |
+## Binary Tree
+|  |
+| ------- |
+| [1218-lowest-common-ancestor-of-deepest-leaves](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1218-lowest-common-ancestor-of-deepest-leaves) |
 <!---LeetCode Topics End-->
