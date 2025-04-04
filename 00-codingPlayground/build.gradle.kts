@@ -1,5 +1,6 @@
 plugins {
     kotlin("jvm") version "2.1.10"
+    application
 }
 
 group = "org.example"
@@ -16,10 +17,7 @@ dependencies {
     // https://mvnrepository.com/artifact/com.squareup.okhttp/okhttp
     implementation("com.squareup.okhttp:okhttp:2.7.5")
     // https://mvnrepository.com/artifact/khttp/khttp
-   // runtimeOnly("khttp:khttp:1.0.0")
-
-
-
+    // runtimeOnly("khttp:khttp:1.0.0")
 }
 
 tasks.test {
@@ -29,6 +27,11 @@ tasks.test {
 kotlin {
     jvmToolchain(17)
     compilerOptions {
-        freeCompilerArgs.add( "-Xcontext-receivers" )
+        freeCompilerArgs.add("-Xcontext-receivers")
     }
 }
+
+application {
+    mainClass = "MainKt"
+}
+

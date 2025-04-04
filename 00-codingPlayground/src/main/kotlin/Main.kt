@@ -1,42 +1,28 @@
-fun main() : Unit = Solution().run {
+fun main() {
 
     """
-        ["bread"]
-        [["yeast","flour"]]
-        ["yeast","flour","corn"]
-        ["bread","sandwich"]
-        [["yeast","flour"],["bread","meat"]]
-        ["yeast","flour","meat"]
-        ["bread","sandwich","burger"]
-        [["yeast","flour"],["bread","meat"],["sandwich","meat","bread"]]
-        ["yeast","flour","meat"]
+        [7,1,7,2,2,4]
+        [1,3,7]
     """.trimIndent()
-        .split("\n")
-        .groupInto(3)
-//        .appendResult(
-//        )
-        .argumentSignature(
-            ::stringArray ,
-            {
-                serializeStringToListOf(::listOfString)
-            },
-            ::stringArray
-        ) recordState {
-            forEach (
-                2
-            ) { (r,i,s) ->
-                findAllRecipes(
-                    r as Array<String> ,
-                    i as List<List<String>> ,
-                    s as Array<String>
-
-                )
-//                    .index
-//                    .showDifference()
-//                    .recordStatus
-//                    .coloredOutput( expected as Int )
-                    .also(::println)
+        .split( "\n" )
+        .groupInto(1)
+        .appendResult( "8" , "7" )
+        .recordState {
+            forEach {
+                it.solution(
+                    "largestRectangleArea",
+                    IntArray::class.java to ::intArray,
+                ) {
+                    timeTaken {
+                        it()
+                    }
+                }
+                    .index
+                    .showDifference()
+                    .coloredOutput(int(it.last()))
+//                    .also(::println)
             }
             logReport
         }
+
 }

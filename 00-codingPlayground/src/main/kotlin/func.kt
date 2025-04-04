@@ -13,12 +13,54 @@ infix fun <E> List<E>.groupInto(n : Int ) : List<List<E>> = ArrayList<List<E>>()
 }
 
 fun <E> List<List<E>>.appendResult( vararg expected : E ) : List<List<E>> = appendResult( expected.toList() )
+inline fun <reified E> List<List<E>>.appendDefault(default : E, vararg expected : E ) : List<List<E>> =
+    appendResult(*Array( size ) {
+        if ( it < expected.size ) expected[it]
+        else default
+    })
 
 infix fun <E> List<List<E>>.appendResult( expected : List<E> ) : List<List<E>> = ArrayList<List<E>>() . apply {
     for ( i in 0 until min( this@appendResult.size , expected.size ) ) {
         val toAdd : ArrayList<E> = this@appendResult[i] as ArrayList
         toAdd.add( expected[i] )
         add( toAdd )
+    }
+}
+
+fun List<String>.solution(
+    functionName : String , vararg array: Pair<Class<*> , (String) -> Any> ,
+    lambda : ( () -> Unit ) -> Unit = {
+        it()
+    }
+) : Any {
+    try {
+        val clazz = Class.forName("Solution")
+        try {
+            val instance = clazz.getDeclaredConstructor().newInstance()
+            try {
+                val signature = Array( array.size ) { array[it].first }
+                val values = Array( array.size ) { array[it].second(this@solution[it]) }
+                val method = clazz.getMethod( functionName , *signature )
+                var res : Any = -1
+                var functionCalled = false
+                lambda {
+                    functionCalled = true
+                    res = method.invoke( instance , *values )
+                }
+                if ( !functionCalled )
+                    throw Exception( "Provided Lambda Must Be Called if default lambda is changed" )
+                return res
+            } catch ( e : Exception ) {
+                println( "Error Calling function" )
+                throw e
+            }
+        } catch ( e : Exception ) {
+            println( "Error Creating instance of ${clazz.simpleName}" )
+            throw e
+        }
+    } catch ( e : Exception ) {
+        println( "Error Loading Class" )
+        throw e
     }
 }
 
@@ -34,6 +76,7 @@ fun ignore(received : Any ) : Any = received
 fun unquote(received: String) : Any = received.let {
     it.substring( 1 , it.length-1)
 }
+fun listNode( received : String ) : Any = (intArray(received) as IntArray).asList as Any
 fun int( received: String ) : Any = received.toInt()
 fun long( received: String ) : Any = received.toLong()
 fun bool( received: String ) : Any = received.toBoolean()
@@ -80,6 +123,9 @@ fun String.serializeStringToListOf(serializedType : (String) -> Any ) : List<Any
 fun listOfString( received: String ) : Any = ArrayList<String>().apply {
     received.substring( 1 , received.length-1 )
         .split( "," )
+        .filter {
+            it.trim().isNotEmpty() || it.trim().isNotEmpty()
+        }
         .map {
             it.let {
                 it.substring( it.indexOf("\"")+1 )
@@ -248,13 +294,18 @@ fun <T,E> T.coloredOutput(
     return st.toString()
 }
 
-fun <R> timeTaken(observableScope : () -> R ) : R {
+data class TimeTaken( var timeToSubtract : Long = 0 )
+fun <R> Any.timeTaken( silent : Boolean = false , subtractFromParent : Boolean = false , observableScope : TimeTaken.() -> R ) : R {
+    val absoluteStartTime = System.currentTimeMillis()
+    val obj = TimeTaken()
     val startTime = System.currentTimeMillis()
-    val returnedObj : R = observableScope.invoke()
+    val returnedObj : R = observableScope.invoke(obj)
     val endTime = System.currentTimeMillis()
-    println( "Time Taken : ${endTime-startTime} millisecond" )
+    if ( this is TimeTaken ) timeToSubtract += endTime-absoluteStartTime
+    if ( !silent ) println( "Time Taken : ${endTime-startTime-obj.timeToSubtract} millisecond" )
     return returnedObj
 }
+fun <R> TimeTaken.isolatedTimeTaken( silent: Boolean = true , observableScope: TimeTaken.() -> R ) : R = timeTaken(silent , true,observableScope)
 
 infix fun <R> R.capture(observableScope : (R ) -> Unit ) : Unit = observableScope.invoke(this)
 
