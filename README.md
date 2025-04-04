@@ -59,6 +59,7 @@ Like leet code or geekforgeeks
 ## Linked List
 |  |
 | ------- |
+| [0114-flatten-binary-tree-to-linked-list](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0114-flatten-binary-tree-to-linked-list) |
 | [0141-linked-list-cycle](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0141-linked-list-cycle) |
 | [0766-flatten-a-multilevel-doubly-linked-list](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0766-flatten-a-multilevel-doubly-linked-list) |
 ## Bit Manipulation
@@ -79,10 +80,12 @@ Like leet code or geekforgeeks
 ## Tree
 |  |
 | ------- |
+| [0114-flatten-binary-tree-to-linked-list](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0114-flatten-binary-tree-to-linked-list) |
 | [1218-lowest-common-ancestor-of-deepest-leaves](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1218-lowest-common-ancestor-of-deepest-leaves) |
 ## Depth-First Search
 |  |
 | ------- |
+| [0114-flatten-binary-tree-to-linked-list](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0114-flatten-binary-tree-to-linked-list) |
 | [0766-flatten-a-multilevel-doubly-linked-list](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0766-flatten-a-multilevel-doubly-linked-list) |
 | [1218-lowest-common-ancestor-of-deepest-leaves](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1218-lowest-common-ancestor-of-deepest-leaves) |
 ## Breadth-First Search
@@ -92,10 +95,12 @@ Like leet code or geekforgeeks
 ## Binary Tree
 |  |
 | ------- |
+| [0114-flatten-binary-tree-to-linked-list](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0114-flatten-binary-tree-to-linked-list) |
 | [1218-lowest-common-ancestor-of-deepest-leaves](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1218-lowest-common-ancestor-of-deepest-leaves) |
 ## Stack
 |  |
 | ------- |
+| [0114-flatten-binary-tree-to-linked-list](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0114-flatten-binary-tree-to-linked-list) |
 | [0883-car-fleet](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0883-car-fleet) |
 ## Monotonic Stack
 |  |
