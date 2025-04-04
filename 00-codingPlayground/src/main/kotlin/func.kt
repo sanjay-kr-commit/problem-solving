@@ -294,6 +294,14 @@ fun <T,E> T.coloredOutput(
     return st.toString()
 }
 
+infix fun String.onFailed( block : (Any)->Unit ) : String = also {
+    if (split("\n").any { it.startsWith("\u001B[31m") }) block(this) else Unit
+}
+
+infix fun String.onPassed( block : (Any)->Unit ) : String = also {
+    if (!split("\n").any { it.startsWith("\u001B[31m") }) block(this) else Unit
+}
+
 data class TimeTaken( var timeToSubtract : Long = 0 )
 fun <R> Any.timeTaken( silent : Boolean = false , subtractFromParent : Boolean = false , observableScope : TimeTaken.() -> R ) : R {
     val absoluteStartTime = System.currentTimeMillis()
