@@ -16,6 +16,7 @@ Like leet code or geekforgeeks
 | [0121-best-time-to-buy-and-sell-stock](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0121-best-time-to-buy-and-sell-stock) |
 | [0238-product-of-array-except-self](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0238-product-of-array-except-self) |
 | [0268-missing-number](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0268-missing-number) |
+| [0287-find-the-duplicate-number](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0287-find-the-duplicate-number) |
 | [0747-min-cost-climbing-stairs](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0747-min-cost-climbing-stairs) |
 | [0883-car-fleet](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0883-car-fleet) |
 | [1993-sum-of-all-subset-xor-totals](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1993-sum-of-all-subset-xor-totals) |
@@ -43,12 +44,14 @@ Like leet code or geekforgeeks
 | [0125-valid-palindrome](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0125-valid-palindrome) |
 | [0141-linked-list-cycle](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0141-linked-list-cycle) |
 | [0143-reorder-list](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0143-reorder-list) |
+| [0287-find-the-duplicate-number](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0287-find-the-duplicate-number) |
 | [0392-is-subsequence](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0392-is-subsequence) |
 ## Binary Search
 |  |
 | ------- |
 | [0033-search-in-rotated-sorted-array](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0033-search-in-rotated-sorted-array) |
 | [0268-missing-number](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0268-missing-number) |
+| [0287-find-the-duplicate-number](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0287-find-the-duplicate-number) |
 ## Prefix Sum
 |  |
 | ------- |
@@ -74,6 +77,7 @@ Like leet code or geekforgeeks
 |  |
 | ------- |
 | [0268-missing-number](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0268-missing-number) |
+| [0287-find-the-duplicate-number](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0287-find-the-duplicate-number) |
 | [0338-counting-bits](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0338-counting-bits) |
 | [1993-sum-of-all-subset-xor-totals](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1993-sum-of-all-subset-xor-totals) |
 ## Math
