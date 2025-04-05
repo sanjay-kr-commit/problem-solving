@@ -61,6 +61,7 @@ Like leet code or geekforgeeks
 | ------- |
 | [0138-copy-list-with-random-pointer](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0138-copy-list-with-random-pointer) |
 | [0141-linked-list-cycle](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0141-linked-list-cycle) |
+| [0146-lru-cache](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0146-lru-cache) |
 | [0268-missing-number](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0268-missing-number) |
 | [1218-lowest-common-ancestor-of-deepest-leaves](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1218-lowest-common-ancestor-of-deepest-leaves) |
 ## Linked List
@@ -72,6 +73,7 @@ Like leet code or geekforgeeks
 | [0138-copy-list-with-random-pointer](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0138-copy-list-with-random-pointer) |
 | [0141-linked-list-cycle](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0141-linked-list-cycle) |
 | [0143-reorder-list](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0143-reorder-list) |
+| [0146-lru-cache](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0146-lru-cache) |
 | [0766-flatten-a-multilevel-doubly-linked-list](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0766-flatten-a-multilevel-doubly-linked-list) |
 ## Bit Manipulation
 |  |
@@ -125,6 +127,7 @@ Like leet code or geekforgeeks
 ## Doubly-Linked List
 |  |
 | ------- |
+| [0146-lru-cache](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0146-lru-cache) |
 | [0766-flatten-a-multilevel-doubly-linked-list](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0766-flatten-a-multilevel-doubly-linked-list) |
 ## Recursion
 |  |
@@ -143,4 +146,8 @@ Like leet code or geekforgeeks
 |  |
 | ------- |
 | [1993-sum-of-all-subset-xor-totals](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1993-sum-of-all-subset-xor-totals) |
+## Design
+|  |
+| ------- |
+| [0146-lru-cache](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0146-lru-cache) |
 <!---LeetCode Topics End-->
