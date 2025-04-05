@@ -1,37 +1,31 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 class TimeMap {
-
-    class Data {
-        String val;
-        int time;
-        Data(String val, int time) {
-            this.val = val;
-            this.time = time;
-        }
-    }
+    Node head = new Node();
     
-    Map<String, List<Data>> map = new HashMap<>();
-
     public void set(String key, String value, int timestamp) {
-        map.computeIfAbsent(key, k -> new ArrayList<Data>()).add(new Data(value, timestamp));
+        head = new Node(key, value, timestamp, head);
     }
 
     public String get(String key, int timestamp) {
-        if (!map.containsKey(key)) return "";
-        return binarySearch(map.get(key), timestamp);
+        return dfs(key, timestamp, head);
     }
 
-    private String binarySearch(List<Data> list, int time) {
-        int left = 0, right = list.size() - 1;
-        while (left < right) {
-            int mid = (left + right + 1) >>> 1;
-            if (time < list.get(mid).time) right = mid - 1;
-            else left = mid;
+    private String dfs(String key, int timestamp, Node node) {
+        if(node == null) return "";
+        if(key.equals(node.key) && timestamp >= node.timestamp) return node.value;
+        return dfs(key, timestamp, node.prev);
+    }
+
+    static class Node {
+        String key, value;
+        int timestamp;
+        Node prev;
+
+        Node(){}
+        Node(String _key, String _value, int _timestamp, Node _prev) {
+            key = _key;
+            value = _value;
+            timestamp = _timestamp;
+            prev = _prev;
         }
-        return list.get(left).time <= time ? list.get(left).val : "";
     }
 }
