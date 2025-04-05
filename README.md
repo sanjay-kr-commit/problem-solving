@@ -15,6 +15,7 @@ Like leet code or geekforgeeks
 | [0066-plus-one](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0066-plus-one) |
 | [0074-search-a-2d-matrix](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0074-search-a-2d-matrix) |
 | [0121-best-time-to-buy-and-sell-stock](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0121-best-time-to-buy-and-sell-stock) |
+| [0153-find-minimum-in-rotated-sorted-array](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0153-find-minimum-in-rotated-sorted-array) |
 | [0238-product-of-array-except-self](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0238-product-of-array-except-self) |
 | [0268-missing-number](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0268-missing-number) |
 | [0287-find-the-duplicate-number](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0287-find-the-duplicate-number) |
@@ -52,6 +53,7 @@ Like leet code or geekforgeeks
 | ------- |
 | [0033-search-in-rotated-sorted-array](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0033-search-in-rotated-sorted-array) |
 | [0074-search-a-2d-matrix](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0074-search-a-2d-matrix) |
+| [0153-find-minimum-in-rotated-sorted-array](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0153-find-minimum-in-rotated-sorted-array) |
 | [0268-missing-number](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0268-missing-number) |
 | [0287-find-the-duplicate-number](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0287-find-the-duplicate-number) |
 ## Prefix Sum
