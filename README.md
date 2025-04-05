@@ -39,6 +39,7 @@ Like leet code or geekforgeeks
 ## Two Pointers
 |  |
 | ------- |
+| [0019-remove-nth-node-from-end-of-list](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0019-remove-nth-node-from-end-of-list) |
 | [0125-valid-palindrome](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0125-valid-palindrome) |
 | [0141-linked-list-cycle](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0141-linked-list-cycle) |
 | [0143-reorder-list](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0143-reorder-list) |
@@ -61,6 +62,7 @@ Like leet code or geekforgeeks
 ## Linked List
 |  |
 | ------- |
+| [0019-remove-nth-node-from-end-of-list](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0019-remove-nth-node-from-end-of-list) |
 | [0114-flatten-binary-tree-to-linked-list](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0114-flatten-binary-tree-to-linked-list) |
 | [0141-linked-list-cycle](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0141-linked-list-cycle) |
 | [0143-reorder-list](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0143-reorder-list) |
