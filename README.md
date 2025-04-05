@@ -63,6 +63,7 @@ Like leet code or geekforgeeks
 ## Linked List
 |  |
 | ------- |
+| [0002-add-two-numbers](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0002-add-two-numbers) |
 | [0019-remove-nth-node-from-end-of-list](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0019-remove-nth-node-from-end-of-list) |
 | [0114-flatten-binary-tree-to-linked-list](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0114-flatten-binary-tree-to-linked-list) |
 | [0138-copy-list-with-random-pointer](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0138-copy-list-with-random-pointer) |
@@ -78,6 +79,7 @@ Like leet code or geekforgeeks
 ## Math
 |  |
 | ------- |
+| [0002-add-two-numbers](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0002-add-two-numbers) |
 | [0066-plus-one](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0066-plus-one) |
 | [0268-missing-number](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0268-missing-number) |
 | [1993-sum-of-all-subset-xor-totals](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1993-sum-of-all-subset-xor-totals) |
@@ -123,6 +125,7 @@ Like leet code or geekforgeeks
 ## Recursion
 |  |
 | ------- |
+| [0002-add-two-numbers](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0002-add-two-numbers) |
 | [0143-reorder-list](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0143-reorder-list) |
 ## Backtracking
 |  |
