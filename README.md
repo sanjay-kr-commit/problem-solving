@@ -56,6 +56,7 @@ Like leet code or geekforgeeks
 ## Hash Table
 |  |
 | ------- |
+| [0138-copy-list-with-random-pointer](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0138-copy-list-with-random-pointer) |
 | [0141-linked-list-cycle](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0141-linked-list-cycle) |
 | [0268-missing-number](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0268-missing-number) |
 | [1218-lowest-common-ancestor-of-deepest-leaves](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1218-lowest-common-ancestor-of-deepest-leaves) |
@@ -64,6 +65,7 @@ Like leet code or geekforgeeks
 | ------- |
 | [0019-remove-nth-node-from-end-of-list](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0019-remove-nth-node-from-end-of-list) |
 | [0114-flatten-binary-tree-to-linked-list](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0114-flatten-binary-tree-to-linked-list) |
+| [0138-copy-list-with-random-pointer](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0138-copy-list-with-random-pointer) |
 | [0141-linked-list-cycle](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0141-linked-list-cycle) |
 | [0143-reorder-list](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0143-reorder-list) |
 | [0766-flatten-a-multilevel-doubly-linked-list](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0766-flatten-a-multilevel-doubly-linked-list) |
