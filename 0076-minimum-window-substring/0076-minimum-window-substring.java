@@ -8,8 +8,9 @@ class Solution {
             map[s.charAt(r++)]++;
             if ( !contains(map,mapT) ) continue;
             while ( l < r ) {
-                map[s.charAt(l++)]-- ;
-                if ( !contains(map,mapT) ) {
+                char c = s.charAt(l++);
+                map[c]-- ;
+                if ( map[c] < mapT[c] ) {
                     map[s.charAt(--l)]++ ;
                     break;
                 }
