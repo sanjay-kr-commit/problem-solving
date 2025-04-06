@@ -1,19 +1,11 @@
-import java.util.HashSet;
-
 class Solution {
     public boolean isValidBST(TreeNode root) {
-        return helper( root , root , new HashSet<>() ) ;
+        return helper(root, Long.MIN_VALUE, Long.MAX_VALUE);
     }
-    boolean helper(TreeNode node , TreeNode root , HashSet<Integer> exists ) {
-        if ( node == null ) return true;
-        if ( exists.contains(node.val) ) return false;
-        exists.add(node.val);
-        return checkPath( node , root ) && helper( node.left , root , exists ) && helper( node.right , root , exists ) ;
-    }
-
-    boolean checkPath( TreeNode node , TreeNode root ) {
-        if ( root == null ) return false ;
-        if ( node == root ) return true;
-        return checkPath( node , ( node.val < root.val ) ? root.left : root.right ) ;
+    public boolean helper(TreeNode root,long min,long max){
+        if(root==null)return true;
+        if( root.val <= min || root.val >= max ) return false;
+        return helper(root.left,min,root.val) && 
+               helper(root.right,root.val,max);
     }
 }
