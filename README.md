@@ -15,6 +15,7 @@ Like leet code or geekforgeeks
 | [0033-search-in-rotated-sorted-array](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0033-search-in-rotated-sorted-array) |
 | [0066-plus-one](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0066-plus-one) |
 | [0074-search-a-2d-matrix](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0074-search-a-2d-matrix) |
+| [0105-construct-binary-tree-from-preorder-and-inorder-traversal](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0105-construct-binary-tree-from-preorder-and-inorder-traversal) |
 | [0121-best-time-to-buy-and-sell-stock](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0121-best-time-to-buy-and-sell-stock) |
 | [0153-find-minimum-in-rotated-sorted-array](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0153-find-minimum-in-rotated-sorted-array) |
 | [0238-product-of-array-except-self](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0238-product-of-array-except-self) |
@@ -79,6 +80,7 @@ Like leet code or geekforgeeks
 | ------- |
 | [0003-longest-substring-without-repeating-characters](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0003-longest-substring-without-repeating-characters) |
 | [0076-minimum-window-substring](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0076-minimum-window-substring) |
+| [0105-construct-binary-tree-from-preorder-and-inorder-traversal](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0105-construct-binary-tree-from-preorder-and-inorder-traversal) |
 | [0138-copy-list-with-random-pointer](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0138-copy-list-with-random-pointer) |
 | [0141-linked-list-cycle](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0141-linked-list-cycle) |
 | [0146-lru-cache](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0146-lru-cache) |
@@ -126,6 +128,7 @@ Like leet code or geekforgeeks
 | ------- |
 | [0098-validate-binary-search-tree](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0098-validate-binary-search-tree) |
 | [0102-binary-tree-level-order-traversal](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0102-binary-tree-level-order-traversal) |
+| [0105-construct-binary-tree-from-preorder-and-inorder-traversal](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0105-construct-binary-tree-from-preorder-and-inorder-traversal) |
 | [0114-flatten-binary-tree-to-linked-list](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0114-flatten-binary-tree-to-linked-list) |
 | [0199-binary-tree-right-side-view](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0199-binary-tree-right-side-view) |
 | [0230-kth-smallest-element-in-a-bst](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0230-kth-smallest-element-in-a-bst) |
@@ -155,6 +158,7 @@ Like leet code or geekforgeeks
 | ------- |
 | [0098-validate-binary-search-tree](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0098-validate-binary-search-tree) |
 | [0102-binary-tree-level-order-traversal](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0102-binary-tree-level-order-traversal) |
+| [0105-construct-binary-tree-from-preorder-and-inorder-traversal](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0105-construct-binary-tree-from-preorder-and-inorder-traversal) |
 | [0114-flatten-binary-tree-to-linked-list](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0114-flatten-binary-tree-to-linked-list) |
 | [0199-binary-tree-right-side-view](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0199-binary-tree-right-side-view) |
 | [0230-kth-smallest-element-in-a-bst](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0230-kth-smallest-element-in-a-bst) |
@@ -208,6 +212,7 @@ Like leet code or geekforgeeks
 | ------- |
 | [0004-median-of-two-sorted-arrays](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0004-median-of-two-sorted-arrays) |
 | [0023-merge-k-sorted-lists](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0023-merge-k-sorted-lists) |
+| [0105-construct-binary-tree-from-preorder-and-inorder-traversal](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0105-construct-binary-tree-from-preorder-and-inorder-traversal) |
 ## Heap (Priority Queue)
 |  |
 | ------- |
