@@ -4,9 +4,11 @@ class Solution {
         for ( int i = 0 ; i < t.length() ; i++ ) mapT[t.charAt(i)]++;
         String min = "" ;
         int l = 0 , r = 0 , len = s.length() ;
+        boolean lastCheck = false ;
         while ( r < len ) {
             map[s.charAt(r++)]++;
-            if ( !contains(map,mapT) ) continue;
+            lastCheck = lastCheck || contains(map,mapT) ;
+            if ( !lastCheck ) continue;
             while ( l < r ) {
                 char c = s.charAt(l++);
                 map[c]-- ;
