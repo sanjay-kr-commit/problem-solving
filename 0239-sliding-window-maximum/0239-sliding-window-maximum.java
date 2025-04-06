@@ -1,6 +1,3 @@
-import java.util.Collections;
-import java.util.PriorityQueue;
-
 class Solution {
     public int[] maxSlidingWindow(int[] nums, int k) {
         int min = Integer.MAX_VALUE , max = Integer.MIN_VALUE;
