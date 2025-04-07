@@ -50,6 +50,7 @@ Like leet code or geekforgeeks
 | [0076-minimum-window-substring](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0076-minimum-window-substring) |
 | [0125-valid-palindrome](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0125-valid-palindrome) |
 | [0208-implement-trie-prefix-tree](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0208-implement-trie-prefix-tree) |
+| [0211-design-add-and-search-words-data-structure](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0211-design-add-and-search-words-data-structure) |
 | [0297-serialize-and-deserialize-binary-tree](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0297-serialize-and-deserialize-binary-tree) |
 | [0392-is-subsequence](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0392-is-subsequence) |
 | [0424-longest-repeating-character-replacement](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0424-longest-repeating-character-replacement) |
@@ -150,6 +151,7 @@ Like leet code or geekforgeeks
 | [0114-flatten-binary-tree-to-linked-list](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0114-flatten-binary-tree-to-linked-list) |
 | [0124-binary-tree-maximum-path-sum](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0124-binary-tree-maximum-path-sum) |
 | [0199-binary-tree-right-side-view](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0199-binary-tree-right-side-view) |
+| [0211-design-add-and-search-words-data-structure](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0211-design-add-and-search-words-data-structure) |
 | [0230-kth-smallest-element-in-a-bst](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0230-kth-smallest-element-in-a-bst) |
 | [0235-lowest-common-ancestor-of-a-binary-search-tree](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0235-lowest-common-ancestor-of-a-binary-search-tree) |
 | [0297-serialize-and-deserialize-binary-tree](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0297-serialize-and-deserialize-binary-tree) |
@@ -216,6 +218,7 @@ Like leet code or geekforgeeks
 | ------- |
 | [0146-lru-cache](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0146-lru-cache) |
 | [0208-implement-trie-prefix-tree](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0208-implement-trie-prefix-tree) |
+| [0211-design-add-and-search-words-data-structure](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0211-design-add-and-search-words-data-structure) |
 | [0297-serialize-and-deserialize-binary-tree](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0297-serialize-and-deserialize-binary-tree) |
 | [1023-time-based-key-value-store](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1023-time-based-key-value-store) |
 ## Matrix
@@ -263,4 +266,5 @@ Like leet code or geekforgeeks
 |  |
 | ------- |
 | [0208-implement-trie-prefix-tree](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0208-implement-trie-prefix-tree) |
+| [0211-design-add-and-search-words-data-structure](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0211-design-add-and-search-words-data-structure) |
 <!---LeetCode Topics End-->
