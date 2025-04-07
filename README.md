@@ -49,6 +49,7 @@ Like leet code or geekforgeeks
 | [0006-zigzag-conversion](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0006-zigzag-conversion) |
 | [0076-minimum-window-substring](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0076-minimum-window-substring) |
 | [0125-valid-palindrome](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0125-valid-palindrome) |
+| [0297-serialize-and-deserialize-binary-tree](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0297-serialize-and-deserialize-binary-tree) |
 | [0392-is-subsequence](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0392-is-subsequence) |
 | [0424-longest-repeating-character-replacement](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0424-longest-repeating-character-replacement) |
 | [0567-permutation-in-string](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0567-permutation-in-string) |
@@ -137,6 +138,7 @@ Like leet code or geekforgeeks
 | [0199-binary-tree-right-side-view](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0199-binary-tree-right-side-view) |
 | [0230-kth-smallest-element-in-a-bst](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0230-kth-smallest-element-in-a-bst) |
 | [0235-lowest-common-ancestor-of-a-binary-search-tree](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0235-lowest-common-ancestor-of-a-binary-search-tree) |
+| [0297-serialize-and-deserialize-binary-tree](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0297-serialize-and-deserialize-binary-tree) |
 | [1218-lowest-common-ancestor-of-deepest-leaves](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1218-lowest-common-ancestor-of-deepest-leaves) |
 | [1544-count-good-nodes-in-binary-tree](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1544-count-good-nodes-in-binary-tree) |
 ## Depth-First Search
@@ -148,6 +150,7 @@ Like leet code or geekforgeeks
 | [0199-binary-tree-right-side-view](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0199-binary-tree-right-side-view) |
 | [0230-kth-smallest-element-in-a-bst](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0230-kth-smallest-element-in-a-bst) |
 | [0235-lowest-common-ancestor-of-a-binary-search-tree](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0235-lowest-common-ancestor-of-a-binary-search-tree) |
+| [0297-serialize-and-deserialize-binary-tree](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0297-serialize-and-deserialize-binary-tree) |
 | [0766-flatten-a-multilevel-doubly-linked-list](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0766-flatten-a-multilevel-doubly-linked-list) |
 | [1218-lowest-common-ancestor-of-deepest-leaves](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1218-lowest-common-ancestor-of-deepest-leaves) |
 | [1544-count-good-nodes-in-binary-tree](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1544-count-good-nodes-in-binary-tree) |
@@ -156,6 +159,7 @@ Like leet code or geekforgeeks
 | ------- |
 | [0102-binary-tree-level-order-traversal](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0102-binary-tree-level-order-traversal) |
 | [0199-binary-tree-right-side-view](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0199-binary-tree-right-side-view) |
+| [0297-serialize-and-deserialize-binary-tree](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0297-serialize-and-deserialize-binary-tree) |
 | [1218-lowest-common-ancestor-of-deepest-leaves](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1218-lowest-common-ancestor-of-deepest-leaves) |
 | [1544-count-good-nodes-in-binary-tree](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1544-count-good-nodes-in-binary-tree) |
 ## Binary Tree
@@ -169,6 +173,7 @@ Like leet code or geekforgeeks
 | [0199-binary-tree-right-side-view](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0199-binary-tree-right-side-view) |
 | [0230-kth-smallest-element-in-a-bst](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0230-kth-smallest-element-in-a-bst) |
 | [0235-lowest-common-ancestor-of-a-binary-search-tree](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0235-lowest-common-ancestor-of-a-binary-search-tree) |
+| [0297-serialize-and-deserialize-binary-tree](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0297-serialize-and-deserialize-binary-tree) |
 | [1218-lowest-common-ancestor-of-deepest-leaves](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1218-lowest-common-ancestor-of-deepest-leaves) |
 | [1544-count-good-nodes-in-binary-tree](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1544-count-good-nodes-in-binary-tree) |
 ## Stack
@@ -208,6 +213,7 @@ Like leet code or geekforgeeks
 |  |
 | ------- |
 | [0146-lru-cache](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0146-lru-cache) |
+| [0297-serialize-and-deserialize-binary-tree](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0297-serialize-and-deserialize-binary-tree) |
 | [1023-time-based-key-value-store](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1023-time-based-key-value-store) |
 ## Matrix
 |  |
