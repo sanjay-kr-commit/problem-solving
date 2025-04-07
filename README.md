@@ -18,6 +18,7 @@ Like leet code or geekforgeeks
 | [0105-construct-binary-tree-from-preorder-and-inorder-traversal](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0105-construct-binary-tree-from-preorder-and-inorder-traversal) |
 | [0121-best-time-to-buy-and-sell-stock](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0121-best-time-to-buy-and-sell-stock) |
 | [0153-find-minimum-in-rotated-sorted-array](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0153-find-minimum-in-rotated-sorted-array) |
+| [0212-word-search-ii](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0212-word-search-ii) |
 | [0238-product-of-array-except-self](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0238-product-of-array-except-self) |
 | [0239-sliding-window-maximum](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0239-sliding-window-maximum) |
 | [0268-missing-number](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0268-missing-number) |
@@ -51,6 +52,7 @@ Like leet code or geekforgeeks
 | [0125-valid-palindrome](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0125-valid-palindrome) |
 | [0208-implement-trie-prefix-tree](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0208-implement-trie-prefix-tree) |
 | [0211-design-add-and-search-words-data-structure](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0211-design-add-and-search-words-data-structure) |
+| [0212-word-search-ii](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0212-word-search-ii) |
 | [0297-serialize-and-deserialize-binary-tree](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0297-serialize-and-deserialize-binary-tree) |
 | [0392-is-subsequence](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0392-is-subsequence) |
 | [0424-longest-repeating-character-replacement](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0424-longest-repeating-character-replacement) |
@@ -204,6 +206,7 @@ Like leet code or geekforgeeks
 ## Backtracking
 |  |
 | ------- |
+| [0212-word-search-ii](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0212-word-search-ii) |
 | [1993-sum-of-all-subset-xor-totals](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1993-sum-of-all-subset-xor-totals) |
 ## Combinatorics
 |  |
@@ -225,6 +228,7 @@ Like leet code or geekforgeeks
 |  |
 | ------- |
 | [0074-search-a-2d-matrix](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0074-search-a-2d-matrix) |
+| [0212-word-search-ii](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0212-word-search-ii) |
 ## Divide and Conquer
 |  |
 | ------- |
@@ -267,4 +271,5 @@ Like leet code or geekforgeeks
 | ------- |
 | [0208-implement-trie-prefix-tree](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0208-implement-trie-prefix-tree) |
 | [0211-design-add-and-search-words-data-structure](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0211-design-add-and-search-words-data-structure) |
+| [0212-word-search-ii](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0212-word-search-ii) |
 <!---LeetCode Topics End-->
