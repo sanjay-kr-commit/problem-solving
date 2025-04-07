@@ -23,6 +23,7 @@ Like leet code or geekforgeeks
 | [0268-missing-number](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0268-missing-number) |
 | [0287-find-the-duplicate-number](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0287-find-the-duplicate-number) |
 | [0368-largest-divisible-subset](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0368-largest-divisible-subset) |
+| [0416-partition-equal-subset-sum](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0416-partition-equal-subset-sum) |
 | [0747-min-cost-climbing-stairs](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0747-min-cost-climbing-stairs) |
 | [0883-car-fleet](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0883-car-fleet) |
 | [0907-koko-eating-bananas](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0907-koko-eating-bananas) |
@@ -37,6 +38,7 @@ Like leet code or geekforgeeks
 | [0338-counting-bits](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0338-counting-bits) |
 | [0368-largest-divisible-subset](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0368-largest-divisible-subset) |
 | [0392-is-subsequence](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0392-is-subsequence) |
+| [0416-partition-equal-subset-sum](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0416-partition-equal-subset-sum) |
 | [0747-min-cost-climbing-stairs](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0747-min-cost-climbing-stairs) |
 | [2262-solving-questions-with-brainpower](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2262-solving-questions-with-brainpower) |
 ## String
