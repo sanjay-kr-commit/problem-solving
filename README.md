@@ -28,6 +28,7 @@ Like leet code or geekforgeeks
 | [0747-min-cost-climbing-stairs](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0747-min-cost-climbing-stairs) |
 | [0883-car-fleet](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0883-car-fleet) |
 | [0907-koko-eating-bananas](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0907-koko-eating-bananas) |
+| [1014-k-closest-points-to-origin](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1014-k-closest-points-to-origin) |
 | [1993-sum-of-all-subset-xor-totals](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1993-sum-of-all-subset-xor-totals) |
 | [2262-solving-questions-with-brainpower](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2262-solving-questions-with-brainpower) |
 | [3152-maximum-value-of-an-ordered-triplet-ii](https://github.com/sanjay-kr-commit/problem-solving/tree/master/3152-maximum-value-of-an-ordered-triplet-ii) |
@@ -125,6 +126,7 @@ Like leet code or geekforgeeks
 | [0066-plus-one](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0066-plus-one) |
 | [0268-missing-number](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0268-missing-number) |
 | [0368-largest-divisible-subset](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0368-largest-divisible-subset) |
+| [1014-k-closest-points-to-origin](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1014-k-closest-points-to-origin) |
 | [1993-sum-of-all-subset-xor-totals](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1993-sum-of-all-subset-xor-totals) |
 ## Sorting
 |  |
@@ -132,6 +134,7 @@ Like leet code or geekforgeeks
 | [0268-missing-number](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0268-missing-number) |
 | [0368-largest-divisible-subset](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0368-largest-divisible-subset) |
 | [0883-car-fleet](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0883-car-fleet) |
+| [1014-k-closest-points-to-origin](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1014-k-closest-points-to-origin) |
 ## Tree
 |  |
 | ------- |
@@ -235,11 +238,13 @@ Like leet code or geekforgeeks
 | [0004-median-of-two-sorted-arrays](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0004-median-of-two-sorted-arrays) |
 | [0023-merge-k-sorted-lists](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0023-merge-k-sorted-lists) |
 | [0105-construct-binary-tree-from-preorder-and-inorder-traversal](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0105-construct-binary-tree-from-preorder-and-inorder-traversal) |
+| [1014-k-closest-points-to-origin](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1014-k-closest-points-to-origin) |
 ## Heap (Priority Queue)
 |  |
 | ------- |
 | [0023-merge-k-sorted-lists](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0023-merge-k-sorted-lists) |
 | [0239-sliding-window-maximum](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0239-sliding-window-maximum) |
+| [1014-k-closest-points-to-origin](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1014-k-closest-points-to-origin) |
 ## Merge Sort
 |  |
 | ------- |
@@ -272,4 +277,12 @@ Like leet code or geekforgeeks
 | [0208-implement-trie-prefix-tree](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0208-implement-trie-prefix-tree) |
 | [0211-design-add-and-search-words-data-structure](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0211-design-add-and-search-words-data-structure) |
 | [0212-word-search-ii](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0212-word-search-ii) |
+## Geometry
+|  |
+| ------- |
+| [1014-k-closest-points-to-origin](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1014-k-closest-points-to-origin) |
+## Quickselect
+|  |
+| ------- |
+| [1014-k-closest-points-to-origin](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1014-k-closest-points-to-origin) |
 <!---LeetCode Topics End-->
