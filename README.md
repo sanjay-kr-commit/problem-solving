@@ -46,6 +46,7 @@ Like leet code or geekforgeeks
 | [0416-partition-equal-subset-sum](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0416-partition-equal-subset-sum) |
 | [0747-min-cost-climbing-stairs](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0747-min-cost-climbing-stairs) |
 | [2262-solving-questions-with-brainpower](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2262-solving-questions-with-brainpower) |
+| [3243-count-the-number-of-powerful-integers](https://github.com/sanjay-kr-commit/problem-solving/tree/master/3243-count-the-number-of-powerful-integers) |
 ## String
 |  |
 | ------- |
@@ -61,6 +62,7 @@ Like leet code or geekforgeeks
 | [0424-longest-repeating-character-replacement](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0424-longest-repeating-character-replacement) |
 | [0567-permutation-in-string](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0567-permutation-in-string) |
 | [1023-time-based-key-value-store](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1023-time-based-key-value-store) |
+| [3243-count-the-number-of-powerful-integers](https://github.com/sanjay-kr-commit/problem-solving/tree/master/3243-count-the-number-of-powerful-integers) |
 ## Two Pointers
 |  |
 | ------- |
@@ -131,6 +133,7 @@ Like leet code or geekforgeeks
 | [0368-largest-divisible-subset](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0368-largest-divisible-subset) |
 | [1014-k-closest-points-to-origin](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1014-k-closest-points-to-origin) |
 | [1993-sum-of-all-subset-xor-totals](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1993-sum-of-all-subset-xor-totals) |
+| [3243-count-the-number-of-powerful-integers](https://github.com/sanjay-kr-commit/problem-solving/tree/master/3243-count-the-number-of-powerful-integers) |
 ## Sorting
 |  |
 | ------- |
