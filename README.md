@@ -133,6 +133,7 @@ Like leet code or geekforgeeks
 | [0368-largest-divisible-subset](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0368-largest-divisible-subset) |
 | [1014-k-closest-points-to-origin](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1014-k-closest-points-to-origin) |
 | [1993-sum-of-all-subset-xor-totals](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1993-sum-of-all-subset-xor-totals) |
+| [2050-count-good-numbers](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2050-count-good-numbers) |
 | [2998-count-symmetric-integers](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2998-count-symmetric-integers) |
 | [3243-count-the-number-of-powerful-integers](https://github.com/sanjay-kr-commit/problem-solving/tree/master/3243-count-the-number-of-powerful-integers) |
 ## Sorting
@@ -214,6 +215,7 @@ Like leet code or geekforgeeks
 | [0002-add-two-numbers](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0002-add-two-numbers) |
 | [0025-reverse-nodes-in-k-group](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0025-reverse-nodes-in-k-group) |
 | [0143-reorder-list](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0143-reorder-list) |
+| [2050-count-good-numbers](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2050-count-good-numbers) |
 ## Backtracking
 |  |
 | ------- |
