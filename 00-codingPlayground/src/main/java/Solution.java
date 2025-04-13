@@ -1,5 +1,5 @@
 class Solution {
-    public int largestRectangleArea(int[] heights) {
-        return 0 ;
+    public int countGoodNumbers(long n) {
+        return  0 ;
     }
 }

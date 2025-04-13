@@ -494,3 +494,64 @@ fun listNodeOf( vararg node : Int ) : ListNode {
 
 inline infix fun <T> Class<T>.open( lambda : T.() -> Unit ) : Unit = ( getConstructor().newInstance() as T ).lambda()
 inline infix fun String.open(lambda: Any.() -> Unit ) : Unit = Class.forName(this).getConstructor().newInstance().lambda()
+
+data class ArgumentConsumer( val list : ArrayList<Pair<Class<*>,(String)->Any>> , var lambda: ((()->Unit)->Unit)? = null )
+
+context(ArgumentConsumer)
+infix fun Class<*>.assign( lambda : (String)->Any ) {
+    list.add( Pair( this, lambda) )
+}
+
+val ArgumentConsumer.long : Unit
+    get() {
+        Long::class.java assign ::long
+    }
+
+val ArgumentConsumer.int : Unit
+    get() = Int::class.java assign ::int
+
+val ArgumentConsumer.bool : Unit
+    get() = Boolean::class.java assign ::bool
+
+val ArgumentConsumer.unquote : Unit
+    get() = String::class.java assign ::unquote
+
+var ArgumentConsumer.ignore : Class<*>
+    get() = throw IllegalAccessException()
+    set(value) {
+        value assign ::ignore
+    }
+
+val ArgumentConsumer.intArray : Unit
+    get() = IntArray::class.java assign ::intArray
+
+val ArgumentConsumer.longArray : Unit
+    get() = LongArray::class.java assign ::longArray
+
+operator fun <T> String.invoke(
+    serializedArgs : List<String> ,
+    consumeArgument : ArgumentConsumer.() -> Any
+) : T = serializedArgs.run {
+    invoke(consumeArgument)
+}
+
+fun ArgumentConsumer.callSite( modifiedLambda : (()->Unit)->Unit ) {
+    lambda = modifiedLambda
+}
+
+context(List<String>)
+@Suppress("UNCHECKED_CAST")
+operator fun <T> String.invoke(consumeArgument : ArgumentConsumer.() -> Any ) : T {
+    val args = ArgumentConsumer( ArrayList() )
+    var lambda : ((()->Unit)->Unit) = {it()}
+    lambda = try {
+        args.consumeArgument() as (()->Unit)->Unit
+    } catch ( _ :Exception ){
+        args.lambda ?: lambda
+    }
+    return solution(
+        this@invoke ,
+        *args.list.toTypedArray(),
+        lambda = lambda
+    ) as T
+}
