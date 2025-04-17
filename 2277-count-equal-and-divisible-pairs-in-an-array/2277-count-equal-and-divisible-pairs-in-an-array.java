@@ -1,22 +1,16 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-
 class Solution {
+
     public int countPairs(int[] nums, int k) {
-        HashMap<Integer, ArrayList<Integer>> map = new HashMap<>() ;
-        int count = 0 ;
-        for ( int i = 0 ; i < nums.length ; i++ ) {
-            if ( !map.containsKey( nums[i] ) ) map.put( nums[i] , new ArrayList<>() ) ;
-            map.get(nums[i]).add(i) ;
-        }
-        for ( int i : map.keySet() ) {
-            ArrayList<Integer> list = map.get( i ) ;
-            for ( int j = 0 ; j < list.size()-1 ; j++ ) {
-                for ( int l = j+1 ; l < list.size() ; l++ ) {
-                    if ( (list.get(j)*list.get(l))%k == 0 ) count++ ;
-                }
-            }
-        }
-        return count ;
+        return helper(nums,k,0);
     }
+
+    private static int helper(int[] nums, int k, int i){
+        if( i >= nums.length ) return 0;
+        int count = 0;
+        for( int j=i+1 ; j < nums.length ; j++ ) {
+            if( nums[i] == nums[j] && (i*j) % k == 0 ) count++;
+        }
+        return count+helper(nums,k,i+1);
+    }
+    
 }
