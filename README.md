@@ -28,6 +28,7 @@ Like leet code or geekforgeeks
 | [0368-largest-divisible-subset](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0368-largest-divisible-subset) |
 | [0416-partition-equal-subset-sum](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0416-partition-equal-subset-sum) |
 | [0747-min-cost-climbing-stairs](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0747-min-cost-climbing-stairs) |
+| [0797-rabbits-in-forest](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0797-rabbits-in-forest) |
 | [0883-car-fleet](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0883-car-fleet) |
 | [0907-koko-eating-bananas](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0907-koko-eating-bananas) |
 | [1014-k-closest-points-to-origin](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1014-k-closest-points-to-origin) |
@@ -110,6 +111,7 @@ Like leet code or geekforgeeks
 | [0268-missing-number](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0268-missing-number) |
 | [0424-longest-repeating-character-replacement](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0424-longest-repeating-character-replacement) |
 | [0567-permutation-in-string](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0567-permutation-in-string) |
+| [0797-rabbits-in-forest](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0797-rabbits-in-forest) |
 | [1023-time-based-key-value-store](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1023-time-based-key-value-store) |
 | [1218-lowest-common-ancestor-of-deepest-leaves](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1218-lowest-common-ancestor-of-deepest-leaves) |
 | [2626-count-the-number-of-good-subarrays](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2626-count-the-number-of-good-subarrays) |
@@ -141,6 +143,7 @@ Like leet code or geekforgeeks
 | [0066-plus-one](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0066-plus-one) |
 | [0268-missing-number](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0268-missing-number) |
 | [0368-largest-divisible-subset](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0368-largest-divisible-subset) |
+| [0797-rabbits-in-forest](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0797-rabbits-in-forest) |
 | [1014-k-closest-points-to-origin](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1014-k-closest-points-to-origin) |
 | [1993-sum-of-all-subset-xor-totals](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1993-sum-of-all-subset-xor-totals) |
 | [2050-count-good-numbers](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2050-count-good-numbers) |
@@ -327,4 +330,8 @@ Like leet code or geekforgeeks
 |  |
 | ------- |
 | [2280-count-good-triplets-in-an-array](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2280-count-good-triplets-in-an-array) |
+## Greedy
+|  |
+| ------- |
+| [0797-rabbits-in-forest](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0797-rabbits-in-forest) |
 <!---LeetCode Topics End-->
