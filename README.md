@@ -53,6 +53,7 @@ Like leet code or geekforgeeks
 | [0416-partition-equal-subset-sum](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0416-partition-equal-subset-sum) |
 | [0747-min-cost-climbing-stairs](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0747-min-cost-climbing-stairs) |
 | [2262-solving-questions-with-brainpower](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2262-solving-questions-with-brainpower) |
+| [2415-count-the-number-of-ideal-arrays](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2415-count-the-number-of-ideal-arrays) |
 | [3243-count-the-number-of-powerful-integers](https://github.com/sanjay-kr-commit/problem-solving/tree/master/3243-count-the-number-of-powerful-integers) |
 ## String
 |  |
@@ -149,6 +150,7 @@ Like leet code or geekforgeeks
 | [1014-k-closest-points-to-origin](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1014-k-closest-points-to-origin) |
 | [1993-sum-of-all-subset-xor-totals](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1993-sum-of-all-subset-xor-totals) |
 | [2050-count-good-numbers](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2050-count-good-numbers) |
+| [2415-count-the-number-of-ideal-arrays](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2415-count-the-number-of-ideal-arrays) |
 | [2998-count-symmetric-integers](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2998-count-symmetric-integers) |
 | [3243-count-the-number-of-powerful-integers](https://github.com/sanjay-kr-commit/problem-solving/tree/master/3243-count-the-number-of-powerful-integers) |
 ## Sorting
@@ -242,6 +244,7 @@ Like leet code or geekforgeeks
 |  |
 | ------- |
 | [1993-sum-of-all-subset-xor-totals](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1993-sum-of-all-subset-xor-totals) |
+| [2415-count-the-number-of-ideal-arrays](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2415-count-the-number-of-ideal-arrays) |
 ## Enumeration
 |  |
 | ------- |
@@ -336,4 +339,8 @@ Like leet code or geekforgeeks
 |  |
 | ------- |
 | [0797-rabbits-in-forest](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0797-rabbits-in-forest) |
+## Number Theory
+|  |
+| ------- |
+| [2415-count-the-number-of-ideal-arrays](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2415-count-the-number-of-ideal-arrays) |
 <!---LeetCode Topics End-->
