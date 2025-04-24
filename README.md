@@ -40,6 +40,7 @@ Like leet code or geekforgeeks
 | [2280-count-good-triplets-in-an-array](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2280-count-good-triplets-in-an-array) |
 | [2626-count-the-number-of-good-subarrays](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2626-count-the-number-of-good-subarrays) |
 | [2699-count-the-number-of-fair-pairs](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2699-count-the-number-of-fair-pairs) |
+| [2856-count-complete-subarrays-in-an-array](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2856-count-complete-subarrays-in-an-array) |
 | [3152-maximum-value-of-an-ordered-triplet-ii](https://github.com/sanjay-kr-commit/problem-solving/tree/master/3152-maximum-value-of-an-ordered-triplet-ii) |
 | [3154-maximum-value-of-an-ordered-triplet-i](https://github.com/sanjay-kr-commit/problem-solving/tree/master/3154-maximum-value-of-an-ordered-triplet-i) |
 ## Dynamic Programming
@@ -119,6 +120,7 @@ Like leet code or geekforgeeks
 | [1218-lowest-common-ancestor-of-deepest-leaves](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1218-lowest-common-ancestor-of-deepest-leaves) |
 | [1500-count-largest-group](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1500-count-largest-group) |
 | [2626-count-the-number-of-good-subarrays](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2626-count-the-number-of-good-subarrays) |
+| [2856-count-complete-subarrays-in-an-array](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2856-count-complete-subarrays-in-an-array) |
 ## Linked List
 |  |
 | ------- |
@@ -296,6 +298,7 @@ Like leet code or geekforgeeks
 | [0424-longest-repeating-character-replacement](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0424-longest-repeating-character-replacement) |
 | [0567-permutation-in-string](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0567-permutation-in-string) |
 | [2626-count-the-number-of-good-subarrays](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2626-count-the-number-of-good-subarrays) |
+| [2856-count-complete-subarrays-in-an-array](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2856-count-complete-subarrays-in-an-array) |
 ## Queue
 |  |
 | ------- |
