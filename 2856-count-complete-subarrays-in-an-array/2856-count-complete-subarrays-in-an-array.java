@@ -1,20 +1,52 @@
-import java.util.HashSet;
+import java.util.Arrays;
 
 class Solution {
     public int countCompleteSubarrays(int[] nums) {
         int completeSubarraysCount = 0;
-        HashSet<Integer> distinct = new HashSet<>();
-        for ( int i : nums ) distinct.add( i ) ;
-        System.gc();
-        int distinctCount = distinct.size();
-        for ( int i = 0 ; i < nums.length ; i++ ) {
-            HashSet<Integer> subset = new HashSet<>();
-            for ( int j = i ; j < nums.length ; j++ ) {
-                subset.add( nums[j] ) ;
-                if ( subset.size() == distinctCount ) completeSubarraysCount++ ;
-                
-            }
+        int min = nums[0] , max = nums[0] ;
+        for ( int i : nums ) {
+            min = Math.min(min, i);
+            max = Math.max(max, i);
         }
+        int [] freqTable = new int [max - min + 1];
+        for ( int i : nums ) freqTable[i-min]++ ;
+        int distinct = 0 ;
+        for ( int i : freqTable ) if ( i > 0 ) distinct++ ;
+        Arrays.fill(freqTable, 0);
+        int l = 0 , r = 0 , len = nums.length , subArrayDistinctCount = 0 ;
+        while ( r < len && subArrayDistinctCount < distinct ) {
+            int index = nums[r]-min ;
+            if ( freqTable[index] == 0 ) subArrayDistinctCount++;
+            freqTable[index]++ ;
+            r++ ;
+        }
+        if ( r == nums.length && subArrayDistinctCount == distinct )  do {
+            completeSubarraysCount += (len-r) + 1 ;
+            int index = nums[l]-min ;
+            freqTable[index]-- ;
+            if ( freqTable[index] == 0 ) subArrayDistinctCount--;
+            l++ ;
+        } while ( l < r && subArrayDistinctCount == distinct ) ;
+        while ( r < nums.length ) {
+            if ( subArrayDistinctCount == distinct ) do {
+                completeSubarraysCount += (len-r) + 1 ;
+                int index = nums[l]-min ;
+                freqTable[index]-- ;
+                if ( freqTable[index] == 0 ) subArrayDistinctCount--;
+                l++ ;
+            } while ( l < r && subArrayDistinctCount == distinct ) ;
+            int index = nums[r]-min ;
+            if ( freqTable[index] == 0 ) subArrayDistinctCount++;
+            freqTable[index]++ ;
+            r++ ;
+        }
+        if ( subArrayDistinctCount == distinct ) do {
+            completeSubarraysCount += (len-r) + 1 ;
+            int index = nums[l]-min ;
+            freqTable[index]-- ;
+            if ( freqTable[index] == 0 ) subArrayDistinctCount--;
+            l++ ;
+        } while ( l < r && subArrayDistinctCount == distinct ) ;
         return completeSubarraysCount;
     }
 }
