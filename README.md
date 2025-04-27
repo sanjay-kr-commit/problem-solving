@@ -44,6 +44,7 @@ Like leet code or geekforgeeks
 | [2856-count-complete-subarrays-in-an-array](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2856-count-complete-subarrays-in-an-array) |
 | [3152-maximum-value-of-an-ordered-triplet-ii](https://github.com/sanjay-kr-commit/problem-solving/tree/master/3152-maximum-value-of-an-ordered-triplet-ii) |
 | [3154-maximum-value-of-an-ordered-triplet-i](https://github.com/sanjay-kr-commit/problem-solving/tree/master/3154-maximum-value-of-an-ordered-triplet-i) |
+| [3685-count-subarrays-of-length-three-with-a-condition](https://github.com/sanjay-kr-commit/problem-solving/tree/master/3685-count-subarrays-of-length-three-with-a-condition) |
 ## Dynamic Programming
 |  |
 | ------- |
