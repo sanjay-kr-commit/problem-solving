@@ -33,6 +33,7 @@ Like leet code or geekforgeeks
 | [0883-car-fleet](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0883-car-fleet) |
 | [0907-koko-eating-bananas](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0907-koko-eating-bananas) |
 | [1014-k-closest-points-to-origin](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1014-k-closest-points-to-origin) |
+| [1293-three-consecutive-odds](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1293-three-consecutive-odds) |
 | [1656-count-good-triplets](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1656-count-good-triplets) |
 | [1993-sum-of-all-subset-xor-totals](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1993-sum-of-all-subset-xor-totals) |
 | [2249-count-the-hidden-sequences](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2249-count-the-hidden-sequences) |
