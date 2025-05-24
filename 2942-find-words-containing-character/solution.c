@@ -4,19 +4,21 @@
  */
 #include <stdlib.h>
 int *findWordsContaining(char **words, int wordsSize, char x, int *returnSize) {
-  int rs = 0;
-  int *result = malloc(sizeof(int) * (wordsSize));
+  int size = 0, *indices = malloc(sizeof(int) * wordsSize);
+
   for (int i = 0; i < wordsSize; i++) {
-    int j = 0;
-    while (words[i][j] != NULL) {
-      if (words[i][j] == x) {
-        result[rs++] = i;
-        break;
-      }
-      j++;
+
+    int index = 0, str = 0, hash = 1 << (x - 'a');
+
+    while (words[i][index] != NULL) {
+      str |= 1 << (words[i][index++] - 'a');
     }
+
+    if ((str & hash) == hash)
+      indices[size++] = i;
   }
-  *returnSize = rs;
-  return result;
+
+  *returnSize = size;
+  return indices;
 }
 // @leet end
