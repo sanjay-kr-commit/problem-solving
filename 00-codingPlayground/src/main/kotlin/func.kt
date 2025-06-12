@@ -1,4 +1,5 @@
 import kotlin.math.min
+import kotlin.time.measureTime
 
 infix fun <E> List<E>.groupInto(n : Int ) : List<List<E>> = ArrayList<List<E>>() . apply {
     var toAdd = ArrayList<E>(n)
@@ -525,6 +526,11 @@ var ArgumentConsumer.ignore : Class<*>
 val ArgumentConsumer.intArray : Unit
     get() = IntArray::class.java assign ::intArray
 
+val ArgumentConsumer.listInt : Unit
+    get() = List::class.java assign {
+        it.serializeStringToListOf(::int)
+    }
+
 val ArgumentConsumer.longArray : Unit
     get() = LongArray::class.java assign ::longArray
 
@@ -538,6 +544,13 @@ operator fun <T> String.invoke(
 fun ArgumentConsumer.callSite( modifiedLambda : (()->Unit)->Unit ) {
     lambda = modifiedLambda
 }
+
+val ArgumentConsumer.measureTime : Unit
+    get() = callSite {
+        measureTime {
+            it()
+        }.also(::println)
+    }
 
 context(List<String>)
 @Suppress("UNCHECKED_CAST")
