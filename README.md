@@ -160,6 +160,7 @@ Like leet code or geekforgeeks
 | [0797-rabbits-in-forest](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0797-rabbits-in-forest) |
 | [1014-k-closest-points-to-origin](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1014-k-closest-points-to-origin) |
 | [1500-count-largest-group](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1500-count-largest-group) |
+| [1529-max-difference-you-can-get-from-changing-an-integer](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1529-max-difference-you-can-get-from-changing-an-integer) |
 | [1993-sum-of-all-subset-xor-totals](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1993-sum-of-all-subset-xor-totals) |
 | [2050-count-good-numbers](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2050-count-good-numbers) |
 | [2415-count-the-number-of-ideal-arrays](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2415-count-the-number-of-ideal-arrays) |
@@ -355,6 +356,7 @@ Like leet code or geekforgeeks
 |  |
 | ------- |
 | [0797-rabbits-in-forest](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0797-rabbits-in-forest) |
+| [1529-max-difference-you-can-get-from-changing-an-integer](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1529-max-difference-you-can-get-from-changing-an-integer) |
 ## Number Theory
 |  |
 | ------- |
