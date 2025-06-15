@@ -13,11 +13,14 @@ class Solution {
     HashSet<Integer> skipped = new HashSet<Integer>();
     while (rev > 1) {
       mod = (int) (rev % 10);
-      if (max_r == -1 && mod != 9)
+      if (max_r == -1 && mod != 9) {
         max_r = mod;
+        if ( min_r != -1 ) break ;
+      }
       if (min_r == -1 && !skipped.contains(mod) && ((step == 0 && mod != 1) || (step != 0 && mod != 0))) {
         min_r = mod;
         reminder = step;
+        if ( max_r != -1 ) break ;
       } else
         skipped.add(mod);
       min *= 10;
@@ -26,6 +29,14 @@ class Solution {
       max += (max_r == mod) ? 9 : mod;
       rev /= 10;
       step++;
+    }
+    while ( rev > 1 ) {
+      mod = (int) (rev % 10);
+      min *= 10;
+      min += (min_r == mod) ? ((reminder == 0) ? 1 : 0) : mod;
+      max *= 10;
+      max += (max_r == mod) ? 9 : mod;
+      rev /= 10;
     }
     return max - min;
   }
