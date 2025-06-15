@@ -37,6 +37,7 @@ Like leet code or geekforgeeks
 | [1014-k-closest-points-to-origin](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1014-k-closest-points-to-origin) |
 | [1293-three-consecutive-odds](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1293-three-consecutive-odds) |
 | [1656-count-good-triplets](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1656-count-good-triplets) |
+| [1709-alert-using-same-key-card-three-or-more-times-in-a-one-hour-period](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1709-alert-using-same-key-card-three-or-more-times-in-a-one-hour-period) |
 | [1993-sum-of-all-subset-xor-totals](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1993-sum-of-all-subset-xor-totals) |
 | [2249-count-the-hidden-sequences](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2249-count-the-hidden-sequences) |
 | [2262-solving-questions-with-brainpower](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2262-solving-questions-with-brainpower) |
@@ -77,6 +78,7 @@ Like leet code or geekforgeeks
 | [0424-longest-repeating-character-replacement](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0424-longest-repeating-character-replacement) |
 | [0567-permutation-in-string](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0567-permutation-in-string) |
 | [1023-time-based-key-value-store](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1023-time-based-key-value-store) |
+| [1709-alert-using-same-key-card-three-or-more-times-in-a-one-hour-period](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1709-alert-using-same-key-card-three-or-more-times-in-a-one-hour-period) |
 | [3243-count-the-number-of-powerful-integers](https://github.com/sanjay-kr-commit/problem-solving/tree/master/3243-count-the-number-of-powerful-integers) |
 ## Two Pointers
 |  |
@@ -127,6 +129,7 @@ Like leet code or geekforgeeks
 | [1023-time-based-key-value-store](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1023-time-based-key-value-store) |
 | [1218-lowest-common-ancestor-of-deepest-leaves](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1218-lowest-common-ancestor-of-deepest-leaves) |
 | [1500-count-largest-group](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1500-count-largest-group) |
+| [1709-alert-using-same-key-card-three-or-more-times-in-a-one-hour-period](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1709-alert-using-same-key-card-three-or-more-times-in-a-one-hour-period) |
 | [2626-count-the-number-of-good-subarrays](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2626-count-the-number-of-good-subarrays) |
 | [2856-count-complete-subarrays-in-an-array](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2856-count-complete-subarrays-in-an-array) |
 ## Linked List
@@ -175,6 +178,7 @@ Like leet code or geekforgeeks
 | [0368-largest-divisible-subset](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0368-largest-divisible-subset) |
 | [0883-car-fleet](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0883-car-fleet) |
 | [1014-k-closest-points-to-origin](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1014-k-closest-points-to-origin) |
+| [1709-alert-using-same-key-card-three-or-more-times-in-a-one-hour-period](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1709-alert-using-same-key-card-three-or-more-times-in-a-one-hour-period) |
 | [2699-count-the-number-of-fair-pairs](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2699-count-the-number-of-fair-pairs) |
 ## Tree
 |  |
