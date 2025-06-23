@@ -15,11 +15,6 @@ class Solution {
       sum(candidates, r, target, candidates[r], ans, new ArrayList<>(List.of(candidates[r])));
       r--;
     }
-    for (int i = 0, size = ans.size(), len = size / 2; i < len; i++) {
-      List<Integer> temp = ans.get(i);
-      ans.set(i, ans.get(size - i - 1));
-      ans.set(size - i - 1, temp);
-    }
     return ans;
   }
 
@@ -28,11 +23,6 @@ class Solution {
     if (sum > target)
       return false;
     if (sum == target) {
-      for (int i = 0, size = candidate.size(), len = size / 2; i < len; i++) {
-        int temp = candidate.get(i);
-        candidate.set(i, candidate.get(size - i - 1));
-        candidate.set(size - i - 1, temp);
-      }
       ans.add(candidate);
       return true;
     }
