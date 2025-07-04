@@ -89,6 +89,7 @@ Like leet code or geekforgeeks
 | [0141-linked-list-cycle](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0141-linked-list-cycle) |
 | [0143-reorder-list](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0143-reorder-list) |
 | [0287-find-the-duplicate-number](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0287-find-the-duplicate-number) |
+| [0295-find-median-from-data-stream](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0295-find-median-from-data-stream) |
 | [0392-is-subsequence](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0392-is-subsequence) |
 | [0567-permutation-in-string](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0567-permutation-in-string) |
 | [2699-count-the-number-of-fair-pairs](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2699-count-the-number-of-fair-pairs) |
@@ -175,6 +176,7 @@ Like leet code or geekforgeeks
 | [0075-sort-colors](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0075-sort-colors) |
 | [0215-kth-largest-element-in-an-array](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0215-kth-largest-element-in-an-array) |
 | [0268-missing-number](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0268-missing-number) |
+| [0295-find-median-from-data-stream](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0295-find-median-from-data-stream) |
 | [0368-largest-divisible-subset](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0368-largest-divisible-subset) |
 | [0883-car-fleet](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0883-car-fleet) |
 | [1014-k-closest-points-to-origin](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1014-k-closest-points-to-origin) |
@@ -275,6 +277,7 @@ Like leet code or geekforgeeks
 | [0146-lru-cache](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0146-lru-cache) |
 | [0208-implement-trie-prefix-tree](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0208-implement-trie-prefix-tree) |
 | [0211-design-add-and-search-words-data-structure](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0211-design-add-and-search-words-data-structure) |
+| [0295-find-median-from-data-stream](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0295-find-median-from-data-stream) |
 | [0297-serialize-and-deserialize-binary-tree](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0297-serialize-and-deserialize-binary-tree) |
 | [0303-range-sum-query-immutable](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0303-range-sum-query-immutable) |
 | [1023-time-based-key-value-store](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1023-time-based-key-value-store) |
@@ -299,6 +302,7 @@ Like leet code or geekforgeeks
 | [0023-merge-k-sorted-lists](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0023-merge-k-sorted-lists) |
 | [0215-kth-largest-element-in-an-array](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0215-kth-largest-element-in-an-array) |
 | [0239-sliding-window-maximum](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0239-sliding-window-maximum) |
+| [0295-find-median-from-data-stream](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0295-find-median-from-data-stream) |
 | [1014-k-closest-points-to-origin](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1014-k-closest-points-to-origin) |
 ## Merge Sort
 |  |
@@ -365,4 +369,8 @@ Like leet code or geekforgeeks
 |  |
 | ------- |
 | [2415-count-the-number-of-ideal-arrays](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2415-count-the-number-of-ideal-arrays) |
+## Data Stream
+|  |
+| ------- |
+| [0295-find-median-from-data-stream](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0295-find-median-from-data-stream) |
 <!---LeetCode Topics End-->
