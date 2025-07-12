@@ -1,37 +1,27 @@
 // @leet start
 class Solution {
+  public int lengthOfLIS(int[] nums) {
+    int max = 0;
+    for (int i = 0; i < nums.length; i++)
+      max = Math.max(max, max(nums, i, nums.length)+1);
+    return max;
+  }
 
-    public boolean isMatch(String s, String p) {
-        return isMatch(s, p, 0, 0, s.length(), p.length());
+  int max(int[] nums, int index, int len) {
+    if (index >= len)
+      return 0;
+    int max = 0;
+    for (int i = index + 1; i < len; i++) {
+      if (nums[index] < nums[i])
+        max = Math.max(max, max(nums, i, len)+1);
     }
-
-    private boolean isMatch(String s, String p, int indexS, int indexP, int lenS, int lenP) {
-        while (indexS < lenS && indexP < lenP) {
-            if ( ( s.charAt(indexS) == p.charAt(indexP) || p.charAt(indexP) == '.' ) && ( indexP+1 == lenP || p.charAt(indexP+1) != '*' ) ) {
-                indexP++ ;
-                indexS++ ;
-                continue;
-            }
-           
-        }
-        while (indexP < lenP) {
-            if (p.charAt(indexP) == '*') indexP++;
-            else if (indexP + 1 < lenP && p.charAt(indexP + 1) == '*') indexP += 2;
-            else break;
-        }
-        return lenS == indexS && lenP == indexP;
-    }
-
-    public static void main(String[] args) {
-        Solution s = new Solution();
-        System.out.println(s.isMatch("ba", ".*a*a"));
-        System.out.println(s.isMatch("bbbba", ".*a*a"));
-        System.out.println(s.isMatch("aab", "c*a*b*"));
-        System.out.println(s.isMatch("ab", ".*"));
-        System.out.println(!s.isMatch("aab", "b.*"));
-        System.out.println(!s.isMatch("aa", "a"));
-        System.out.println(s.isMatch("aa", "a*"));
-    }
-
+    return max;
+  }
 }
 // @leet end
+class m {
+  public static void main(String[] args) {
+    var s = new Solution();
+    System.out.println(s.lengthOfLIS( new int[] {10,9,2,5,3,7,101,18} ));
+  }
+}

@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff133dde-e21d-445d-a347-10ababa6b7b9" name="Changes" comment="more syntactical sugar">
-      <change beforePath="$PROJECT_DIR$/kls_database.db" beforeDir="false" afterPath="$PROJECT_DIR$/kls_database.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Solution.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/func.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/func.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,6 +67,7 @@
     <setting file="jar://$USER_HOME$/.sdkman/candidates/java/17.0.10-jbr/lib/src.zip!/java.base/java/lang/AbstractStringBuilder.java" root0="SKIP_INSPECTION" />
     <setting file="jar://$USER_HOME$/.sdkman/candidates/java/17.0.10-jbr/lib/src.zip!/java.base/java/lang/CharSequence.java" root0="SKIP_INSPECTION" />
     <setting file="jar://$USER_HOME$/.sdkman/candidates/java/17.0.10-jbr/lib/src.zip!/java.base/java/lang/StringBuilder.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.sdkman/candidates/java/17.0.12-jbr/lib/src.zip!/java.base/java/lang/ArrayIndexOutOfBoundsException.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/kotlin/Main.kt" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProblemsViewState">
@@ -87,102 +87,79 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.00-codingPlayground [:Solution.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.00-codingPlayground [jar].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.00-codingPlayground [kotlinSourcesJar].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.00-codingPlayground [run].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Build 00-codingPlayground.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Build leetcode.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Download Sources.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.leetcode [:Solution.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Kotlin.MainKt (1).executor&quot;: &quot;Run&quot;,
-    &quot;Kotlin.MainKt.executor&quot;: &quot;Run&quot;,
-    &quot;Kotlin.QuestionKt.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/sanjay/projects/problem-solving/00-codingPlayground&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;/home/sanotaku/project/leetcode/src/main/kotlin/Main.kt&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;,
-    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.00-codingPlayground [:Solution.main()].executor": "Run",
+    "Gradle.00-codingPlayground [:Twitter.main()].executor": "Run",
+    "Gradle.00-codingPlayground [:m.main()].executor": "Run",
+    "Gradle.00-codingPlayground [:mai.main()].executor": "Run",
+    "Gradle.00-codingPlayground [:main.main()].executor": "Run",
+    "Gradle.00-codingPlayground [:runner.main()].executor": "Run",
+    "Gradle.00-codingPlayground [:temp.main()].executor": "Run",
+    "Gradle.00-codingPlayground [jar].executor": "Run",
+    "Gradle.00-codingPlayground [kotlinSourcesJar].executor": "Run",
+    "Gradle.00-codingPlayground [run].executor": "Run",
+    "Gradle.Build 00-codingPlayground.executor": "Run",
+    "Gradle.Build leetcode.executor": "Run",
+    "Gradle.Download Sources.executor": "Run",
+    "Gradle.leetcode [:Solution.main()].executor": "Run",
+    "Kotlin.MainKt (1).executor": "Run",
+    "Kotlin.MainKt.executor": "Run",
+    "Kotlin.QuestionKt.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "main",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/sanjay/projects/problem-solving/00-codingPlayground",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "/home/sanotaku/project/leetcode/src/main/kotlin/Main.kt",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "fileTemplates",
+    "show.migrate.to.gradle.popup": "false",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RunManager" selected="Application.Solution">
-    <configuration name="Solution" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Solution" />
+}]]></component>
+  <component name="RunManager" selected="Application.m">
+    <configuration name="Twitter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Twitter" />
       <module name="coding_playground.main" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="00-codingPlayground [jar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="jar" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="00-codingPlayground [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="run" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="MainKt (1)" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="MainKt" />
+    <configuration name="m" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="m" />
       <module name="coding_playground.main" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="QuestionKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="QuestionKt" />
+    <configuration name="mai" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="mai" />
+      <module name="coding_playground.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main" />
+      <module name="coding_playground.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="runner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="runner" />
       <module name="coding_playground.main" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -190,19 +167,19 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Solution" />
-        <item itemvalue="Kotlin.MainKt (1)" />
-        <item itemvalue="Gradle.00-codingPlayground [run]" />
-        <item itemvalue="Kotlin.QuestionKt" />
-        <item itemvalue="Gradle.00-codingPlayground [jar]" />
+        <item itemvalue="Application.m" />
+        <item itemvalue="Application.mai" />
+        <item itemvalue="Application.main" />
+        <item itemvalue="Application.Twitter" />
+        <item itemvalue="Application.runner" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.26053.27" />
-        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.26053.27" />
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.26094.121" />
+        <option value="bundled-js-predefined-d6986cc7102b-b26f3e71634d-JavaScript-IU-251.26094.121" />
       </set>
     </attachedChunks>
   </component>
@@ -515,6 +492,27 @@
       <workItem from="1748782020530" duration="1846000" />
       <workItem from="1748796152317" duration="26000" />
       <workItem from="1748801301455" duration="70000" />
+      <workItem from="1749990235337" duration="1354000" />
+      <workItem from="1750014247901" duration="3499000" />
+      <workItem from="1750280355835" duration="137000" />
+      <workItem from="1750280507570" duration="588000" />
+      <workItem from="1750298947617" duration="4446000" />
+      <workItem from="1750384548372" duration="4097000" />
+      <workItem from="1750396212593" duration="1012000" />
+      <workItem from="1750527010367" duration="6000" />
+      <workItem from="1750671949463" duration="3373000" />
+      <workItem from="1750851077017" duration="2711000" />
+      <workItem from="1751114064350" duration="1770000" />
+      <workItem from="1751166493293" duration="5377000" />
+      <workItem from="1751361544738" duration="5023000" />
+      <workItem from="1751609643029" duration="3000" />
+      <workItem from="1751612344894" duration="2370000" />
+      <workItem from="1751879156061" duration="4267000" />
+      <workItem from="1752038541958" duration="4682000" />
+      <workItem from="1752054244660" duration="928000" />
+      <workItem from="1752130873930" duration="1941000" />
+      <workItem from="1752132826081" duration="7564000" />
+      <workItem from="1752308845247" duration="9725000" />
     </task>
     <task id="LOCAL-00001" summary="add proxy function for logCheck">
       <option name="closed" value="true" />
@@ -858,10 +856,12 @@
       <configuration name="JetRunConfigurationType">
         <watch expression="nums[j]" language="JAVA" />
         <watch expression="nums[l]" language="JAVA" />
+        <watch expression="Integer.toString(inverse,2)" language="JAVA" />
+        <watch expression="Integer.toString(bak,2)" language="JAVA" />
+        <watch expression="Integer.toString(i,2)" language="JAVA" />
       </configuration>
       <configuration name="GradleRunConfiguration">
-        <watch expression="s.charAt(indexS)" language="JAVA" />
-        <watch expression="p.charAt(indexP)" language="JAVA" />
+        <watch expression="new String(stack)" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>
