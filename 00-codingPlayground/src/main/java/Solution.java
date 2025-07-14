@@ -1,27 +1,40 @@
+import java.util.LinkedList;
+import java.util.List;
+
 // @leet start
 class Solution {
-  public int lengthOfLIS(int[] nums) {
-    int max = 0;
-    for (int i = 0; i < nums.length; i++)
-      max = Math.max(max, max(nums, i, nums.length)+1);
-    return max;
-  }
-
-  int max(int[] nums, int index, int len) {
-    if (index >= len)
-      return 0;
-    int max = 0;
-    for (int i = index + 1; i < len; i++) {
-      if (nums[index] < nums[i])
-        max = Math.max(max, max(nums, i, len)+1);
+    public List<List<String>> partition(String s) {
+      LinkedList<List<String>> list = new LinkedList<>();
+      partition( s , 0 , 0 , s.length() , list , new LinkedList<>() );
+      return list ;
     }
-    return max;
-  }
+
+    void partition( String s , int start , int index , int len , LinkedList<List<String>> list , LinkedList<String> candidate ) {
+      if ( index == len ) {
+        if ( start == index ) list.add( candidate );
+        return;
+      }
+      if ( isPalidrome( s , start , index ) ) {
+        LinkedList<String> copy = new LinkedList<>( candidate ) ;
+        copy.addLast( s.substring( start , index+1 ) );
+        partition( s , index+1 , index+1 , len , list , copy );
+      }
+      partition( s , start , index+1 , len , list , candidate );
+    }
+
+    boolean isPalidrome( String s , int l , int r ) {
+      while ( l < r ) {
+        if ( s.charAt( l++ ) != s.charAt(r--) ) return false ;
+      }
+      return true ;
+    }
+
 }
 // @leet end
 class m {
   public static void main(String[] args) {
-    var s = new Solution();
-    System.out.println(s.lengthOfLIS( new int[] {10,9,2,5,3,7,101,18} ));
+    var s = new Solution() ;
+    System.out.println(s.partition("aab"));
+    System.out.println(s.partition("a"));
   }
 }

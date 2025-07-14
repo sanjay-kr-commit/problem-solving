@@ -7,7 +7,6 @@
     <list default="true" id="ff133dde-e21d-445d-a347-10ababa6b7b9" name="Changes" comment="more syntactical sugar">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,48 +86,48 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Gradle.00-codingPlayground [:Solution.main()].executor": "Run",
-    "Gradle.00-codingPlayground [:Twitter.main()].executor": "Run",
-    "Gradle.00-codingPlayground [:m.main()].executor": "Run",
-    "Gradle.00-codingPlayground [:mai.main()].executor": "Run",
-    "Gradle.00-codingPlayground [:main.main()].executor": "Run",
-    "Gradle.00-codingPlayground [:runner.main()].executor": "Run",
-    "Gradle.00-codingPlayground [:temp.main()].executor": "Run",
-    "Gradle.00-codingPlayground [jar].executor": "Run",
-    "Gradle.00-codingPlayground [kotlinSourcesJar].executor": "Run",
-    "Gradle.00-codingPlayground [run].executor": "Run",
-    "Gradle.Build 00-codingPlayground.executor": "Run",
-    "Gradle.Build leetcode.executor": "Run",
-    "Gradle.Download Sources.executor": "Run",
-    "Gradle.leetcode [:Solution.main()].executor": "Run",
-    "Kotlin.MainKt (1).executor": "Run",
-    "Kotlin.MainKt.executor": "Run",
-    "Kotlin.QuestionKt.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "main",
-    "junie.onboarding.icon.badge.shown": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/sanjay/projects/problem-solving/00-codingPlayground",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "/home/sanotaku/project/leetcode/src/main/kotlin/Main.kt",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "fileTemplates",
-    "show.migrate.to.gradle.popup": "false",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.00-codingPlayground [:Solution.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.00-codingPlayground [:Twitter.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.00-codingPlayground [:m.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.00-codingPlayground [:mai.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.00-codingPlayground [:main.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.00-codingPlayground [:runner.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.00-codingPlayground [:temp.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.00-codingPlayground [jar].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.00-codingPlayground [kotlinSourcesJar].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.00-codingPlayground [run].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Build 00-codingPlayground.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Build leetcode.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Download Sources.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.leetcode [:Solution.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Kotlin.MainKt (1).executor&quot;: &quot;Run&quot;,
+    &quot;Kotlin.MainKt.executor&quot;: &quot;Run&quot;,
+    &quot;Kotlin.QuestionKt.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/sanjay/projects/problem-solving/00-codingPlayground&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;/home/sanotaku/project/leetcode/src/main/kotlin/Main.kt&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;fileTemplates&quot;,
+    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.m">
     <configuration name="Twitter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Twitter" />
@@ -512,7 +511,8 @@
       <workItem from="1752054244660" duration="928000" />
       <workItem from="1752130873930" duration="1941000" />
       <workItem from="1752132826081" duration="7564000" />
-      <workItem from="1752308845247" duration="9725000" />
+      <workItem from="1752308845247" duration="10399000" />
+      <workItem from="1752469453903" duration="935000" />
     </task>
     <task id="LOCAL-00001" summary="add proxy function for logCheck">
       <option name="closed" value="true" />
@@ -843,6 +843,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/Node.java</url>
           <line>15</line>
           <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Solution.java</url>
+          <line>12</line>
+          <option name="timeStamp" value="38" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
