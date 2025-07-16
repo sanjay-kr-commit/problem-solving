@@ -13,6 +13,7 @@ Like leet code or geekforgeeks
 | ------- |
 | [0004-median-of-two-sorted-arrays](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0004-median-of-two-sorted-arrays) |
 | [0033-search-in-rotated-sorted-array](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0033-search-in-rotated-sorted-array) |
+| [0051-n-queens](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0051-n-queens) |
 | [0066-plus-one](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0066-plus-one) |
 | [0073-set-matrix-zeroes](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0073-set-matrix-zeroes) |
 | [0074-search-a-2d-matrix](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0074-search-a-2d-matrix) |
@@ -257,6 +258,7 @@ Like leet code or geekforgeeks
 ## Backtracking
 |  |
 | ------- |
+| [0051-n-queens](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0051-n-queens) |
 | [0078-subsets](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0078-subsets) |
 | [0212-word-search-ii](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0212-word-search-ii) |
 | [1993-sum-of-all-subset-xor-totals](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1993-sum-of-all-subset-xor-totals) |
