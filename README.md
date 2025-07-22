@@ -208,6 +208,7 @@ Like leet code or geekforgeeks
 | [0230-kth-smallest-element-in-a-bst](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0230-kth-smallest-element-in-a-bst) |
 | [0235-lowest-common-ancestor-of-a-binary-search-tree](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0235-lowest-common-ancestor-of-a-binary-search-tree) |
 | [0297-serialize-and-deserialize-binary-tree](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0297-serialize-and-deserialize-binary-tree) |
+| [0744-network-delay-time](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0744-network-delay-time) |
 | [0766-flatten-a-multilevel-doubly-linked-list](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0766-flatten-a-multilevel-doubly-linked-list) |
 | [1218-lowest-common-ancestor-of-deepest-leaves](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1218-lowest-common-ancestor-of-deepest-leaves) |
 | [1544-count-good-nodes-in-binary-tree](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1544-count-good-nodes-in-binary-tree) |
@@ -217,6 +218,7 @@ Like leet code or geekforgeeks
 | [0102-binary-tree-level-order-traversal](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0102-binary-tree-level-order-traversal) |
 | [0199-binary-tree-right-side-view](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0199-binary-tree-right-side-view) |
 | [0297-serialize-and-deserialize-binary-tree](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0297-serialize-and-deserialize-binary-tree) |
+| [0744-network-delay-time](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0744-network-delay-time) |
 | [1218-lowest-common-ancestor-of-deepest-leaves](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1218-lowest-common-ancestor-of-deepest-leaves) |
 | [1544-count-good-nodes-in-binary-tree](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1544-count-good-nodes-in-binary-tree) |
 ## Binary Tree
@@ -305,6 +307,7 @@ Like leet code or geekforgeeks
 | [0215-kth-largest-element-in-an-array](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0215-kth-largest-element-in-an-array) |
 | [0239-sliding-window-maximum](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0239-sliding-window-maximum) |
 | [0295-find-median-from-data-stream](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0295-find-median-from-data-stream) |
+| [0744-network-delay-time](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0744-network-delay-time) |
 | [1014-k-closest-points-to-origin](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1014-k-closest-points-to-origin) |
 ## Merge Sort
 |  |
@@ -375,4 +378,12 @@ Like leet code or geekforgeeks
 |  |
 | ------- |
 | [0295-find-median-from-data-stream](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0295-find-median-from-data-stream) |
+## Graph
+|  |
+| ------- |
+| [0744-network-delay-time](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0744-network-delay-time) |
+## Shortest Path
+|  |
+| ------- |
+| [0744-network-delay-time](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0744-network-delay-time) |
 <!---LeetCode Topics End-->
