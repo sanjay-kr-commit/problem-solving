@@ -1,48 +1,37 @@
+
 class Solution {
-    public int networkDelayTime(int[][] times, int n, int k) {
-        ArrayList<LinkedList<int[]>> graph = new ArrayList<>(n);
-        for (int i = 0; i < n + 1; i++)
-            graph.add(new LinkedList<>());
-        for (int[] time : times)
-            graph.get(time[0]).add(time);
-        HashSet<Integer> visited = new HashSet<>();
-        visited.add(k) ;
-        // check if all the nodes are accessible from k node
-        for (int[] node : graph.get(k))
-            dfs(graph, node, visited, new HashSet<>());
-        if (visited.size() != n)
-            return -1;
-        visited.clear();
-        PriorityQueue<int[]> pq = new PriorityQueue<>(Comparator.comparing(a -> a[2]));
-        for (int[] node : graph.get(k)) {
-            pq.add(node);
-        }
-        int time = 0;
-        visited.add(k);
-        while (!pq.isEmpty()) {
-            int[] vertex = pq.poll();
-            if (visited.contains(vertex[1]))
-                continue;
-            visited.add(vertex[1]);
-            time = vertex[2];
-            for (int[] node : graph.get(vertex[1])) {
-                if (visited.contains(node[1]))
-                    continue;
-                node[2] = time + node[2];
-                pq.add(node);
-            }
-        }
-        return time;
-    }
 
-    void dfs(List<LinkedList<int[]>> graph, int[] node, HashSet<Integer> visited, HashSet<Integer> path) {
-        if (path.contains(node[1]))
-            return;
-        path.add( node[1] ) ;
-        visited.add(node[1]);
-        for (int[] n : graph.get(node[1])) {
-            dfs(graph, n, visited,path);
-        }
-    }
+  // warm up the jvm
+  static {
+    for (int i = 0; i < 500; i++)
+      networkDelayTime(new int[][] {}, -1, 0);
+  }
 
+  public static int networkDelayTime(int[][] times, int n, int k) {
+    if (n == -1)
+      return -1;
+    int[] dist = new int[n + 1];
+    Arrays.fill(dist, Integer.MAX_VALUE);
+    dist[k] = 0;
+    for (int i = 0; i <= n; i++) {
+      boolean updated = false;
+      for (int[] time : times) {
+        int s = time[0];
+        int d = time[1];
+        int w = time[2];
+        if (dist[s] == Integer.MAX_VALUE || dist[s] + w >= dist[d])
+          continue;
+        dist[d] = dist[s] + w;
+        updated = true;
+      }
+      if (!updated)
+        break;
+    }
+    int max = 0;
+    for (int i = 1; i <= n; i++) {
+      max = Math.max(max, dist[i]);
+    }
+    return max == Integer.MAX_VALUE ? -1 : max;
+  }
 }
+
