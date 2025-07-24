@@ -60,6 +60,7 @@ Like leet code or geekforgeeks
 | [0392-is-subsequence](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0392-is-subsequence) |
 | [0416-partition-equal-subset-sum](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0416-partition-equal-subset-sum) |
 | [0747-min-cost-climbing-stairs](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0747-min-cost-climbing-stairs) |
+| [1250-longest-common-subsequence](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1250-longest-common-subsequence) |
 | [2262-solving-questions-with-brainpower](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2262-solving-questions-with-brainpower) |
 | [2415-count-the-number-of-ideal-arrays](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2415-count-the-number-of-ideal-arrays) |
 | [3243-count-the-number-of-powerful-integers](https://github.com/sanjay-kr-commit/problem-solving/tree/master/3243-count-the-number-of-powerful-integers) |
@@ -79,6 +80,7 @@ Like leet code or geekforgeeks
 | [0424-longest-repeating-character-replacement](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0424-longest-repeating-character-replacement) |
 | [0567-permutation-in-string](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0567-permutation-in-string) |
 | [1023-time-based-key-value-store](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1023-time-based-key-value-store) |
+| [1250-longest-common-subsequence](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1250-longest-common-subsequence) |
 | [1709-alert-using-same-key-card-three-or-more-times-in-a-one-hour-period](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1709-alert-using-same-key-card-three-or-more-times-in-a-one-hour-period) |
 | [3243-count-the-number-of-powerful-integers](https://github.com/sanjay-kr-commit/problem-solving/tree/master/3243-count-the-number-of-powerful-integers) |
 ## Two Pointers
