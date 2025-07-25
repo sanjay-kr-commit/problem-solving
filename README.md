@@ -39,6 +39,7 @@ Like leet code or geekforgeeks
 | [1293-three-consecutive-odds](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1293-three-consecutive-odds) |
 | [1656-count-good-triplets](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1656-count-good-triplets) |
 | [1709-alert-using-same-key-card-three-or-more-times-in-a-one-hour-period](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1709-alert-using-same-key-card-three-or-more-times-in-a-one-hour-period) |
+| [1753-path-with-minimum-effort](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1753-path-with-minimum-effort) |
 | [1993-sum-of-all-subset-xor-totals](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1993-sum-of-all-subset-xor-totals) |
 | [2249-count-the-hidden-sequences](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2249-count-the-hidden-sequences) |
 | [2262-solving-questions-with-brainpower](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2262-solving-questions-with-brainpower) |
@@ -107,6 +108,7 @@ Like leet code or geekforgeeks
 | [0287-find-the-duplicate-number](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0287-find-the-duplicate-number) |
 | [0907-koko-eating-bananas](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0907-koko-eating-bananas) |
 | [1023-time-based-key-value-store](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1023-time-based-key-value-store) |
+| [1753-path-with-minimum-effort](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1753-path-with-minimum-effort) |
 | [2280-count-good-triplets-in-an-array](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2280-count-good-triplets-in-an-array) |
 | [2699-count-the-number-of-fair-pairs](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2699-count-the-number-of-fair-pairs) |
 ## Prefix Sum
@@ -215,6 +217,7 @@ Like leet code or geekforgeeks
 | [0766-flatten-a-multilevel-doubly-linked-list](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0766-flatten-a-multilevel-doubly-linked-list) |
 | [1218-lowest-common-ancestor-of-deepest-leaves](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1218-lowest-common-ancestor-of-deepest-leaves) |
 | [1544-count-good-nodes-in-binary-tree](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1544-count-good-nodes-in-binary-tree) |
+| [1753-path-with-minimum-effort](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1753-path-with-minimum-effort) |
 ## Breadth-First Search
 |  |
 | ------- |
@@ -224,6 +227,7 @@ Like leet code or geekforgeeks
 | [0744-network-delay-time](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0744-network-delay-time) |
 | [1218-lowest-common-ancestor-of-deepest-leaves](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1218-lowest-common-ancestor-of-deepest-leaves) |
 | [1544-count-good-nodes-in-binary-tree](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1544-count-good-nodes-in-binary-tree) |
+| [1753-path-with-minimum-effort](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1753-path-with-minimum-effort) |
 ## Binary Tree
 |  |
 | ------- |
@@ -294,6 +298,7 @@ Like leet code or geekforgeeks
 | [0073-set-matrix-zeroes](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0073-set-matrix-zeroes) |
 | [0074-search-a-2d-matrix](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0074-search-a-2d-matrix) |
 | [0212-word-search-ii](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0212-word-search-ii) |
+| [1753-path-with-minimum-effort](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1753-path-with-minimum-effort) |
 ## Divide and Conquer
 |  |
 | ------- |
@@ -312,6 +317,7 @@ Like leet code or geekforgeeks
 | [0295-find-median-from-data-stream](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0295-find-median-from-data-stream) |
 | [0744-network-delay-time](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0744-network-delay-time) |
 | [1014-k-closest-points-to-origin](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1014-k-closest-points-to-origin) |
+| [1753-path-with-minimum-effort](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1753-path-with-minimum-effort) |
 ## Merge Sort
 |  |
 | ------- |
@@ -394,4 +400,8 @@ Like leet code or geekforgeeks
 |  |
 | ------- |
 | [0332-reconstruct-itinerary](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0332-reconstruct-itinerary) |
+## Union Find
+|  |
+| ------- |
+| [1753-path-with-minimum-effort](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1753-path-with-minimum-effort) |
 <!---LeetCode Topics End-->
