@@ -210,6 +210,7 @@ Like leet code or geekforgeeks
 | [0230-kth-smallest-element-in-a-bst](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0230-kth-smallest-element-in-a-bst) |
 | [0235-lowest-common-ancestor-of-a-binary-search-tree](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0235-lowest-common-ancestor-of-a-binary-search-tree) |
 | [0297-serialize-and-deserialize-binary-tree](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0297-serialize-and-deserialize-binary-tree) |
+| [0332-reconstruct-itinerary](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0332-reconstruct-itinerary) |
 | [0744-network-delay-time](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0744-network-delay-time) |
 | [0766-flatten-a-multilevel-doubly-linked-list](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0766-flatten-a-multilevel-doubly-linked-list) |
 | [1218-lowest-common-ancestor-of-deepest-leaves](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1218-lowest-common-ancestor-of-deepest-leaves) |
@@ -383,9 +384,14 @@ Like leet code or geekforgeeks
 ## Graph
 |  |
 | ------- |
+| [0332-reconstruct-itinerary](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0332-reconstruct-itinerary) |
 | [0744-network-delay-time](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0744-network-delay-time) |
 ## Shortest Path
 |  |
 | ------- |
 | [0744-network-delay-time](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0744-network-delay-time) |
+## Eulerian Circuit
+|  |
+| ------- |
+| [0332-reconstruct-itinerary](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0332-reconstruct-itinerary) |
 <!---LeetCode Topics End-->
