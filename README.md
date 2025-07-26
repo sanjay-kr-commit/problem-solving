@@ -41,6 +41,7 @@ Like leet code or geekforgeeks
 | [1709-alert-using-same-key-card-three-or-more-times-in-a-one-hour-period](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1709-alert-using-same-key-card-three-or-more-times-in-a-one-hour-period) |
 | [1753-path-with-minimum-effort](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1753-path-with-minimum-effort) |
 | [1993-sum-of-all-subset-xor-totals](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1993-sum-of-all-subset-xor-totals) |
+| [2139-detect-squares](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2139-detect-squares) |
 | [2249-count-the-hidden-sequences](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2249-count-the-hidden-sequences) |
 | [2262-solving-questions-with-brainpower](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2262-solving-questions-with-brainpower) |
 | [2277-count-equal-and-divisible-pairs-in-an-array](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2277-count-equal-and-divisible-pairs-in-an-array) |
@@ -136,6 +137,7 @@ Like leet code or geekforgeeks
 | [1218-lowest-common-ancestor-of-deepest-leaves](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1218-lowest-common-ancestor-of-deepest-leaves) |
 | [1500-count-largest-group](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1500-count-largest-group) |
 | [1709-alert-using-same-key-card-three-or-more-times-in-a-one-hour-period](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1709-alert-using-same-key-card-three-or-more-times-in-a-one-hour-period) |
+| [2139-detect-squares](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2139-detect-squares) |
 | [2626-count-the-number-of-good-subarrays](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2626-count-the-number-of-good-subarrays) |
 | [2856-count-complete-subarrays-in-an-array](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2856-count-complete-subarrays-in-an-array) |
 ## Linked List
@@ -292,6 +294,7 @@ Like leet code or geekforgeeks
 | [0297-serialize-and-deserialize-binary-tree](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0297-serialize-and-deserialize-binary-tree) |
 | [0303-range-sum-query-immutable](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0303-range-sum-query-immutable) |
 | [1023-time-based-key-value-store](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1023-time-based-key-value-store) |
+| [2139-detect-squares](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2139-detect-squares) |
 ## Matrix
 |  |
 | ------- |
@@ -404,4 +407,8 @@ Like leet code or geekforgeeks
 |  |
 | ------- |
 | [1753-path-with-minimum-effort](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1753-path-with-minimum-effort) |
+## Counting
+|  |
+| ------- |
+| [2139-detect-squares](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2139-detect-squares) |
 <!---LeetCode Topics End-->
