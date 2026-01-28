@@ -49,6 +49,7 @@ Like leet code or geekforgeeks
 | [2626-count-the-number-of-good-subarrays](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2626-count-the-number-of-good-subarrays) |
 | [2699-count-the-number-of-fair-pairs](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2699-count-the-number-of-fair-pairs) |
 | [2856-count-complete-subarrays-in-an-array](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2856-count-complete-subarrays-in-an-array) |
+| [2891-maximum-beauty-of-an-array-after-applying-operation](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2891-maximum-beauty-of-an-array-after-applying-operation) |
 | [3152-maximum-value-of-an-ordered-triplet-ii](https://github.com/sanjay-kr-commit/problem-solving/tree/master/3152-maximum-value-of-an-ordered-triplet-ii) |
 | [3154-maximum-value-of-an-ordered-triplet-i](https://github.com/sanjay-kr-commit/problem-solving/tree/master/3154-maximum-value-of-an-ordered-triplet-i) |
 | [3685-count-subarrays-of-length-three-with-a-condition](https://github.com/sanjay-kr-commit/problem-solving/tree/master/3685-count-subarrays-of-length-three-with-a-condition) |
@@ -112,6 +113,7 @@ Like leet code or geekforgeeks
 | [1753-path-with-minimum-effort](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1753-path-with-minimum-effort) |
 | [2280-count-good-triplets-in-an-array](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2280-count-good-triplets-in-an-array) |
 | [2699-count-the-number-of-fair-pairs](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2699-count-the-number-of-fair-pairs) |
+| [2891-maximum-beauty-of-an-array-after-applying-operation](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2891-maximum-beauty-of-an-array-after-applying-operation) |
 ## Prefix Sum
 |  |
 | ------- |
@@ -189,6 +191,7 @@ Like leet code or geekforgeeks
 | [1014-k-closest-points-to-origin](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1014-k-closest-points-to-origin) |
 | [1709-alert-using-same-key-card-three-or-more-times-in-a-one-hour-period](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1709-alert-using-same-key-card-three-or-more-times-in-a-one-hour-period) |
 | [2699-count-the-number-of-fair-pairs](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2699-count-the-number-of-fair-pairs) |
+| [2891-maximum-beauty-of-an-array-after-applying-operation](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2891-maximum-beauty-of-an-array-after-applying-operation) |
 ## Tree
 |  |
 | ------- |
@@ -336,6 +339,7 @@ Like leet code or geekforgeeks
 | [0567-permutation-in-string](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0567-permutation-in-string) |
 | [2626-count-the-number-of-good-subarrays](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2626-count-the-number-of-good-subarrays) |
 | [2856-count-complete-subarrays-in-an-array](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2856-count-complete-subarrays-in-an-array) |
+| [2891-maximum-beauty-of-an-array-after-applying-operation](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2891-maximum-beauty-of-an-array-after-applying-operation) |
 ## Queue
 |  |
 | ------- |
