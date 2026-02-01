@@ -36,6 +36,7 @@ Like leet code or geekforgeeks
 | [0747-min-cost-climbing-stairs](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0747-min-cost-climbing-stairs) |
 | [0797-rabbits-in-forest](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0797-rabbits-in-forest) |
 | [0883-car-fleet](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0883-car-fleet) |
+| [0898-transpose-matrix](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0898-transpose-matrix) |
 | [0907-koko-eating-bananas](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0907-koko-eating-bananas) |
 | [1014-k-closest-points-to-origin](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1014-k-closest-points-to-origin) |
 | [1293-three-consecutive-odds](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1293-three-consecutive-odds) |
@@ -309,6 +310,7 @@ Like leet code or geekforgeeks
 | [0073-set-matrix-zeroes](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0073-set-matrix-zeroes) |
 | [0074-search-a-2d-matrix](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0074-search-a-2d-matrix) |
 | [0212-word-search-ii](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0212-word-search-ii) |
+| [0898-transpose-matrix](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0898-transpose-matrix) |
 | [1753-path-with-minimum-effort](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1753-path-with-minimum-effort) |
 ## Divide and Conquer
 |  |
@@ -420,4 +422,8 @@ Like leet code or geekforgeeks
 |  |
 | ------- |
 | [2139-detect-squares](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2139-detect-squares) |
+## Simulation
+|  |
+| ------- |
+| [0898-transpose-matrix](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0898-transpose-matrix) |
 <!---LeetCode Topics End-->
