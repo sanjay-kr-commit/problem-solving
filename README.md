@@ -23,6 +23,7 @@ Like leet code or geekforgeeks
 | [0105-construct-binary-tree-from-preorder-and-inorder-traversal](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0105-construct-binary-tree-from-preorder-and-inorder-traversal) |
 | [0121-best-time-to-buy-and-sell-stock](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0121-best-time-to-buy-and-sell-stock) |
 | [0153-find-minimum-in-rotated-sorted-array](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0153-find-minimum-in-rotated-sorted-array) |
+| [0167-two-sum-ii-input-array-is-sorted](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0167-two-sum-ii-input-array-is-sorted) |
 | [0212-word-search-ii](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0212-word-search-ii) |
 | [0215-kth-largest-element-in-an-array](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0215-kth-largest-element-in-an-array) |
 | [0238-product-of-array-except-self](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0238-product-of-array-except-self) |
@@ -95,6 +96,7 @@ Like leet code or geekforgeeks
 | [0125-valid-palindrome](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0125-valid-palindrome) |
 | [0141-linked-list-cycle](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0141-linked-list-cycle) |
 | [0143-reorder-list](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0143-reorder-list) |
+| [0167-two-sum-ii-input-array-is-sorted](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0167-two-sum-ii-input-array-is-sorted) |
 | [0287-find-the-duplicate-number](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0287-find-the-duplicate-number) |
 | [0295-find-median-from-data-stream](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0295-find-median-from-data-stream) |
 | [0392-is-subsequence](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0392-is-subsequence) |
@@ -107,6 +109,7 @@ Like leet code or geekforgeeks
 | [0033-search-in-rotated-sorted-array](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0033-search-in-rotated-sorted-array) |
 | [0074-search-a-2d-matrix](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0074-search-a-2d-matrix) |
 | [0153-find-minimum-in-rotated-sorted-array](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0153-find-minimum-in-rotated-sorted-array) |
+| [0167-two-sum-ii-input-array-is-sorted](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0167-two-sum-ii-input-array-is-sorted) |
 | [0268-missing-number](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0268-missing-number) |
 | [0287-find-the-duplicate-number](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0287-find-the-duplicate-number) |
 | [0907-koko-eating-bananas](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0907-koko-eating-bananas) |
