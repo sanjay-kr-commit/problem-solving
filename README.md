@@ -34,6 +34,7 @@ Like leet code or geekforgeeks
 | [0303-range-sum-query-immutable](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0303-range-sum-query-immutable) |
 | [0368-largest-divisible-subset](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0368-largest-divisible-subset) |
 | [0416-partition-equal-subset-sum](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0416-partition-equal-subset-sum) |
+| [0697-degree-of-an-array](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0697-degree-of-an-array) |
 | [0747-min-cost-climbing-stairs](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0747-min-cost-climbing-stairs) |
 | [0797-rabbits-in-forest](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0797-rabbits-in-forest) |
 | [0883-car-fleet](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0883-car-fleet) |
@@ -141,6 +142,7 @@ Like leet code or geekforgeeks
 | [0268-missing-number](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0268-missing-number) |
 | [0424-longest-repeating-character-replacement](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0424-longest-repeating-character-replacement) |
 | [0567-permutation-in-string](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0567-permutation-in-string) |
+| [0697-degree-of-an-array](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0697-degree-of-an-array) |
 | [0797-rabbits-in-forest](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0797-rabbits-in-forest) |
 | [1023-time-based-key-value-store](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1023-time-based-key-value-store) |
 | [1218-lowest-common-ancestor-of-deepest-leaves](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1218-lowest-common-ancestor-of-deepest-leaves) |
