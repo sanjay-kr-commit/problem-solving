@@ -15,6 +15,7 @@ Like leet code or geekforgeeks
 | [0004-median-of-two-sorted-arrays](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0004-median-of-two-sorted-arrays) |
 | [0033-search-in-rotated-sorted-array](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0033-search-in-rotated-sorted-array) |
 | [0051-n-queens](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0051-n-queens) |
+| [0053-maximum-subarray](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0053-maximum-subarray) |
 | [0054-spiral-matrix](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0054-spiral-matrix) |
 | [0066-plus-one](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0066-plus-one) |
 | [0073-set-matrix-zeroes](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0073-set-matrix-zeroes) |
@@ -61,6 +62,7 @@ Like leet code or geekforgeeks
 ## Dynamic Programming
 |  |
 | ------- |
+| [0053-maximum-subarray](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0053-maximum-subarray) |
 | [0121-best-time-to-buy-and-sell-stock](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0121-best-time-to-buy-and-sell-stock) |
 | [0124-binary-tree-maximum-path-sum](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0124-binary-tree-maximum-path-sum) |
 | [0338-counting-bits](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0338-counting-bits) |
@@ -321,6 +323,7 @@ Like leet code or geekforgeeks
 | ------- |
 | [0004-median-of-two-sorted-arrays](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0004-median-of-two-sorted-arrays) |
 | [0023-merge-k-sorted-lists](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0023-merge-k-sorted-lists) |
+| [0053-maximum-subarray](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0053-maximum-subarray) |
 | [0105-construct-binary-tree-from-preorder-and-inorder-traversal](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0105-construct-binary-tree-from-preorder-and-inorder-traversal) |
 | [0215-kth-largest-element-in-an-array](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0215-kth-largest-element-in-an-array) |
 | [1014-k-closest-points-to-origin](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1014-k-closest-points-to-origin) |
