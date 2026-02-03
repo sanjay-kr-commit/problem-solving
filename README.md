@@ -87,6 +87,7 @@ Like leet code or geekforgeeks
 | [0208-implement-trie-prefix-tree](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0208-implement-trie-prefix-tree) |
 | [0211-design-add-and-search-words-data-structure](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0211-design-add-and-search-words-data-structure) |
 | [0212-word-search-ii](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0212-word-search-ii) |
+| [0242-valid-anagram](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0242-valid-anagram) |
 | [0297-serialize-and-deserialize-binary-tree](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0297-serialize-and-deserialize-binary-tree) |
 | [0392-is-subsequence](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0392-is-subsequence) |
 | [0424-longest-repeating-character-replacement](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0424-longest-repeating-character-replacement) |
@@ -145,6 +146,7 @@ Like leet code or geekforgeeks
 | [0141-linked-list-cycle](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0141-linked-list-cycle) |
 | [0146-lru-cache](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0146-lru-cache) |
 | [0208-implement-trie-prefix-tree](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0208-implement-trie-prefix-tree) |
+| [0242-valid-anagram](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0242-valid-anagram) |
 | [0268-missing-number](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0268-missing-number) |
 | [0424-longest-repeating-character-replacement](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0424-longest-repeating-character-replacement) |
 | [0567-permutation-in-string](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0567-permutation-in-string) |
@@ -199,6 +201,7 @@ Like leet code or geekforgeeks
 | ------- |
 | [0075-sort-colors](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0075-sort-colors) |
 | [0215-kth-largest-element-in-an-array](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0215-kth-largest-element-in-an-array) |
+| [0242-valid-anagram](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0242-valid-anagram) |
 | [0268-missing-number](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0268-missing-number) |
 | [0295-find-median-from-data-stream](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0295-find-median-from-data-stream) |
 | [0368-largest-divisible-subset](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0368-largest-divisible-subset) |
