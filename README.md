@@ -39,6 +39,7 @@ Like leet code or geekforgeeks
 | [0697-degree-of-an-array](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0697-degree-of-an-array) |
 | [0747-min-cost-climbing-stairs](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0747-min-cost-climbing-stairs) |
 | [0797-rabbits-in-forest](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0797-rabbits-in-forest) |
+| [0882-peak-index-in-a-mountain-array](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0882-peak-index-in-a-mountain-array) |
 | [0883-car-fleet](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0883-car-fleet) |
 | [0898-transpose-matrix](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0898-transpose-matrix) |
 | [0907-koko-eating-bananas](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0907-koko-eating-bananas) |
@@ -119,6 +120,7 @@ Like leet code or geekforgeeks
 | [0167-two-sum-ii-input-array-is-sorted](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0167-two-sum-ii-input-array-is-sorted) |
 | [0268-missing-number](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0268-missing-number) |
 | [0287-find-the-duplicate-number](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0287-find-the-duplicate-number) |
+| [0882-peak-index-in-a-mountain-array](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0882-peak-index-in-a-mountain-array) |
 | [0907-koko-eating-bananas](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0907-koko-eating-bananas) |
 | [1023-time-based-key-value-store](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1023-time-based-key-value-store) |
 | [1753-path-with-minimum-effort](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1753-path-with-minimum-effort) |
