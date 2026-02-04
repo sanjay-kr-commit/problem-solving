@@ -72,6 +72,7 @@ Like leet code or geekforgeeks
 | [0392-is-subsequence](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0392-is-subsequence) |
 | [0416-partition-equal-subset-sum](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0416-partition-equal-subset-sum) |
 | [0747-min-cost-climbing-stairs](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0747-min-cost-climbing-stairs) |
+| [1236-n-th-tribonacci-number](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1236-n-th-tribonacci-number) |
 | [1250-longest-common-subsequence](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1250-longest-common-subsequence) |
 | [2262-solving-questions-with-brainpower](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2262-solving-questions-with-brainpower) |
 | [2415-count-the-number-of-ideal-arrays](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2415-count-the-number-of-ideal-arrays) |
@@ -189,6 +190,7 @@ Like leet code or geekforgeeks
 | [0368-largest-divisible-subset](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0368-largest-divisible-subset) |
 | [0797-rabbits-in-forest](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0797-rabbits-in-forest) |
 | [1014-k-closest-points-to-origin](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1014-k-closest-points-to-origin) |
+| [1236-n-th-tribonacci-number](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1236-n-th-tribonacci-number) |
 | [1500-count-largest-group](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1500-count-largest-group) |
 | [1529-max-difference-you-can-get-from-changing-an-integer](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1529-max-difference-you-can-get-from-changing-an-integer) |
 | [1993-sum-of-all-subset-xor-totals](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1993-sum-of-all-subset-xor-totals) |
@@ -441,4 +443,8 @@ Like leet code or geekforgeeks
 | ------- |
 | [0054-spiral-matrix](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0054-spiral-matrix) |
 | [0898-transpose-matrix](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0898-transpose-matrix) |
+## Memoization
+|  |
+| ------- |
+| [1236-n-th-tribonacci-number](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1236-n-th-tribonacci-number) |
 <!---LeetCode Topics End-->
