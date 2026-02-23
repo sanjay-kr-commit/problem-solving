@@ -96,6 +96,7 @@ Like leet code or geekforgeeks
 | [0567-permutation-in-string](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0567-permutation-in-string) |
 | [1023-time-based-key-value-store](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1023-time-based-key-value-store) |
 | [1250-longest-common-subsequence](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1250-longest-common-subsequence) |
+| [1557-check-if-a-string-contains-all-binary-codes-of-size-k](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1557-check-if-a-string-contains-all-binary-codes-of-size-k) |
 | [1709-alert-using-same-key-card-three-or-more-times-in-a-one-hour-period](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1709-alert-using-same-key-card-three-or-more-times-in-a-one-hour-period) |
 | [3243-count-the-number-of-powerful-integers](https://github.com/sanjay-kr-commit/problem-solving/tree/master/3243-count-the-number-of-powerful-integers) |
 ## Two Pointers
@@ -157,6 +158,7 @@ Like leet code or geekforgeeks
 | [1023-time-based-key-value-store](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1023-time-based-key-value-store) |
 | [1218-lowest-common-ancestor-of-deepest-leaves](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1218-lowest-common-ancestor-of-deepest-leaves) |
 | [1500-count-largest-group](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1500-count-largest-group) |
+| [1557-check-if-a-string-contains-all-binary-codes-of-size-k](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1557-check-if-a-string-contains-all-binary-codes-of-size-k) |
 | [1709-alert-using-same-key-card-three-or-more-times-in-a-one-hour-period](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1709-alert-using-same-key-card-three-or-more-times-in-a-one-hour-period) |
 | [2139-detect-squares](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2139-detect-squares) |
 | [2626-count-the-number-of-good-subarrays](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2626-count-the-number-of-good-subarrays) |
@@ -181,6 +183,7 @@ Like leet code or geekforgeeks
 | [0268-missing-number](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0268-missing-number) |
 | [0287-find-the-duplicate-number](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0287-find-the-duplicate-number) |
 | [0338-counting-bits](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0338-counting-bits) |
+| [1557-check-if-a-string-contains-all-binary-codes-of-size-k](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1557-check-if-a-string-contains-all-binary-codes-of-size-k) |
 | [1993-sum-of-all-subset-xor-totals](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1993-sum-of-all-subset-xor-totals) |
 ## Math
 |  |
@@ -450,4 +453,12 @@ Like leet code or geekforgeeks
 | ------- |
 | [0070-climbing-stairs](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0070-climbing-stairs) |
 | [1236-n-th-tribonacci-number](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1236-n-th-tribonacci-number) |
+## Rolling Hash
+|  |
+| ------- |
+| [1557-check-if-a-string-contains-all-binary-codes-of-size-k](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1557-check-if-a-string-contains-all-binary-codes-of-size-k) |
+## Hash Function
+|  |
+| ------- |
+| [1557-check-if-a-string-contains-all-binary-codes-of-size-k](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1557-check-if-a-string-contains-all-binary-codes-of-size-k) |
 <!---LeetCode Topics End-->
