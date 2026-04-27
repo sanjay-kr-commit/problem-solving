@@ -101,6 +101,7 @@ Like leet code or geekforgeeks
 | [1250-longest-common-subsequence](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1250-longest-common-subsequence) |
 | [1557-check-if-a-string-contains-all-binary-codes-of-size-k](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1557-check-if-a-string-contains-all-binary-codes-of-size-k) |
 | [1709-alert-using-same-key-card-three-or-more-times-in-a-one-hour-period](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1709-alert-using-same-key-card-three-or-more-times-in-a-one-hour-period) |
+| [1777-determine-if-two-strings-are-close](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1777-determine-if-two-strings-are-close) |
 | [3243-count-the-number-of-powerful-integers](https://github.com/sanjay-kr-commit/problem-solving/tree/master/3243-count-the-number-of-powerful-integers) |
 ## Two Pointers
 |  |
@@ -164,6 +165,7 @@ Like leet code or geekforgeeks
 | [1500-count-largest-group](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1500-count-largest-group) |
 | [1557-check-if-a-string-contains-all-binary-codes-of-size-k](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1557-check-if-a-string-contains-all-binary-codes-of-size-k) |
 | [1709-alert-using-same-key-card-three-or-more-times-in-a-one-hour-period](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1709-alert-using-same-key-card-three-or-more-times-in-a-one-hour-period) |
+| [1777-determine-if-two-strings-are-close](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1777-determine-if-two-strings-are-close) |
 | [2139-detect-squares](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2139-detect-squares) |
 | [2626-count-the-number-of-good-subarrays](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2626-count-the-number-of-good-subarrays) |
 | [2838-sum-of-matrix-after-queries](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2838-sum-of-matrix-after-queries) |
@@ -220,6 +222,7 @@ Like leet code or geekforgeeks
 | [0883-car-fleet](https://github.com/sanjay-kr-commit/problem-solving/tree/master/0883-car-fleet) |
 | [1014-k-closest-points-to-origin](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1014-k-closest-points-to-origin) |
 | [1709-alert-using-same-key-card-three-or-more-times-in-a-one-hour-period](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1709-alert-using-same-key-card-three-or-more-times-in-a-one-hour-period) |
+| [1777-determine-if-two-strings-are-close](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1777-determine-if-two-strings-are-close) |
 | [2699-count-the-number-of-fair-pairs](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2699-count-the-number-of-fair-pairs) |
 | [2891-maximum-beauty-of-an-array-after-applying-operation](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2891-maximum-beauty-of-an-array-after-applying-operation) |
 ## Tree
@@ -450,6 +453,7 @@ Like leet code or geekforgeeks
 ## Counting
 |  |
 | ------- |
+| [1777-determine-if-two-strings-are-close](https://github.com/sanjay-kr-commit/problem-solving/tree/master/1777-determine-if-two-strings-are-close) |
 | [2139-detect-squares](https://github.com/sanjay-kr-commit/problem-solving/tree/master/2139-detect-squares) |
 ## Simulation
 |  |
